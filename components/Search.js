@@ -1,0 +1,24 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import styles from '@/styles/Search.module.css';
+
+const Search = () => {
+  const [term, termSet] = useState('');
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/events/search?term=${term}`);
+    termSet('');
+  };
+
+  return (
+    <div className={styles.search}>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={term} onChange={(e) => termSet(e.target.value)} placeholder="Search events" />
+      </form>
+    </div>
+  );
+};
+
+export default Search;
