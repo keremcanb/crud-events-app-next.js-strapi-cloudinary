@@ -2,16 +2,39 @@
   "kind": "collectionType",
   "collectionName": "events",
   "info": {
-    "name": "events",
-    "description": ""
+    "name": "events"
   },
   "options": {
     "increments": true,
     "timestamps": true,
     "draftAndPublish": true
   },
-  "pluginOptions": {},
   "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "time": {
+      "type": "string"
+    },
+    "performers": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
     "image": {
       "model": "file",
       "via": "related",
@@ -21,38 +44,12 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
-    "name": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
-    },
-    "date": {
-      "type": "datetime"
-    },
-    "venue": {
-      "type": "string"
-    },
-    "performers": {
-      "type": "string"
-    },
-    "address": {
-      "type": "string"
-    },
-    "description": {
-      "type": "richtext"
+      "required": false
     },
     "user": {
       "plugin": "users-permissions",
       "model": "user",
       "via": "events"
-    },
-    "time": {
-      "type": "string"
     }
   }
 }

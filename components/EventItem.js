@@ -9,7 +9,7 @@ const EventItem = ({ event: { image, time, name, slug, date } }) => (
     </div>
     <div className={styles.info}>
       <span>
-        {new Date(date).toLocaleDateString()} at {time}
+        {new Date(date).toLocaleDateString('tr-TR')} at {time}
       </span>
       <h3>{name}</h3>
     </div>

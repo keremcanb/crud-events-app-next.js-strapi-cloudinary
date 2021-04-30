@@ -11,7 +11,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
   <Layout title={`Event ${name}`}>
     <div className={styles.event}>
       <span>
-        {new Date(date).toLocaleDateString()} at {time}
+        {new Date(date).toLocaleDateString('tr-TR')} at {time}
       </span>
       <h1>{name}</h1>
       <ToastContainer />
