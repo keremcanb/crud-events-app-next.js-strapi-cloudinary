@@ -23,7 +23,7 @@ const AddEventPage = ({ token }) => {
     e.preventDefault();
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
-      toast.error('Fill in nigga');
+      toast.error('Fill in all fields');
       return;
     }
 
