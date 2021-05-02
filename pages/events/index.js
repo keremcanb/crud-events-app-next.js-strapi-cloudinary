@@ -19,13 +19,7 @@ export async function getServerSideProps({ query: { page = 1 } }) {
   const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE;
   const { data: total } = await get(`${API_URL}/events/count`);
   const { data: events } = await get(`${API_URL}/events?_sort=date:ASC&_limit=${PER_PAGE}&_start=${start}`);
-  return {
-    props: {
-      page: +page,
-      total,
-      events
-    }
-  };
+  return { props: { page: +page, total, events } };
 }
 
 // const getTotal = await fetch(`${API_URL}/events/count`);

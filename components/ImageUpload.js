@@ -21,9 +21,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
 
     try {
       const res = await post(`${API_URL}/upload`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+        headers: { Authorization: `Bearer ${token}` }
       });
       if (res.status === 200) {
         imageUploaded();

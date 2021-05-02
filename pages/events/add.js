@@ -31,9 +31,7 @@ const AddEventPage = ({ token }) => {
 
     try {
       const { data } = await post(`${API_URL}/events`, values, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+        headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
     } catch (err) {
@@ -110,11 +108,7 @@ export default AddEventPage;
 
 export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
-  return {
-    props: {
-      token
-    }
-  };
+  return { props: { token } };
 }
 
 // const res = await fetch(`${API_URL}/events`, {

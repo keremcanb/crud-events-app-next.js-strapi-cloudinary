@@ -12,9 +12,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (user) => {
     const res = await fetch(`${NEXT_URL}/api/register`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user)
     });
     const data = await res.json();
@@ -31,13 +29,8 @@ export const AuthProvider = ({ children }) => {
   const login = async ({ email: identifier, password }) => {
     const res = await fetch(`${NEXT_URL}/api/login`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        identifier,
-        password
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ identifier, password })
     });
     const data = await res.json();
 

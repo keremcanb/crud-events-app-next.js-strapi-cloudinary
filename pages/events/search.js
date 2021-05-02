@@ -35,10 +35,5 @@ export async function getServerSideProps({ query: { term } }) {
     }
   });
   const { data: events } = await get(`${API_URL}/events?${query}`);
-  return {
-    props: {
-      events,
-      term
-    }
-  };
+  return { props: { events, term } };
 }

@@ -29,9 +29,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 
     try {
       const { data } = await put(`${API_URL}/events/${id}`, values, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+        headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
     } catch (err) {
@@ -131,9 +129,7 @@ export default EditEventPage;
 export async function getServerSideProps({ params: { id }, req }) {
   const { token } = parseCookies(req);
   const { data: event } = await get(`${API_URL}/events/${id}`);
-  return {
-    props: { event, token }
-  };
+  return { props: { event, token } };
 }
 
 // const res = await fetch(`${API_URL}/events/${id}`, {

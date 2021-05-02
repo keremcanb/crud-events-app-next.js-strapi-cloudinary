@@ -14,9 +14,7 @@ export default function DashboardPage({ events, token }) {
     if (confirm('Are you sure')) {
       try {
         await axios.delete(`${API_URL}/events/${eventId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
+          headers: { Authorization: `Bearer ${token}` }
         });
         router.reload();
       } catch (err) {
@@ -41,16 +39,9 @@ export default function DashboardPage({ events, token }) {
 export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
   const { data: events } = await axios.get(`${API_URL}/events/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
+    headers: { Authorization: `Bearer ${token}` }
   });
-  return {
-    props: {
-      events,
-      token
-    }
-  };
+  return { props: { events, token } };
 }
 
 // const res = await fetch(`${API_URL}/events/${eventId}`, {
