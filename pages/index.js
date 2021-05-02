@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { get } from 'axios';
 import Layout from '@/components/Layout';
 import EventItem from '@/components/EventItem';
 import { API_URL } from '@/config/index';
@@ -23,10 +24,7 @@ const Home = ({ events }) => (
 export default Home;
 
 export async function getStaticProps() {
-  // Strapi api sort and limit
-  const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
-  const events = await res.json();
-
+  const { data: events } = await get(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   return {
     props: {
       events

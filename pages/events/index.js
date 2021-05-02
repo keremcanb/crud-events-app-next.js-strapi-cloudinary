@@ -1,3 +1,4 @@
+import { get } from 'axios';
 import Layout from '@/components/Layout';
 import EventItem from '@/components/EventItem';
 import { API_URL, PER_PAGE } from '@/config/index';
@@ -16,18 +17,19 @@ export default EventsPage;
 
 export async function getServerSideProps({ query: { page = 1 } }) {
   const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE;
-
-  const getTotal = await fetch(`${API_URL}/events/count`);
-  const total = await getTotal.json();
-
-  const getEvents = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=${PER_PAGE}&_start=${start}`);
-  const events = await getEvents.json();
-
+  const { data: total } = await get(`${API_URL}/events/count`);
+  const { data: events } = await get(`${API_URL}/events?_sort=date:ASC&_limit=${PER_PAGE}&_start=${start}`);
   return {
     props: {
-      events,
       page: +page,
-      total
+      total,
+      events
     }
   };
 }
+
+// const getTotal = await fetch(`${API_URL}/events/count`);
+// const total = await getTotal.json();
+
+// const getEvents = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=${PER_PAGE}&_start=${start}`);
+// const events = await getEvents.json();

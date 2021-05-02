@@ -1,3 +1,4 @@
+import { get } from 'axios';
 import Layout from '@/components/Layout';
 import EventItem from '@/components/EventItem';
 import Link from 'next/link';
@@ -33,10 +34,7 @@ export async function getServerSideProps({ query: { term } }) {
       ]
     }
   });
-
-  const res = await fetch(`${API_URL}/events?${query}`);
-  const events = await res.json();
-
+  const { data: events } = await get(`${API_URL}/events?${query}`);
   return {
     props: {
       events,

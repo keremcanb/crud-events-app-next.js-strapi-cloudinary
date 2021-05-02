@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import moment from 'moment';
+import { put, get } from 'axios';
 import { FaImage } from 'react-icons/fa';
 import Layout from '@/components/Layout';
 import Modal from '@/components/Modal';
@@ -20,29 +21,25 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Fill in all fields');
       return;
     }
 
-    const res = await fetch(`${API_URL}/events/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify(values)
-    });
-    const data = await res.json();
-
-    if (res.ok) {
+    try {
+      const { data } = await put(`${API_URL}/events/${id}`, values, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       router.push(`/events/${data.slug}`);
-    } else if ([403, 401].includes(res.status)) {
-      toast.error(`Invalid permision, you cannot modify this event`);
-    } else {
-      toast.error(data.message);
+    } catch (err) {
+      if ([403, 401].includes(err.response.status)) {
+        toast.error(`Invalid permision, you cannot modify this event`);
+      } else {
+        toast.error(err.response.message);
+      }
     }
   };
 
@@ -52,9 +49,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
   };
 
   const imageUploaded = async () => {
-    const res = await fetch(`${API_URL}/events/${id}`);
-    const data = await res.json();
-
+    const { data } = await get(`${API_URL}/events/${id}`);
     imagePreviewSet(data.image.formats.thumbnail.url);
     showModalSet(false);
   };
@@ -135,11 +130,26 @@ export default EditEventPage;
 
 export async function getServerSideProps({ params: { id }, req }) {
   const { token } = parseCookies(req);
-
-  const res = await fetch(`${API_URL}/events/${id}`);
-  const event = await res.json();
-
+  const { data: event } = await get(`${API_URL}/events/${id}`);
   return {
     props: { event, token }
   };
 }
+
+// const res = await fetch(`${API_URL}/events/${id}`, {
+//   method: 'PUT',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     Authorization: `Bearer ${token}`
+//   },
+//   body: JSON.stringify(values)
+// });
+// const data = await res.json();
+
+// if (res.ok) {
+//   router.push(`/events/${data.slug}`);
+// } else if ([403, 401].includes(res.status)) {
+//   toast.error(`Invalid permision, you cannot modify this event`);
+// } else {
+//   toast.error(data.message);
+// }

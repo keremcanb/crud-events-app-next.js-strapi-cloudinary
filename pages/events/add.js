@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { post } from 'axios';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
@@ -21,28 +22,26 @@ const AddEventPage = ({ token }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Fill in all fields');
       return;
     }
 
-    const res = await fetch(`${API_URL}/events`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify(values)
-    });
-    const event = await res.json();
-
-    if (res.ok) {
-      router.push(`/events/${event.slug}`);
-    } else if (res.status === 403 || res.status === 401) {
-      toast.error('You must login before adding events.');
-    } else {
-      toast.error(event.message);
+    try {
+      const { data } = await post(`${API_URL}/events`, values, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      router.push(`/events/${data.slug}`);
+    } catch (err) {
+      if ([403, 401].includes(err.response.status)) {
+        toast.error(`You must login before adding events.`);
+      } else {
+        toast.error(err.response.message);
+      }
     }
   };
 
@@ -111,10 +110,27 @@ export default AddEventPage;
 
 export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
-
   return {
     props: {
       token
     }
   };
 }
+
+// const res = await fetch(`${API_URL}/events`, {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     Authorization: `Bearer ${token}`
+//   },
+//   body: JSON.stringify(values)
+// });
+// const event = await res.json();
+
+// if (res.ok) {
+//   router.push(`/events/${event.slug}`);
+// } else if (res.status === 403 || res.status === 401) {
+//   toast.error('You must login before adding events.');
+// } else {
+//   toast.error(event.message);
+// }

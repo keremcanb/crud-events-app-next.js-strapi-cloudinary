@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { post } from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 import styles from '@/styles/Form.module.css';
 import { API_URL } from '../config/index';
 
@@ -17,15 +19,17 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
     formData.append('refId', eventId);
     formData.append('field', 'image');
 
-    const res = await fetch(`${API_URL}/upload`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      body: formData
-    });
-    if (res.ok) {
-      imageUploaded();
+    try {
+      const res = await post(`${API_URL}/upload`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      if (res.status === 200) {
+        imageUploaded();
+      }
+    } catch (err) {
+      toast.error(err.response.message);
     }
   };
 
@@ -36,6 +40,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
   return (
     <div className={styles.form}>
       <h1>Upload Event Image</h1>
+      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className={styles.file}>
           <input type="file" onChange={handleFileChange} />
@@ -47,3 +52,14 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
 };
 
 export default ImageUpload;
+
+// const res = await fetch(`${API_URL}/upload`, {
+//   method: 'POST',
+//   headers: {
+//     Authorization: `Bearer ${token}`
+//   },
+//   body: formData
+// });
+// if (res.ok) {
+//   imageUploaded();
+// }
