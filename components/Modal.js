@@ -13,7 +13,7 @@ const Modal = ({ show, onClose, children, title }) => {
     onClose();
   };
 
-  const modalContent = show ? (
+  const modalContent = show && (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <div className={styles.header}>
@@ -25,9 +25,9 @@ const Modal = ({ show, onClose, children, title }) => {
         <div className={styles.body}>{children}</div>
       </div>
     </div>
-  ) : null;
+  );
 
-  return isBrowser ? ReactDOM.createPortal(modalContent, document.getElementById('modal-root')) : null;
+  return isBrowser && ReactDOM.createPortal(modalContent, document.getElementById('modal-root'));
 };
 
 export default Modal;

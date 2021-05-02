@@ -8,8 +8,12 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
+    // Append image in state
     formData.append('files', image);
+    // 3 actions to connect to event:
+    // Events collection
     formData.append('ref', 'events');
+    // Event id
     formData.append('refId', eventId);
     formData.append('field', 'image');
 
@@ -24,6 +28,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
       imageUploaded();
     }
   };
+
   const handleFileChange = (e) => {
     imageSet(e.target.files[0]);
   };

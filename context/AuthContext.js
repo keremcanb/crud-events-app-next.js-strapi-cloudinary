@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
   const [error, errorSet] = useState(null);
   const router = useRouter();
 
-  // eslint-disable-next-line no-shadow
   const register = async (user) => {
     const res = await fetch(`${NEXT_URL}/api/register`, {
       method: 'POST',
@@ -62,7 +61,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // eslint-disable-next-line no-shadow
   const checkUserLoggedIn = async (user) => {
     const res = await fetch(`${NEXT_URL}/api/user`);
     const data = await res.json();

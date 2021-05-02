@@ -14,14 +14,14 @@ import { parseCookies } from '@/helpers/helpers';
 
 const EditEventPage = ({ event: { name, performers, venue, address, date, time, description, image, id }, token }) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
-  const [imagePreview, imagePreviewSet] = useState(image ? image.formats.thumbnail.url : null);
+  const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
   const [showModal, showModalSet] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const hasEmptyFields = Object.values(values).some((element) => element === '');
 
+    const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Fill in all fields');
       return;
@@ -35,22 +35,18 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
       },
       body: JSON.stringify(values)
     });
-
     const data = await res.json();
 
-    if (!res.ok) {
-      if ([403, 401].includes(res.status)) {
-        toast.error(`Invalid permision, you cannot modify this event`);
-      } else {
-        toast.error(data.message);
-      }
-    } else {
+    if (res.ok) {
       router.push(`/events/${data.slug}`);
+    } else if ([403, 401].includes(res.status)) {
+      toast.error(`Invalid permision, you cannot modify this event`);
+    } else {
+      toast.error(data.message);
     }
   };
 
   const handleInputChange = (e) => {
-    // eslint-disable-next-line no-shadow
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
@@ -58,6 +54,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
   const imageUploaded = async () => {
     const res = await fetch(`${API_URL}/events/${id}`);
     const data = await res.json();
+
     imagePreviewSet(data.image.formats.thumbnail.url);
     showModalSet(false);
   };
@@ -138,6 +135,7 @@ export default EditEventPage;
 
 export async function getServerSideProps({ params: { id }, req }) {
   const { token } = parseCookies(req);
+
   const res = await fetch(`${API_URL}/events/${id}`);
   const event = await res.json();
 

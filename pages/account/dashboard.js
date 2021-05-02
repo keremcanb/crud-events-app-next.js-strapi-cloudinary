@@ -10,7 +10,6 @@ export default function DashboardPage({ events, token }) {
   const router = useRouter();
 
   const deleteEvent = async (eventId) => {
-    // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure')) {
       const res = await fetch(`${API_URL}/events/${eventId}`, {
         method: 'DELETE',
