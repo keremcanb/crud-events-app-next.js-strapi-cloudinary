@@ -1,4 +1,4 @@
-import { post } from 'axios';
+// import { post } from 'axios';
 import { API_URL } from '@/config/index';
 import cookie from 'cookie';
 

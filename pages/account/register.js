@@ -23,7 +23,7 @@ export default function RegisterPage() {
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+    setValues({ ...values, [e.target.id]: e.target.value });
   };
 
   return (
@@ -36,19 +36,19 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" value={username} onChange={handleChange} />
+            <input type="text" id="username" value={username} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="email">Email Address</label>
-            <input type="email" name="email" value={email} onChange={handleChange} />
+            <input type="email" id="email" value={email} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" value={password} onChange={handleChange} />
+            <input type="password" id="password" value={password} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="passwordConfirm">Confirm Password</label>
-            <input type="password" name="passwordConfirm" value={passwordConfirm} onChange={handleChange} />
+            <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} />
           </div>
           <input type="submit" value="Register" className="btn-info" />
         </form>

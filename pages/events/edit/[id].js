@@ -43,8 +43,8 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+    const { id, value } = e.target;
+    setValues({ ...values, [id]: value });
   };
 
   const imageUploaded = async () => {
@@ -64,32 +64,32 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">Event Name</label>
-            <input type="text" name="name" value={values.name} onChange={handleChange} />
+            <input type="text" id="name" value={values.name} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="performers">Performers</label>
-            <input type="text" name="performers" value={values.performers} onChange={handleChange} />
+            <input type="text" id="performers" value={values.performers} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="venue">Venue</label>
-            <input type="text" name="venue" value={values.venue} onChange={handleChange} />
+            <input type="text" id="venue" value={values.venue} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="address">Address</label>
-            <input type="text" name="address" value={values.address} onChange={handleChange} />
+            <input type="text" id="address" value={values.address} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="date">Date</label>
-            <input type="date" name="date" value={moment(values.date).format('yyyy-MM-DD')} onChange={handleChange} />
+            <input type="date" id="date" value={moment(values.date).format('yyyy-MM-DD')} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" name="time" value={values.time} onChange={handleChange} />
+            <input type="text" id="time" value={values.time} onChange={handleChange} />
           </div>
         </div>
         <div>
           <label htmlFor="description">Event Description</label>
-          <textarea type="text" name="description" value={values.description} onChange={handleChange} />
+          <textarea type="text" id="description" value={values.description} onChange={handleChange} />
         </div>
         <input type="submit" value="Update Event" className="btn-info" />
       </form>

@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { post } from 'axios';
 import { useRouter } from 'next/router';
 import { NEXT_URL } from '@/config/index';
 
@@ -10,51 +11,48 @@ export const AuthProvider = ({ children }) => {
   const router = useRouter();
 
   const register = async (user) => {
-    const res = await fetch(`${NEXT_URL}/api/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user)
-    });
-    const data = await res.json();
-
-    if (res.ok) {
+    try {
+      const { data } = await post(`${NEXT_URL}/api/register`, user);
       userSet(data.user);
       router.push('/account/dashboard');
-    } else {
-      errorSet(data.message);
+    } catch (err) {
+      errorSet(err.response.message);
       errorSet(null);
     }
   };
 
   const login = async ({ email: identifier, password }) => {
-    const res = await fetch(`${NEXT_URL}/api/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identifier, password })
-    });
-    const data = await res.json();
-
-    if (res.ok) {
+    try {
+      const { data } = await post(`${NEXT_URL}/api/login`, { identifier, password });
       userSet(data.user);
       router.push('/account/dashboard');
-    } else {
-      errorSet(data.message);
+    } catch (err) {
+      errorSet(err.response.message);
       errorSet(null);
     }
   };
 
   const logout = async () => {
-    const res = await fetch(`${NEXT_URL}/api/logout`, {
-      method: 'POST'
-    });
-
-    if (res.ok) {
+    try {
+      await post(`${NEXT_URL}/api/logout`);
       userSet(null);
       router.push('/');
+    } catch (err) {
+      errorSet(err.response.message);
+      errorSet(null);
     }
   };
 
-  const checkUserLoggedIn = async (user) => {
+  const checkUserLoggedIn = async () => {
+    // try {
+    //   const { data } = await post(`${NEXT_URL}/api/user`);
+    //   userSet(data.user);
+    // } catch (err) {
+    //   userSet(null);
+    //   errorSet(err.response.message);
+    //   errorSet(null);
+    // }
+
     const res = await fetch(`${NEXT_URL}/api/user`);
     const data = await res.json();
 
@@ -71,3 +69,42 @@ export const AuthProvider = ({ children }) => {
 };
 
 export default AuthContext;
+
+// const res = await fetch(`${NEXT_URL}/api/register`, {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify(user)
+// });
+// const data = await res.json();
+
+// if (res.ok) {
+//   userSet(data.user);
+//   router.push('/account/dashboard');
+// } else {
+//   errorSet(data.message);
+//   errorSet(null);
+// }
+
+// const res = await fetch(`${NEXT_URL}/api/login`, {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify({ identifier, password })
+// });
+// const data = await res.json();
+
+// if (res.ok) {
+//   userSet(data.user);
+//   router.push('/account/dashboard');
+// } else {
+//   errorSet(data.message);
+//   errorSet(null);
+// }
+
+// const res = await fetch(`${NEXT_URL}/api/logout`, {
+//   method: 'POST'
+// });
+
+// if (res.ok) {
+//   userSet(null);
+//   router.push('/');
+// }

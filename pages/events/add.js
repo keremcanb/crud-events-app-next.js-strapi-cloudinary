@@ -45,8 +45,8 @@ const AddEventPage = ({ token }) => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+    const { id, value } = e.target;
+    setValues({ ...values, [id]: value });
   };
 
   return (
@@ -60,32 +60,32 @@ const AddEventPage = ({ token }) => {
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">Event Name</label>
-            <input type="text" name="name" value={name} onChange={handleChange} />
+            <input type="text" id="name" value={name} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="performers">Performers</label>
-            <input type="text" name="performers" value={performers} onChange={handleChange} />
+            <input type="text" id="performers" value={performers} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="venue">Venue</label>
-            <input type="text" name="venue" value={venue} onChange={handleChange} />
+            <input type="text" id="venue" value={venue} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="address">Address</label>
-            <input type="text" name="address" value={address} onChange={handleChange} />
+            <input type="text" id="address" value={address} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="date">Date</label>
-            <input type="date" name="date" value={date} onChange={handleChange} />
+            <input type="date" id="date" value={date} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" name="time" value={time} onChange={handleChange} />
+            <input type="text" id="time" value={time} onChange={handleChange} />
           </div>
         </div>
         <div>
           <label htmlFor="description">Event Description</label>
-          <textarea type="text" name="description" value={description} onChange={handleChange} />
+          <textarea type="text" id="description" value={description} onChange={handleChange} />
         </div>
         <input type="submit" value="Add Event" className="btn-secondary" />
       </form>
