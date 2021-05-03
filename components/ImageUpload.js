@@ -31,17 +31,18 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
     }
   };
 
-  const handleFileChange = (e) => {
-    imageSet(e.target.files[0]);
-  };
-
   return (
     <div className={styles.form}>
       <h1>Upload Event Image</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className={styles.file}>
-          <input type="file" onChange={handleFileChange} />
+          <input
+            type="file"
+            onChange={(e) => {
+              imageSet(e.target.files[0]);
+            }}
+          />
         </div>
         <input type="submit" value="Upload" className="btn-info" />
       </form>

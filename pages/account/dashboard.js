@@ -10,10 +10,10 @@ import { useRouter } from 'next/router';
 export default function DashboardPage({ events, token }) {
   const router = useRouter();
 
-  const deleteEvent = async (eventId) => {
+  const deleteEvent = async (id) => {
     if (confirm('Are you sure')) {
       try {
-        await axios.delete(`${API_URL}/events/${eventId}`, {
+        await axios.delete(`${API_URL}/events/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         router.reload();

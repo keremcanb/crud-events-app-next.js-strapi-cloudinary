@@ -10,7 +10,6 @@ export default async (req, res) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ identifier, password })
     });
-
     const data = await strapiRes.json();
 
     if (strapiRes.ok) {

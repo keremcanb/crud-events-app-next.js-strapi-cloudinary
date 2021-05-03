@@ -9,7 +9,8 @@ import styles from '@/styles/Form.module.css';
 import { parseCookies } from '@/helpers/helpers';
 
 const AddEventPage = ({ token }) => {
-  const [values, valuesSet] = useState({
+  const router = useRouter();
+  const [values, setValues] = useState({
     name: '',
     performers: '',
     venue: '',
@@ -18,7 +19,7 @@ const AddEventPage = ({ token }) => {
     time: '',
     description: ''
   });
-  const router = useRouter();
+  const { name, performers, venue, address, date, time, description } = values;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,9 +44,9 @@ const AddEventPage = ({ token }) => {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    valuesSet({ ...values, [name]: value });
+    setValues({ ...values, [name]: value });
   };
 
   return (
@@ -59,44 +60,32 @@ const AddEventPage = ({ token }) => {
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">Event Name</label>
-            <input type="text" id="name" name="name" value={values.name} onChange={handleInputChange} />
+            <input type="text" name="name" value={name} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="performers">Performers</label>
-            <input
-              type="text"
-              name="performers"
-              id="performers"
-              value={values.performers}
-              onChange={handleInputChange}
-            />
+            <input type="text" name="performers" value={performers} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="venue">Venue</label>
-            <input type="text" name="venue" id="venue" value={values.venue} onChange={handleInputChange} />
+            <input type="text" name="venue" value={venue} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="address">Address</label>
-            <input type="text" name="address" id="address" value={values.address} onChange={handleInputChange} />
+            <input type="text" name="address" value={address} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="date">Date</label>
-            <input type="date" name="date" id="date" value={values.date} onChange={handleInputChange} />
+            <input type="date" name="date" value={date} onChange={handleChange} />
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" name="time" id="time" value={values.time} onChange={handleInputChange} />
+            <input type="text" name="time" value={time} onChange={handleChange} />
           </div>
         </div>
         <div>
           <label htmlFor="description">Event Description</label>
-          <textarea
-            type="text"
-            name="description"
-            id="description"
-            value={values.description}
-            onChange={handleInputChange}
-          />
+          <textarea type="text" name="description" value={description} onChange={handleChange} />
         </div>
         <input type="submit" value="Add Event" className="btn-secondary" />
       </form>
