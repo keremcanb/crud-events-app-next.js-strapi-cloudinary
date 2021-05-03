@@ -11,6 +11,7 @@ export default function DashboardPage({ events, token }) {
   const router = useRouter();
 
   const deleteEvent = async (id) => {
+    // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure')) {
       try {
         await axios.delete(`${API_URL}/events/${id}`, {

@@ -2,6 +2,7 @@ import cookie from 'cookie';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
+    // Destroy cookie
     res.setHeader(
       'Set-Cookie',
       cookie.serialize('token', '', {
