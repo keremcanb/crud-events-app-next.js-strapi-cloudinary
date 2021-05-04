@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { post } from 'axios';
+import { post, get } from 'axios';
 import { useRouter } from 'next/router';
 import { NEXT_URL } from '@/config/index';
 
@@ -10,13 +10,14 @@ export const AuthProvider = ({ children }) => {
   const [error, errorSet] = useState(null);
   const router = useRouter();
 
+  // eslint-disable-next-line no-shadow
   const register = async (user) => {
     try {
       const { data } = await post(`${NEXT_URL}/api/register`, user);
       userSet(data.user);
       router.push('/account/dashboard');
-    } catch (error){
-      errorSet(error.response.message);
+    } catch (error) {
+      errorSet(error.message);
       errorSet(null);
     }
   };
@@ -26,8 +27,8 @@ export const AuthProvider = ({ children }) => {
       const { data } = await post(`${NEXT_URL}/api/login`, { identifier, password });
       userSet(data.user);
       router.push('/account/dashboard');
-    } catch (error){
-      errorSet(error.response.message);
+    } catch (error) {
+      errorSet(error.message);
       errorSet(null);
     }
   };
@@ -37,28 +38,16 @@ export const AuthProvider = ({ children }) => {
       await post(`${NEXT_URL}/api/logout`);
       userSet(null);
       router.push('/');
-    } catch (error){
-      errorSet(error.response.message);
-      errorSet(null);
+    } catch (error) {
+      errorSet(error.message);
     }
   };
 
   const checkUserLoggedIn = async () => {
-    // try {
-    //   const { data } = await post(`${NEXT_URL}/api/user`);
-    //   userSet(data.user);
-    // } catch (error){
-    //   userSet(null);
-    //   errorSet(error.response.message);
-    //   errorSet(null);
-    // }
-
-    const res = await fetch(`${NEXT_URL}/api/user`);
-    const data = await res.json();
-
-    if (res.ok) {
+    try {
+      const { data } = await get(`${NEXT_URL}/api/user`);
       userSet(data.user);
-    } else {
+    } catch (error) {
       userSet(null);
     }
   };
@@ -107,4 +96,13 @@ export default AuthContext;
 // if (res.ok) {
 //   userSet(null);
 //   router.push('/');
+// }
+
+// const res = await fetch(`${NEXT_URL}/api/user`);
+// const data = await res.json();
+
+// if (res.ok) {
+//   userSet(data.user);
+// } else {
+//   userSet(null);
 // }
