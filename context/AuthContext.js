@@ -15,8 +15,8 @@ export const AuthProvider = ({ children }) => {
       const { data } = await post(`${NEXT_URL}/api/register`, user);
       userSet(data.user);
       router.push('/account/dashboard');
-    } catch (err) {
-      errorSet(err.response.message);
+    } catch (error){
+      errorSet(error.response.message);
       errorSet(null);
     }
   };
@@ -26,8 +26,8 @@ export const AuthProvider = ({ children }) => {
       const { data } = await post(`${NEXT_URL}/api/login`, { identifier, password });
       userSet(data.user);
       router.push('/account/dashboard');
-    } catch (err) {
-      errorSet(err.response.message);
+    } catch (error){
+      errorSet(error.response.message);
       errorSet(null);
     }
   };
@@ -37,8 +37,8 @@ export const AuthProvider = ({ children }) => {
       await post(`${NEXT_URL}/api/logout`);
       userSet(null);
       router.push('/');
-    } catch (err) {
-      errorSet(err.response.message);
+    } catch (error){
+      errorSet(error.response.message);
       errorSet(null);
     }
   };
@@ -47,9 +47,9 @@ export const AuthProvider = ({ children }) => {
     // try {
     //   const { data } = await post(`${NEXT_URL}/api/user`);
     //   userSet(data.user);
-    // } catch (err) {
+    // } catch (error){
     //   userSet(null);
-    //   errorSet(err.response.message);
+    //   errorSet(error.response.message);
     //   errorSet(null);
     // }
 

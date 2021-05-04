@@ -23,23 +23,23 @@ const AddEventPage = ({ token }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Validation
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Fill in all fields');
       return;
     }
-
+    // Post new event
     try {
       const { data } = await post(`${API_URL}/events`, values, {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
-    } catch (err) {
-      if ([403, 401].includes(err.response.status)) {
+    } catch (error) {
+      if ([403, 401].includes(error.response.status)) {
         toast.error(`You must login before adding events.`);
       } else {
-        toast.error(err.response.message);
+        toast.error(error.message);
       }
     }
   };

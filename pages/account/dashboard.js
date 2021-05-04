@@ -18,8 +18,8 @@ export default function DashboardPage({ events, token }) {
           headers: { Authorization: `Bearer ${token}` }
         });
         router.reload();
-      } catch (err) {
-        toast.error(err.response.message);
+      } catch (error) {
+        toast.error(error.message);
       }
     }
   };

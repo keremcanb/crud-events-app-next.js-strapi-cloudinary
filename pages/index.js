@@ -24,6 +24,10 @@ const Home = ({ events }) => (
 export default Home;
 
 export async function getStaticProps() {
+  // Sort and limit from Strapi
   const { data: events } = await get(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   return { props: { events }, revalidate: 10 };
 }
+
+// const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
+// const events = await res.json();

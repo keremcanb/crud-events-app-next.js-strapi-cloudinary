@@ -1,13 +1,9 @@
-// import { post } from 'axios';
 import { API_URL } from '@/config/index';
 import cookie from 'cookie';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
     const { username, email, password } = req.body;
-
-    // const strapiRes = await post(`${API_URL}/auth/local/register`, { username, email, password });
-    // const data = await strapiRes;
 
     const strapiRes = await fetch(`${API_URL}/auth/local/register`, {
       method: 'POST',

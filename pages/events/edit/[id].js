@@ -21,23 +21,23 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Validation
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Fill in all fields');
       return;
     }
-
+    // Update event
     try {
       const { data } = await put(`${API_URL}/events/${id}`, values, {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
-    } catch (err) {
-      if ([403, 401].includes(err.response.status)) {
+    } catch (error) {
+      if ([403, 401].includes(error.response.status)) {
         toast.error(`Invalid permision, you cannot modify this event`);
       } else {
-        toast.error(err.response.message);
+        toast.error(error.message);
       }
     }
   };

@@ -10,12 +10,7 @@ const SearchPage = ({ events, term }) => (
     <Link href="/events">
       <a className="btn-secondary">Go back</a>
     </Link>
-    <h1>
-      Search results for{' '}
-      <u>
-        <i>{term}</i>
-      </u>
-    </h1>
+    <h1>Search results: {term}</h1>
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
   </Layout>
