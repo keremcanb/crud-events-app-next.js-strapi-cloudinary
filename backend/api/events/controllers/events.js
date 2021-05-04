@@ -31,7 +31,7 @@ module.exports = {
     });
 
     if (!events) {
-      return ctx.unauthorized("You can't update this entry");
+      return ctx.unauthorized('You can\'t update this entry');
     }
 
     if (ctx.is('multipart')) {
@@ -55,7 +55,7 @@ module.exports = {
     });
 
     if (!events) {
-      return ctx.unauthorized("You can't update this entry");
+      return ctx.unauthorized('You can\'t update this entry');
     }
 
     const entity = await strapi.services.events.delete({ id });

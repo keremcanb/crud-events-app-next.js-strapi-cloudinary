@@ -26,7 +26,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
       if (res.status === 200) {
         imageUploaded();
       }
-    } catch (error){
+    } catch (error) {
       toast.error(error.response.message);
     }
   };
@@ -51,14 +51,3 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
 };
 
 export default ImageUpload;
-
-// const res = await fetch(`${API_URL}/upload`, {
-//   method: 'POST',
-//   headers: {
-//     Authorization: `Bearer ${token}`
-//   },
-//   body: formData
-// });
-// if (res.ok) {
-//   imageUploaded();
-// }

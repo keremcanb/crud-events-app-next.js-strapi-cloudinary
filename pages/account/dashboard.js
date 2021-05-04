@@ -44,26 +44,3 @@ export async function getServerSideProps({ req }) {
   });
   return { props: { events, token } };
 }
-
-// const res = await fetch(`${API_URL}/events/${eventId}`, {
-//   method: 'DELETE',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     Authorization: `Bearer ${token}`
-//   }
-// });
-// const data = await res.json();
-
-// if (!res.ok) {
-//   toast.error(data.message);
-// } else {
-//   router.reload();
-// }
-
-// const res = await fetch(`${API_URL}/events/me`, {
-//   method: 'GET',
-//   headers: {
-//     Authorization: `Bearer ${token}`
-//   }
-// });
-// const events = await res.json();

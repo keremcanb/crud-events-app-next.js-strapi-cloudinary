@@ -99,21 +99,3 @@ export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
   return { props: { token } };
 }
-
-// const res = await fetch(`${API_URL}/events`, {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     Authorization: `Bearer ${token}`
-//   },
-//   body: JSON.stringify(values)
-// });
-// const event = await res.json();
-
-// if (res.ok) {
-//   router.push(`/events/${event.slug}`);
-// } else if (res.status === 403 || res.status === 401) {
-//   toast.error('You must login before adding events.');
-// } else {
-//   toast.error(event.message);
-// }

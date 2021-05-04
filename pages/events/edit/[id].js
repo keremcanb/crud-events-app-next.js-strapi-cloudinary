@@ -114,21 +114,3 @@ export async function getServerSideProps({ params: { id }, req }) {
   const { data: event } = await get(`${API_URL}/events/${id}`);
   return { props: { event, token } };
 }
-
-// const res = await fetch(`${API_URL}/events/${id}`, {
-//   method: 'PUT',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     Authorization: `Bearer ${token}`
-//   },
-//   body: JSON.stringify(values)
-// });
-// const data = await res.json();
-
-// if (res.ok) {
-//   router.push(`/events/${data.slug}`);
-// } else if ([403, 401].includes(res.status)) {
-//   toast.error(`Invalid permision, you cannot modify this event`);
-// } else {
-//   toast.error(data.message);
-// }
