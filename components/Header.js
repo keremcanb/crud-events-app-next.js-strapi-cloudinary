@@ -23,6 +23,7 @@ const Header = () => {
               <a>Events</a>
             </Link>
           </li>
+          {/* Logged in user menu */}
           {user ? (
             <>
               <li>
@@ -43,6 +44,7 @@ const Header = () => {
               </li>
             </>
           ) : (
+            // Logged out user menu
             <li>
               <Link href="/account/login">
                 <a className="btn-secondary btn-icon">

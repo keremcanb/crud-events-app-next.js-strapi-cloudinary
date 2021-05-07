@@ -26,7 +26,7 @@ const AddEventPage = ({ token }) => {
     // Validation
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
-      toast.error('Fill in all fields');
+      toast.error('Please fill in all fields');
       return;
     }
     // Post new event
@@ -35,11 +35,11 @@ const AddEventPage = ({ token }) => {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
-    } catch (error) {
-      if ([403, 401].includes(error.response.status)) {
+    } catch (err) {
+      if ([403, 401].includes(err.response.status)) {
         toast.error(`You must login before adding events.`);
       } else {
-        toast.error(error.message);
+        toast.error(err.message);
       }
     }
   };

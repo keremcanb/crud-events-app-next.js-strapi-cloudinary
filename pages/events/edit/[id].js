@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { put, get } from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
 import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
 import { FaImage } from 'react-icons/fa';
 import { parseCookies } from '@/helpers/helpers';
 import { Layout, Modal, ImageUpload } from '@/components/index';
@@ -22,7 +22,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
     // Validation
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
-      toast.error('Fill in all fields');
+      toast.error('Please fill in all fields');
       return;
     }
     // Update event
@@ -31,11 +31,11 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
-    } catch (error) {
-      if ([403, 401].includes(error.response.status)) {
+    } catch (err) {
+      if ([403, 401].includes(err.response.status)) {
         toast.error(`Invalid permision, you cannot modify this event`);
       } else {
-        toast.error(error.message);
+        toast.error(err.message);
       }
     }
   };

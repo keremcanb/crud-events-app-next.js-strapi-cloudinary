@@ -26,8 +26,8 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
       if (res.status === 200) {
         imageUploaded();
       }
-    } catch (error) {
-      toast.error(error.response.message);
+    } catch (err) {
+      toast.error(err.response.message);
     }
   };
 
