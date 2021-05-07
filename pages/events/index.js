@@ -12,7 +12,6 @@ const EventsPage = ({ events, page, total }) => (
 );
 
 export default EventsPage;
-
 // Get page from quey and set to 1
 export async function getServerSideProps({ query: { page = 1 } }) {
   // Calculate start page: Convert string to number (+page), if page equal to 1 start from event 0, else get current page number, subtract 1 and multiply with per page number.
