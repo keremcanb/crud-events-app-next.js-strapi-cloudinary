@@ -1,10 +1,10 @@
-import Layout from '@/components/Layout';
-import Link from 'next/link';
 import { useState, useEffect, useContext } from 'react';
-import styles from '@/styles/AuthForm.module.css';
-import { FaUser } from 'react-icons/fa';
+import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
+import { Layout } from '@/components/index';
+import styles from '@/styles/AuthForm.module.css';
 
 export default function LoginPage() {
   const [values, setValues] = useState({ email: '', password: '' });

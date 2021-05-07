@@ -1,8 +1,6 @@
 import { get } from 'axios';
-import Layout from '@/components/Layout';
-import EventItem from '@/components/EventItem';
+import { Layout, EventItem, Pagination } from '@/components/index';
 import { API_URL, PER_PAGE } from '@/config/index';
-import Pagination from '@/components/Pagination';
 
 const EventsPage = ({ events, page, total }) => (
   <Layout>

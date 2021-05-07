@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { get } from 'axios';
-import Layout from '@/components/Layout';
-import EventItem from '@/components/EventItem';
+import { Layout, EventItem } from '@/components/index';
 import { API_URL } from '@/config/index';
 
 const Home = ({ events }) => (

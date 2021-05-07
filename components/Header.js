@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import AuthContext from '@/context/AuthContext';
 import Link from 'next/link';
-import styles from '@/styles/Header.module.css';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
-import Search from './Search';
+import AuthContext from '@/context/AuthContext';
+import styles from '@/styles/Header.module.css';
+import { Search } from '@/components/index';
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -23,7 +23,6 @@ const Header = () => {
               <a>Events</a>
             </Link>
           </li>
-
           {user ? (
             <>
               <li>

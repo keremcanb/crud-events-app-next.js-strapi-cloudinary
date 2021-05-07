@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { get } from 'axios';
-import Layout from '@/components/Layout';
+import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
 import styles from '@/styles/Event.module.css';
 

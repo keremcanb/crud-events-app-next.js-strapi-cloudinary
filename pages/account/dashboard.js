@@ -1,11 +1,10 @@
+import { useRouter } from 'next/router';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { Layout, DashboardEvent } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
-import Layout from '@/components/Layout';
 import { API_URL } from '@/config/index';
 import styles from '@/styles/Dashboard.module.css';
-import DashboardEvent from '@/components/DashboardEvent';
-import { toast } from 'react-toastify';
-import { useRouter } from 'next/router';
 
 export default function DashboardPage({ events, token }) {
   const router = useRouter();

@@ -2,16 +2,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import moment from 'moment';
 import { put, get } from 'axios';
-import { FaImage } from 'react-icons/fa';
-import Layout from '@/components/Layout';
-import Modal from '@/components/Modal';
-import { API_URL } from '@/config/index';
 import { ToastContainer, toast } from 'react-toastify';
-import styles from '@/styles/Form.module.css';
-import ImageUpload from '@/components/ImageUpload';
+import moment from 'moment';
+import { FaImage } from 'react-icons/fa';
 import { parseCookies } from '@/helpers/helpers';
+import { Layout, Modal, ImageUpload } from '@/components/index';
+import { API_URL } from '@/config/index';
+import styles from '@/styles/Form.module.css';
 
 const EditEventPage = ({ event: { name, performers, venue, address, date, time, description, image, id }, token }) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });

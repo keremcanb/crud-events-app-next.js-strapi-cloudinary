@@ -1,8 +1,7 @@
 import { get } from 'axios';
-import Layout from '@/components/Layout';
-import EventItem from '@/components/EventItem';
 import Link from 'next/link';
 import qs from 'qs';
+import { Layout, EventItem } from '@/components/index';
 import { API_URL } from '@/config/index';
 
 const SearchPage = ({ events, term }) => (

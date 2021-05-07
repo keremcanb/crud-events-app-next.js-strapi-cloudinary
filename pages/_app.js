@@ -1,6 +1,6 @@
-import '@/styles/globals.css';
-import { AuthProvider } from 'context/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from 'context/AuthContext';
+import '@/styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => (
   <AuthProvider>
