@@ -41,6 +41,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
   };
 
   const handleChange = (e) => {
+    // eslint-disable-next-line no-shadow
     const { id, value } = e.target;
     setValues({ ...values, [id]: value });
   };

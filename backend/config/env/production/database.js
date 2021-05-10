@@ -2,6 +2,7 @@ const { parse } = require('pg-connection-string');
 
 const config = parse(process.env.DATABASE_URL);
 
+// eslint-disable-next-line no-unused-vars
 module.exports = ({ env }) => ({
   defaultConnection: 'default',
   connections: {

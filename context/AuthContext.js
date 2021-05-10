@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Persist user
   const checkUserLoggedIn = async () => {
     try {
       const { data } = await get(`${NEXT_URL}/api/user`);
