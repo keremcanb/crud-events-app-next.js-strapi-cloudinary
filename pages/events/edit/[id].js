@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { get } from 'axios';
 import moment from 'moment';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { FaImage } from 'react-icons/fa';
-import { parseCookies } from '@/helpers/helpers';
+import { parseCookies, validateForm } from '@/helpers/helpers';
 import { Layout, Modal, ImageUpload } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
@@ -19,16 +19,11 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validation
-    const hasEmptyFields = Object.values(values).some((element) => element === '');
-    if (hasEmptyFields) {
-      toast.error('Please fill in all fields');
-    }
+    validateForm(values);
     updateEvent(id, values, token);
   };
 
   const handleChange = (e) => {
-    // eslint-disable-next-line no-shadow
     const { id, value } = e.target;
     setValues({ ...values, [id]: value });
   };

@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import Link from 'next/link';
 import EventsContext from '@/context/EventsContext';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { Layout } from '@/components/index';
-import { parseCookies } from '@/helpers/helpers';
+import { parseCookies, validateForm } from '@/helpers/helpers';
 
 import styles from '@/styles/Form.module.css';
 
@@ -22,11 +22,7 @@ const AddEventPage = ({ token }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validation
-    const hasEmptyFields = Object.values(values).some((element) => element === '');
-    if (hasEmptyFields) {
-      toast.error('Please fill in all fields');
-    }
+    validateForm(values);
     addEvent(values, token);
   };
 

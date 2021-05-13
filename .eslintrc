@@ -1,6 +1,7 @@
 {
   "extends": ["wesbos"],
   "rules": {
+    "no-shadow": 0,
     "no-restricted-globals": 0,
     "import/no-unresolved": 0,
     "guard-for-in": 0,

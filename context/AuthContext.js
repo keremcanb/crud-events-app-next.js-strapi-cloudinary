@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [user, userSet] = useState(null);
   const [error, errorSet] = useState(null);
   const router = useRouter();
-  // eslint-disable-next-line no-shadow
+
   const register = async (user) => {
     try {
       const { data } = await post(`${NEXT_URL}/api/register`, user);
