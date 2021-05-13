@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { put, get } from 'axios';
+import { get } from 'axios';
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaImage } from 'react-icons/fa';
 import { parseCookies } from '@/helpers/helpers';
 import { Layout, Modal, ImageUpload } from '@/components/index';
+import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
 import styles from '@/styles/Form.module.css';
 
@@ -15,7 +15,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
   const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
   const [showModal, showModalSet] = useState(false);
-  const router = useRouter();
+  const { updateEvent } = useContext(EventsContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,21 +23,8 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Please fill in all fields');
-      return;
     }
-    // Update event
-    try {
-      const { data } = await put(`${API_URL}/events/${id}`, values, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      router.push(`/events/${data.slug}`);
-    } catch (err) {
-      if ([403, 401].includes(err.response.status)) {
-        toast.error(`Invalid permision, you cannot modify this event`);
-      } else {
-        toast.error(err.message);
-      }
-    }
+    updateEvent(id, values, token);
   };
 
   const handleChange = (e) => {
@@ -109,6 +96,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 export default EditEventPage;
 
 export async function getServerSideProps({ params: { id }, req }) {
+  // Get token
   const { token } = parseCookies(req);
   const { data: event } = await get(`${API_URL}/events/${id}`);
   return { props: { event, token } };

@@ -1,15 +1,13 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
-import { post } from 'axios';
+import EventsContext from '@/context/EventsContext';
 import { ToastContainer, toast } from 'react-toastify';
 import { Layout } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
-import { API_URL } from '@/config/index';
+
 import styles from '@/styles/Form.module.css';
 
 const AddEventPage = ({ token }) => {
-  const router = useRouter();
   const [values, setValues] = useState({
     name: '',
     performers: '',
@@ -20,6 +18,7 @@ const AddEventPage = ({ token }) => {
     description: ''
   });
   const { name, performers, venue, address, date, time, description } = values;
+  const { addEvent } = useContext(EventsContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,21 +26,8 @@ const AddEventPage = ({ token }) => {
     const hasEmptyFields = Object.values(values).some((element) => element === '');
     if (hasEmptyFields) {
       toast.error('Please fill in all fields');
-      return;
     }
-    // Post new event
-    try {
-      const { data } = await post(`${API_URL}/events`, values, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      router.push(`/events/${data.slug}`);
-    } catch (err) {
-      if ([403, 401].includes(err.response.status)) {
-        toast.error(`You must login before adding events.`);
-      } else {
-        toast.error(err.message);
-      }
-    }
+    addEvent(values, token);
   };
 
   const handleChange = (e) => {
@@ -96,6 +82,7 @@ const AddEventPage = ({ token }) => {
 export default AddEventPage;
 
 export async function getServerSideProps({ req }) {
+  // Get token
   const { token } = parseCookies(req);
   return { props: { token } };
 }
