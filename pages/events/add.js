@@ -27,8 +27,7 @@ const AddEventPage = ({ token }) => {
   };
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setValues({ ...values, [id]: value });
+    setValues({ ...values, [e.target.id]: e.target.value });
   };
 
   return (

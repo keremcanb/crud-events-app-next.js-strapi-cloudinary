@@ -24,8 +24,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
   };
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setValues({ ...values, [id]: value });
+    setValues({ ...values, [e.target.id]: e.target.value });
   };
 
   const imageUploaded = async () => {
