@@ -30,7 +30,7 @@ const AddEventPage = ({ token }) => {
     setValues({ ...values, [e.target.id]: e.target.value });
   };
 
-  return (
+  return token ? (
     <Layout title="Add New Event">
       <Link href="/events">
         <a className="btn-secondary">Go back</a>
@@ -71,6 +71,8 @@ const AddEventPage = ({ token }) => {
         <input type="submit" value="Add Event" className="btn-secondary" />
       </form>
     </Layout>
+  ) : (
+    <h1>Not authorized to view this page</h1>
   );
 };
 
