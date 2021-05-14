@@ -90,16 +90,13 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
       </Modal>
     </Layout>
   ) : (
-    <center>
-      <h1>Not authorized to view this page</h1>
-    </center>
+    <h1 className="center-text">Not authorized to view this page</h1>
   );
 };
 
 export default EditEventPage;
 
 export async function getServerSideProps({ params: { id }, req }) {
-  // Get token
   const { token } = parseCookies(req);
   const { data: event } = await get(`${API_URL}/events/${id}`);
   return { props: { event, token } };

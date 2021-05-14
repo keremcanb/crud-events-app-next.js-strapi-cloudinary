@@ -18,7 +18,7 @@ export default function RegisterPage() {
     if (password === passwordConfirm) {
       register({ username, email, password });
     } else {
-      toast.error('Password confirm does not match');
+      toast.error('Passwords does not match');
     }
   };
 

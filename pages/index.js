@@ -5,16 +5,12 @@ import { API_URL } from '@/config/index';
 
 const Home = ({ events }) => (
   <Layout>
-    <center>
-      <h1>Upcoming Events</h1>
-    </center>
+    <h1 className="center-text">Upcoming Events</h1>
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
     {events && events.length > 0 && (
       <Link href="/events">
-        <center>
-          <a className="btn-secondary">View All Events</a>
-        </center>
+        <a className="btn-secondary center">View All Events</a>
       </Link>
     )}
   </Layout>
@@ -23,7 +19,6 @@ const Home = ({ events }) => (
 export default Home;
 
 export async function getStaticProps() {
-  // Sort and limit from Strapi
   const { data: events } = await get(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   return { props: { events }, revalidate: 10 };
 }

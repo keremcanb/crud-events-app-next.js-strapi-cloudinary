@@ -71,16 +71,13 @@ const AddEventPage = ({ token }) => {
       </form>
     </Layout>
   ) : (
-    <center>
-      <h1>Not authorized to view this page</h1>
-    </center>
+    <h1 className="center-text">Not authorized to view this page</h1>
   );
 };
 
 export default AddEventPage;
 
 export async function getServerSideProps({ req }) {
-  // Get token
   const { token } = parseCookies(req);
   return { props: { token } };
 }

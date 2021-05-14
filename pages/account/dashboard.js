@@ -9,7 +9,7 @@ import styles from '@/styles/Dashboard.module.css';
 export default function DashboardPage({ events, token }) {
   const { deleteEvent } = useContext(EventsContext);
 
-  return (
+  return token ? (
     <Layout title="User Dashboard">
       <div className={styles.dash}>
         <h1>Dashboard Page</h1>
@@ -19,6 +19,8 @@ export default function DashboardPage({ events, token }) {
         ))}
       </div>
     </Layout>
+  ) : (
+    <h1 className="center-text">Not authorized to view this page</h1>
   );
 }
 
