@@ -66,7 +66,7 @@ const AddEventPage = ({ token }) => {
         </div>
         <div>
           <label htmlFor="description">Event Description</label>
-          <textarea type="text" id="description" value={description} onChange={handleChange} />
+          <textarea type="text" id="description" value={description} onChange={handleChange} required />
         </div>
         <input type="submit" value="Add Event" className="btn-secondary" />
       </form>
