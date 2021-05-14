@@ -5,7 +5,7 @@ import { get } from 'axios';
 import moment from 'moment';
 import { ToastContainer } from 'react-toastify';
 import { FaImage } from 'react-icons/fa';
-import { parseCookies, validateForm } from '@/helpers/helpers';
+import { parseCookies } from '@/helpers/helpers';
 import { Layout, Modal, ImageUpload } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
@@ -19,7 +19,6 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    validateForm(values);
     updateEvent(id, values, token);
   };
 
@@ -33,7 +32,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
     showModalSet(false);
   };
 
-  return (
+  return token ? (
     <Layout title="Edit Event">
       <Link href="/events">
         <a className="btn-secondary">Go back</a>
@@ -90,6 +89,10 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
       </Modal>
     </Layout>
+  ) : (
+    <center>
+      <h1>Not authorized to view this page</h1>
+    </center>
   );
 };
 

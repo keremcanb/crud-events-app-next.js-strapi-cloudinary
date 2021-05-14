@@ -3,7 +3,7 @@ import Link from 'next/link';
 import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from '@/components/index';
-import { parseCookies, validateForm } from '@/helpers/helpers';
+import { parseCookies } from '@/helpers/helpers';
 
 import styles from '@/styles/Form.module.css';
 
@@ -22,7 +22,6 @@ const AddEventPage = ({ token }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    validateForm(values);
     addEvent(values, token);
   };
 
@@ -72,7 +71,9 @@ const AddEventPage = ({ token }) => {
       </form>
     </Layout>
   ) : (
-    <h1>Not authorized to view this page</h1>
+    <center>
+      <h1>Not authorized to view this page</h1>
+    </center>
   );
 };
 
