@@ -3,7 +3,7 @@ import Link from 'next/link';
 import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from '@/components/index';
-import { parseCookies } from '@/helpers/helpers';
+import { parseCookies, validateForm } from '@/helpers/helpers';
 
 import styles from '@/styles/Form.module.css';
 
@@ -22,6 +22,7 @@ const AddEventPage = ({ token }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    validateForm(values);
     addEvent(values, token);
   };
 
@@ -29,7 +30,7 @@ const AddEventPage = ({ token }) => {
     setValues({ ...values, [e.target.id]: e.target.value });
   };
 
-  return token ? (
+  return (
     <Layout title="Add New Event">
       <Link href="/events">
         <a className="btn-secondary">Go back</a>
@@ -70,14 +71,13 @@ const AddEventPage = ({ token }) => {
         <input type="submit" value="Add Event" className="btn-secondary" />
       </form>
     </Layout>
-  ) : (
-    <h1 className="center-text">Not authorized to view this page</h1>
   );
 };
 
 export default AddEventPage;
 
 export async function getServerSideProps({ req }) {
+  // Get token
   const { token } = parseCookies(req);
   return { props: { token } };
 }
