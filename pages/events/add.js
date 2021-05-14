@@ -41,27 +41,27 @@ const AddEventPage = ({ token }) => {
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">Event Name</label>
-            <input type="text" id="name" value={name} onChange={handleChange} />
+            <input type="text" id="name" value={name} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="performers">Performers</label>
-            <input type="text" id="performers" value={performers} onChange={handleChange} />
+            <input type="text" id="performers" value={performers} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="venue">Venue</label>
-            <input type="text" id="venue" value={venue} onChange={handleChange} />
+            <input type="text" id="venue" value={venue} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="address">Address</label>
-            <input type="text" id="address" value={address} onChange={handleChange} />
+            <input type="text" id="address" value={address} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="date">Date</label>
-            <input type="date" id="date" value={date} onChange={handleChange} />
+            <input type="date" id="date" value={date} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" id="time" value={time} onChange={handleChange} />
+            <input type="text" id="time" value={time} onChange={handleChange} required />
           </div>
         </div>
         <div>

@@ -44,32 +44,38 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">Event Name</label>
-            <input type="text" id="name" value={values.name} onChange={handleChange} />
+            <input type="text" id="name" value={values.name} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="performers">Performers</label>
-            <input type="text" id="performers" value={values.performers} onChange={handleChange} />
+            <input type="text" id="performers" value={values.performers} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="venue">Venue</label>
-            <input type="text" id="venue" value={values.venue} onChange={handleChange} />
+            <input type="text" id="venue" value={values.venue} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="address">Address</label>
-            <input type="text" id="address" value={values.address} onChange={handleChange} />
+            <input type="text" id="address" value={values.address} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="date">Date</label>
-            <input type="date" id="date" value={moment(values.date).format('yyyy-MM-DD')} onChange={handleChange} />
+            <input
+              type="date"
+              id="date"
+              value={moment(values.date).format('yyyy-MM-DD')}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" id="time" value={values.time} onChange={handleChange} />
+            <input type="text" id="time" value={values.time} onChange={handleChange} required />
           </div>
         </div>
         <div>
           <label htmlFor="description">Event Description</label>
-          <textarea type="text" id="description" value={values.description} onChange={handleChange} />
+          <textarea type="text" id="description" value={values.description} onChange={handleChange} required />
         </div>
         <input type="submit" value="Update Event" className="btn-info" />
       </form>

@@ -36,19 +36,19 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>
-            <input type="text" id="username" value={username} onChange={handleChange} />
+            <input type="text" id="username" value={username} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" value={email} onChange={handleChange} />
+            <input type="email" id="email" value={email} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={password} onChange={handleChange} />
+            <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="passwordConfirm">Confirm Password</label>
-            <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} />
+            <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
           <input type="submit" value="Register" className="btn-info" />
         </form>

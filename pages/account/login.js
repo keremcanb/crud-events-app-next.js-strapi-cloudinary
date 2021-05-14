@@ -32,11 +32,11 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" value={email} onChange={handleChange} />
+            <input type="email" id="email" value={email} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={password} onChange={handleChange} />
+            <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
           <input type="submit" value="Login" className="btn-info" />
         </form>
