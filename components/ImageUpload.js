@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { post } from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from '@/styles/Form.module.css';
@@ -6,6 +7,7 @@ import { API_URL } from '../config/index';
 
 const ImageUpload = ({ eventId, imageUploaded, token }) => {
   const [image, imageSet] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,10 +22,12 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
     formData.append('field', 'image');
 
     try {
+      setLoading(true);
       const res = await post(`${API_URL}/upload`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.status === 200) {
+        setLoading(false);
         imageUploaded();
       }
     } catch (err) {
@@ -45,6 +49,9 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
           />
         </div>
         <input type="submit" value="Upload" className="btn-info" />
+        <div className="center">
+          {loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}
+        </div>
       </form>
     </div>
   );
