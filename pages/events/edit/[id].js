@@ -69,7 +69,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" id="time" value={values.time} onChange={handleChange} required />
+            <input type="time" id="time" value={values.time} onChange={handleChange} required />
           </div>
         </div>
         <div>
@@ -78,7 +78,6 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         </div>
         <input type="submit" value="Update Event" className="btn-info" />
       </form>
-      <h2>Event Image</h2>
       {imagePreview ? <Image src={imagePreview} height={100} width={170} /> : <div> No Image Uploaded </div>}
       <div>
         <button className="btn" onClick={() => showModalSet(true)}>

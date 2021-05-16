@@ -60,7 +60,7 @@ const AddEventPage = ({ token }) => {
           </div>
           <div>
             <label htmlFor="time">Time</label>
-            <input type="text" id="time" value={time} onChange={handleChange} required />
+            <input type="time" id="time" value={time} onChange={handleChange} required />
           </div>
         </div>
         <div>
