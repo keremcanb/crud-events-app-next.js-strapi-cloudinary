@@ -40,6 +40,9 @@ export default function LoginPage() {
           </div>
           <input type="submit" value="Login" className="btn-info" />
         </form>
+        {/* <p>
+          Forgot your password? <Link href="/account/register">Reset Here</Link>
+        </p> */}
         <p>
           Don't have an account? <Link href="/account/register">Register Here</Link>
         </p>

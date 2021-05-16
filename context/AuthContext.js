@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       userSet(null);
       router.push('/');
     } catch (err) {
-      errorSet(err.message);
+      errorSet(err.response.data.message);
     }
   };
 

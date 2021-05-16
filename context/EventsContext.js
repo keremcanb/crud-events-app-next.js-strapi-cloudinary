@@ -19,7 +19,7 @@ export const EventsProvider = ({ children }) => {
       if ([403, 401].includes(err.response.status)) {
         toast.error(`You must login before adding events.`);
       } else {
-        toast.error(err.message);
+        toast.error(err.response.data.message);
       }
     }
   };
@@ -34,7 +34,7 @@ export const EventsProvider = ({ children }) => {
       if ([403, 401].includes(err.response.status)) {
         toast.error(`Invalid permision, you cannot modify this event`);
       } else {
-        toast.error(err.message);
+        toast.error(err.response.data.message);
       }
     }
   };
@@ -47,7 +47,7 @@ export const EventsProvider = ({ children }) => {
         });
         router.reload();
       } catch (err) {
-        toast.error(err.message);
+        toast.error(err.response.data.message);
       }
     }
   };
