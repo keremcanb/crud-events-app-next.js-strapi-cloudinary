@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
       userSet(data.user);
       router.push('/account/dashboard');
     } catch (err) {
-      errorSet(err.message);
+      errorSet(err.response.data.message);
       errorSet(null);
     }
   };
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       userSet(data.user);
       router.push('/account/dashboard');
     } catch (err) {
-      errorSet(err.message);
+      errorSet(err.response.data.message);
       errorSet(null);
     }
   };
