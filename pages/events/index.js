@@ -4,7 +4,7 @@ import { API_URL, PER_PAGE } from '@/config/index';
 
 const EventsPage = ({ events, page, total }) => (
   <Layout>
-    <h1 className="font-bold text-4xl mb-8">Events</h1>
+    <h1>Events</h1>
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
     <Pagination page={page} total={total} />

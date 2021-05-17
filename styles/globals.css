@@ -1,4 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply mb-10;
+  }
+  h2 {
+    @apply text-xl;
+    @apply font-bold;
+  }
+  h3 {
+    @apply text-lg;
+    @apply font-bold;
+  }
+  p {
+    @apply text-base;
+  }
+  button {
+    @apply bg-blue-500;
+    @apply font-bold;
+    @apply hover:bg-blue-700;
+    @apply text-white;
+    @apply py-2;
+    @apply px-4;
+    @apply border;
+    @apply border-blue-700;
+    @apply rounded;
+  }
+  label {
+    @apply block;
+    @apply text-gray-700;
+    @apply text-sm;
+    @apply font-bold;
+    @apply mb-2;
+  }
+  textarea {
+    @apply shadow;
+    @apply appearance-none;
+    @apply border;
+    @apply rounded;
+    @apply w-full;
+    @apply py-2;
+    @apply px-3;
+    @apply text-gray-700;
+    @apply leading-tight;
+  }
+  @font-face {
+    font-family: Proxima Nova;
+    font-weight: 400;
+    src: url(/fonts/proxima-nova/400-regular.woff) format('woff');
+  }
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -87,4 +144,4 @@ h1 {
 
 .btn-icon svg {
   margin-right: 5px;
-}
+} */

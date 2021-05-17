@@ -48,12 +48,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
           />
         </div>
         <div>
-          <button
-            type="submit"
-            className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-          >
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </div>
         <div>{loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}</div>
       </form>

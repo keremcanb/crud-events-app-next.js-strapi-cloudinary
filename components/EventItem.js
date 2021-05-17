@@ -8,19 +8,14 @@ const EventItem = ({ event: { image, time, name, slug, date } }) => (
       <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={170} height={100} />
     </div>
     <div className={styles.info}>
+      <h3>{name}</h3>
       <span>
         {new Date(date).toLocaleDateString('tr-TR')} @ {time}
       </span>
-      <h3>{name}</h3>
     </div>
     <div className={styles.link}>
       <Link href={`/events/${slug}`}>
-        <button
-          type="submit"
-          className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-        >
-          Details
-        </button>
+        <button type="submit">Details</button>
       </Link>
     </div>
   </div>

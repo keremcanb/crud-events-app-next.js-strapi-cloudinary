@@ -30,126 +30,64 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
 
   return token ? (
     <Layout title="Edit Event">
-      <h1 className="font-bold text-4xl mb-8">Edit Event: {values.name}</h1>
+      <h1>Edit Event: {values.name}</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.grid}>
           <div>
-            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-              Event Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={values.name}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            <label htmlFor="name">Event Name</label>
+            <input type="text" id="name" value={values.name} onChange={handleChange} required />
           </div>
           <div>
-            <label htmlFor="performers" className="block text-gray-700 text-sm font-bold mb-2">
-              Performers
-            </label>
-            <input
-              type="text"
-              id="performers"
-              value={values.performers}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            <label htmlFor="performers">Performers</label>
+            <input type="text" id="performers" value={values.performers} onChange={handleChange} required />
           </div>
           <div>
-            <label htmlFor="venue" className="block text-gray-700 text-sm font-bold mb-2">
-              Venue
-            </label>
-            <input
-              type="text"
-              id="venue"
-              value={values.venue}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            <label htmlFor="venue">Venue</label>
+            <input type="text" id="venue" value={values.venue} onChange={handleChange} required />
           </div>
           <div>
-            <label htmlFor="address" className="block text-gray-700 text-sm font-bold mb-2">
-              Address
-            </label>
-            <input
-              type="text"
-              id="address"
-              value={values.address}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            <label htmlFor="address">Address</label>
+            <input type="text" id="address" value={values.address} onChange={handleChange} required />
           </div>
           <div>
-            <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">
-              Date
-            </label>
+            <label htmlFor="date">Date</label>
             <input
               type="date"
               id="date"
               value={moment(values.date).format('yyyy-MM-DD')}
               onChange={handleChange}
               required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div>
-            <label htmlFor="time" className="block text-gray-700 text-sm font-bold mb-2">
-              Time
-            </label>
-            <input
-              type="time"
-              id="time"
-              value={values.time}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            <label htmlFor="time">Time</label>
+            <input type="time" id="time" value={values.time} onChange={handleChange} required />
           </div>
         </div>
         <div>
-          <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">
-            Event Description
-          </label>
-          <textarea
-            type="text"
-            id="description"
-            value={values.description}
-            onChange={handleChange}
-            required
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
+          <label htmlFor="description">Event Description</label>
+          <textarea type="text" id="description" value={values.description} onChange={handleChange} required />
         </div>
         <div className="flex items-center justify-center">
-          <button
-            type="submit"
-            className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-          >
-            Update Event
-          </button>
+          <button type="submit">Update Event</button>
         </div>
       </form>
       {imagePreview ? (
         <>
           <Image src={imagePreview} height={100} width={170} />
-          <h3 className="font-bold text-m mb-3">Change Image</h3>
+          <h3>Change Image</h3>
           <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
         </>
       ) : (
         <>
-          <h3 className="font-bold text-m mb-3">Upload Image</h3>
+          <h3>Upload Image</h3>
           <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
         </>
       )}
     </Layout>
   ) : (
-    <h1 className="font-bold text-4xl mb-8">Not authorized to view this page</h1>
+    <h1>Not authorized to view this page</h1>
   );
 };
 

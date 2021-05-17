@@ -12,14 +12,14 @@ export default function DashboardPage({ events, token }) {
   return token ? (
     <Layout title="User Dashboard">
       <div className={styles.dash}>
-        <h1 className="font-bold text-4xl mb-8">My Events</h1>
+        <h1>My Events</h1>
         {events.map((event) => (
           <DashboardEvent key={event.id} event={event} handleDelete={deleteEvent} token={token} />
         ))}
       </div>
     </Layout>
   ) : (
-    <h1 className="font-bold text-4xl mb-8">Not authorized to view this page</h1>
+    <h1>Not authorized to view this page</h1>
   );
 }
 

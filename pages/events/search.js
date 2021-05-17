@@ -1,12 +1,11 @@
 import { get } from 'axios';
-import Link from 'next/link';
 import qs from 'qs';
 import { Layout, EventItem } from '@/components/index';
 import { API_URL } from '@/config/index';
 
 const SearchPage = ({ events, term }) => (
   <Layout title={`Search Results For: ${term}`}>
-    <h1 className="font-bold text-4xl mb-8">Search results: {term}</h1>
+    <h1>Search results: {term}</h1>
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
   </Layout>
