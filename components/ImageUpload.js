@@ -47,7 +47,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
           />
         </div>
         <div>
-          <button type="submit" className="mt-5">
+          <button className="btn-blue mt-5" type="submit">
             Submit
           </button>
         </div>

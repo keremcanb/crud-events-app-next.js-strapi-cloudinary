@@ -51,7 +51,9 @@ export default function RegisterPage() {
             <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
           <div className="flex justify-center">
-            <button type="submit">Register</button>
+            <button className="btn-blue" type="submit">
+              Register
+            </button>
           </div>
         </form>
         <p>

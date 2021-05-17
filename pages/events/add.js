@@ -62,7 +62,9 @@ const AddEventPage = ({ token }) => {
           <textarea type="text" id="description" value={description} onChange={handleChange} required />
         </div>
         <div className="flex justify-center mt-5">
-          <button type="submit">Add Event</button>
+          <button className="btn-blue" type="submit">
+            Add Event
+          </button>
         </div>
       </form>
     </Layout>

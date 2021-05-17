@@ -5,7 +5,7 @@ const Pagination = ({ page, total }) => (
   <div className="flex justify-center">
     {page > 1 && (
       <Link href={`/events?page=${page - 1}`}>
-        <button type="submit" className="mr-3">
+        <button className="btn-blue mr-3" type="submit">
           Previous
         </button>
       </Link>
@@ -14,7 +14,9 @@ const Pagination = ({ page, total }) => (
     {/* Take total and divide by per page */}
     {page < Math.ceil(total / PER_PAGE) && (
       <Link href={`/events?page=${page + 1}`}>
-        <button type="submit">Next</button>
+        <button className="btn-blue" type="submit">
+          Next
+        </button>
       </Link>
     )}
   </div>
