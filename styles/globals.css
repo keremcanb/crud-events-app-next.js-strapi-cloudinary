@@ -3,21 +3,31 @@
 @tailwind utilities;
 
 @layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
   h1 {
     @apply text-2xl;
-    @apply font-bold;
+
     @apply mb-10;
   }
   h2 {
     @apply text-xl;
-    @apply font-bold;
   }
   h3 {
     @apply text-lg;
-    @apply font-bold;
+  }
+  h4 {
+    @apply text-base;
   }
   p {
     @apply text-base;
+  }
+  a {
+    @apply text-blue-700;
   }
   button {
     @apply bg-blue-500;
@@ -37,6 +47,7 @@
     @apply font-bold;
     @apply mb-2;
   }
+  input,
   textarea {
     @apply shadow;
     @apply appearance-none;
@@ -47,11 +58,6 @@
     @apply px-3;
     @apply text-gray-700;
     @apply leading-tight;
-  }
-  @font-face {
-    font-family: Proxima Nova;
-    font-weight: 400;
-    src: url(/fonts/proxima-nova/400-regular.woff) format('woff');
   }
 }
 
@@ -80,19 +86,6 @@ p {
 
 h1 {
   margin-bottom: 20px;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 40%;
-  right: 40%;
-}
-
-.center-text {
-  text-align: center;
 }
 
 .btn {

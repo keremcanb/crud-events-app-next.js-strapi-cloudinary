@@ -7,7 +7,6 @@ import { parseCookies } from '@/helpers/helpers';
 import { Layout, ImageUpload } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
-import styles from '@/styles/Form.module.css';
 
 const EditEventPage = ({ event: { name, performers, venue, address, date, time, description, image, id }, token }) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
@@ -32,8 +31,8 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
     <Layout title="Edit Event">
       <h1>Edit Event: {values.name}</h1>
       <ToastContainer />
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.grid}>
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 gap-4 mb-5">
           <div>
             <label htmlFor="name">Event Name</label>
             <input type="text" id="name" value={values.name} onChange={handleChange} required />
@@ -69,7 +68,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
           <label htmlFor="description">Event Description</label>
           <textarea type="text" id="description" value={values.description} onChange={handleChange} required />
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex justify-center mt-5">
           <button type="submit">Update Event</button>
         </div>
       </form>

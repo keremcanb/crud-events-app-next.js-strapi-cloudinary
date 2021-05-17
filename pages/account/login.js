@@ -38,7 +38,7 @@ export default function LoginPage() {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex justify-center">
             <button type="submit">Login</button>
           </div>
         </form>

@@ -2,10 +2,12 @@ import Link from 'next/link';
 import { PER_PAGE } from '@/config/index';
 
 const Pagination = ({ page, total }) => (
-  <div className="center">
+  <div className="flex justify-center">
     {page > 1 && (
       <Link href={`/events?page=${page - 1}`}>
-        <button type="submit">Previous</button>
+        <button type="submit" className="mr-3">
+          Previous
+        </button>
       </Link>
     )}
     {/* If not on last page */}

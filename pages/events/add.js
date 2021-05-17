@@ -3,7 +3,6 @@ import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
-import styles from '@/styles/Form.module.css';
 
 const AddEventPage = ({ token }) => {
   const [values, setValues] = useState({
@@ -31,8 +30,8 @@ const AddEventPage = ({ token }) => {
     <Layout title="Add New Event">
       <h1>Add Event</h1>
       <ToastContainer />
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.grid}>
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 gap-4 mb-5">
           <div>
             <label htmlFor="name">Event Name</label>
             <input type="text" id="name" value={name} onChange={handleChange} required />
@@ -62,7 +61,7 @@ const AddEventPage = ({ token }) => {
           <label htmlFor="description">Event Description</label>
           <textarea type="text" id="description" value={description} onChange={handleChange} required />
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex justify-center mt-5">
           <button type="submit">Add Event</button>
         </div>
       </form>

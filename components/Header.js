@@ -37,19 +37,14 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <button onClick={logout} className="btn-secondary btn-icon">
-                  <FaSignOutAlt />
-                </button>
+                <FaSignOutAlt onClick={logout} className="cursor-pointer" />
               </li>
             </>
           ) : (
             // Logged out user menu
             <li>
               <Link href="/account/login">
-                <a className="btn-secondary btn-icon">
-                  <FaSignInAlt />
-                  Login
-                </a>
+                <a>Login</a>
               </Link>
             </li>
           )}
