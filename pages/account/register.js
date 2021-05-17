@@ -29,8 +29,8 @@ export default function RegisterPage() {
   return (
     <Layout title="User Registration">
       <div className={styles.auth}>
-        <h1>
-          <FaUser /> Registration
+        <h1 className="font-bold text-4xl mb-8">
+          <FaUser /> Register
         </h1>
         <ToastContainer />
         <form onSubmit={handleSubmit}>

@@ -11,7 +11,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
       <span>
         {new Date(date).toLocaleDateString('tr-TR')} at {time}
       </span>
-      <h1>{name}</h1>
+      <h1 className="font-bold text-4xl mb-8">{name}</h1>
       {image && (
         <div className={styles.image}>
           <Image src={image.formats.medium.url} width={960} height={600} />

@@ -25,7 +25,7 @@ export default function LoginPage() {
   return (
     <Layout title="User Login">
       <div className={styles.auth}>
-        <h1>
+        <h1 className="font-bold text-4xl mb-8">
           <FaUser /> Login
         </h1>
         <ToastContainer />

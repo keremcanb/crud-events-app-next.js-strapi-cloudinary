@@ -36,8 +36,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
   };
 
   return (
-    <div className={styles.form}>
-      <h1>Upload Event Image</h1>
+    <div>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className={styles.file}>
@@ -48,10 +47,15 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
             }}
           />
         </div>
-        <input type="submit" value="Upload" className="btn-info" />
-        <div className="center">
-          {loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}
+        <div>
+          <button
+            type="submit"
+            className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+          >
+            Upload Image
+          </button>
         </div>
+        <div>{loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}</div>
       </form>
     </div>
   );

@@ -15,7 +15,12 @@ const EventItem = ({ event: { image, time, name, slug, date } }) => (
     </div>
     <div className={styles.link}>
       <Link href={`/events/${slug}`}>
-        <a className="btn">Details</a>
+        <button
+          type="submit"
+          className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+        >
+          Details
+        </button>
       </Link>
     </div>
   </div>
