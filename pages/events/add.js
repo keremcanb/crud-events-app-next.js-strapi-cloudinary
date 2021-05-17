@@ -4,7 +4,6 @@ import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
-
 import styles from '@/styles/Form.module.css';
 
 const AddEventPage = ({ token }) => {

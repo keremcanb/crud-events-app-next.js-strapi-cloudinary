@@ -5,8 +5,12 @@ import styles from '@/styles/DashboardEvent.module.css';
 
 const DashboardEvent = ({ event: { slug, name, id, image }, handleDelete, token }) => (
   <div className={styles.event}>
-    <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={100} height={50} />
-    <h4 className="ml-5">
+    <Link href={`/events/${slug}`}>
+      <a>
+        <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={100} height={50} />
+      </a>
+    </Link>
+    <h4 className="ml-5 block text-gray-700 text-m font-bold mb-2">
       <Link href={`/events/${slug}`}>
         <a>{name}</a>
       </Link>

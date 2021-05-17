@@ -6,10 +6,7 @@ import { API_URL } from '@/config/index';
 
 const SearchPage = ({ events, term }) => (
   <Layout title={`Search Results For: ${term}`}>
-    <Link href="/events">
-      <a className="btn-secondary">Go back</a>
-    </Link>
-    <h1>Search results: {term}</h1>
+    <h1 className="font-bold text-4xl mb-8">Search results: {term}</h1>
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
   </Layout>
