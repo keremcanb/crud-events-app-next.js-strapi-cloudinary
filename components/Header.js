@@ -16,7 +16,7 @@ const Header = () => {
       </Link>
       <Search />
       <nav>
-        <ul className="flex justify-center items-center gap-3">
+        <ul className="flex justify-center items-center gap-3 text-lg">
           <li>
             <Link href="/events">
               <a>Events</a>
@@ -24,7 +24,7 @@ const Header = () => {
           </li>
           {/* Logged in user menu */}
           {user ? (
-            <div className="flex justify-center items-center gap-3">
+            <div className="flex justify-center items-center gap-3 text-lg">
               <li>
                 <Link href="/account/dashboard">
                   <a>Dashboard</a>
