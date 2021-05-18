@@ -11,7 +11,7 @@ const Header = () => {
     <header className="flex justify-between items-center bg-white text-black h-px-60 px-20 shadow-md">
       <Link href="/">
         <h1>
-          <a className="uppercase text-red-600">DJ Events</a>
+          <a className="uppercase cursor-pointer text-red-600">DJ Events</a>
         </h1>
       </Link>
       <Search />
