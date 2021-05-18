@@ -5,7 +5,7 @@ import { API_URL } from '@/config/index';
 
 const Home = ({ events }) => (
   <Layout>
-    <h1 className="text-center">Upcoming Events</h1>
+    <h1>Upcoming Events</h1>
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
     {events && events.length > 0 && (

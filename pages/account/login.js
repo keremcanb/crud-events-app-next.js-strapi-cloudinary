@@ -43,10 +43,7 @@ export default function LoginPage() {
             </button>
           </div>
         </form>
-        {/* <p>
-          Forgot your password? <Link href="/account/register">Reset Here</Link>
-        </p> */}
-        <p>
+        <p className="text-center">
           Don't have an account? <Link href="/account/register">Register Here</Link>
         </p>
       </div>

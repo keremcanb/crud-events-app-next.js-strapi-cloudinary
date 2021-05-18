@@ -11,7 +11,7 @@ export default function DashboardPage({ events, token }) {
   return token ? (
     <Layout title="User Dashboard">
       <div>
-        <h1 className="text-center">My Events</h1>
+        <h1>My Events</h1>
         {events.map((event) => (
           <DashboardEvent key={event.id} event={event} handleDelete={deleteEvent} token={token} />
         ))}

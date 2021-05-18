@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body {
+    @apply leading-7;
+  }
   h1,
   h2,
   h3,
@@ -10,8 +14,9 @@
     @apply font-bold;
   }
   h1 {
-    @apply text-2xl;
+    @apply text-3xl;
     @apply mb-10;
+    @apply text-center;
   }
   h2 {
     @apply text-xl;
@@ -23,22 +28,11 @@
     @apply text-base;
   }
   p {
-    @apply text-base;
+    @apply my-5;
   }
   a {
     @apply text-blue-900;
   }
-  /* button {
-    @apply bg-blue-500;
-    @apply font-bold;
-    @apply hover:bg-blue-700;
-    @apply text-white;
-    @apply py-2;
-    @apply px-4;
-    @apply border;
-    @apply border-blue-700;
-    @apply rounded;
-  } */
   label {
     @apply block;
     @apply text-gray-700;
