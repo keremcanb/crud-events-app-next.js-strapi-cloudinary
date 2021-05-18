@@ -6,7 +6,7 @@ const Layout = ({ title, keywords, description, children }) => {
   const router = useRouter();
 
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -16,7 +16,7 @@ const Layout = ({ title, keywords, description, children }) => {
       {router.pathname === '/' && <Showcase />}
       <div className="max-w-screen-lg my-20 mx-auto px-20">{children}</div>
       <Footer />
-    </div>
+    </>
   );
 };
 

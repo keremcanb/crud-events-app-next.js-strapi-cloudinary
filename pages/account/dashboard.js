@@ -10,12 +10,10 @@ export default function DashboardPage({ events, token }) {
 
   return token ? (
     <Layout title="User Dashboard">
-      <div>
-        <h1>My Events</h1>
-        {events.map((event) => (
-          <DashboardEvent key={event.id} event={event} handleDelete={deleteEvent} token={token} />
-        ))}
-      </div>
+      <h1>My Events</h1>
+      {events.map((event) => (
+        <DashboardEvent key={event.id} event={event} handleDelete={deleteEvent} token={token} />
+      ))}
     </Layout>
   ) : (
     <h1>Not authorized to view this page</h1>

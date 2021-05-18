@@ -6,7 +6,7 @@ import { API_URL } from '@/config/index';
 
 const EventPage = ({ event: { name, date, time, image, performers, description, venue, address } }) => (
   <Layout title={`Event ${name}`}>
-    <div className="relative">
+    <>
       <h1>{name}</h1>
       <div className="text-center mb-3">
         <h2>
@@ -31,7 +31,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
       <Link href="/events">
         <a className="block">{'<'}Go Back</a>
       </Link>
-    </div>
+    </>
   </Layout>
 );
 
