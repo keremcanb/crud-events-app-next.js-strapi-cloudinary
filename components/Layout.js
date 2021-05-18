@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import styles from '@/styles/Layout.module.css';
 import { Header, Footer, Showcase } from '@/components/index';
 
 const Layout = ({ title, keywords, description, children }) => {
@@ -15,7 +14,7 @@ const Layout = ({ title, keywords, description, children }) => {
       </Head>
       <Header />
       {router.pathname === '/' && <Showcase />}
-      <div className={styles.container}>{children}</div>
+      <div className="max-w-screen-lg my-20 px-20 mx-auto">{children}</div>
       <Footer />
     </div>
   );

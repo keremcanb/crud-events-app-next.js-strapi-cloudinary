@@ -26,7 +26,7 @@
     @apply text-base;
   }
   a {
-    @apply text-blue-700;
+    @apply text-blue-900;
   }
   /* button {
     @apply bg-blue-500;

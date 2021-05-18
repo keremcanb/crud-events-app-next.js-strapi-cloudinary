@@ -14,7 +14,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
       <h1>{name}</h1>
       {image && (
         <div className={styles.image}>
-          <Image src={image.formats.medium.url} width={960} height={600} />
+          <Image src={image.formats.medium.url} width={640} height={480} />
         </div>
       )}
       <p>{performers}</p>

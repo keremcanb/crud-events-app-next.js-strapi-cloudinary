@@ -1,23 +1,22 @@
 import { useContext } from 'react';
 import Link from 'next/link';
-import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaSignOutAlt } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
-import styles from '@/styles/Header.module.css';
 import { Search } from '@/components/index';
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link href="/">
-          <a>DJ Events</a>
-        </Link>
-      </div>
+    <header className="flex justify-between items-center h-15 px-20 shadow-md">
+      <Link href="/">
+        <h1>
+          <a className="uppercase text-red-600">DJ Events</a>
+        </h1>
+      </Link>
       <Search />
       <nav>
-        <ul>
+        <ul className="flex justify-center items-center gap-3">
           <li>
             <Link href="/events">
               <a>Events</a>
@@ -25,7 +24,7 @@ const Header = () => {
           </li>
           {/* Logged in user menu */}
           {user ? (
-            <>
+            <div className="flex justify-center items-center gap-3">
               <li>
                 <Link href="/account/dashboard">
                   <a>Dashboard</a>
@@ -39,7 +38,7 @@ const Header = () => {
               <li>
                 <FaSignOutAlt onClick={logout} className="cursor-pointer" />
               </li>
-            </>
+            </div>
           ) : (
             // Logged out user menu
             <li>

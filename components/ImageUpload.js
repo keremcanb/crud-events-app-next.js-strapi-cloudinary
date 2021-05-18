@@ -38,20 +38,16 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
     <div>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="file"
-            onChange={(e) => {
-              imageSet(e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          <button className="btn-blue mt-5" type="submit">
-            Submit
-          </button>
-        </div>
-        <div>{loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}</div>
+        <input
+          type="file"
+          onChange={(e) => {
+            imageSet(e.target.files[0]);
+          }}
+        />
+        <button className="btn-blue mt-5" type="submit">
+          Submit
+        </button>
+        {loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}
       </form>
     </div>
   );

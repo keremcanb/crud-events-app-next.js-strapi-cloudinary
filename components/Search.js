@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '@/styles/Search.module.css';
 
 const Search = () => {
   const [term, termSet] = useState('');
@@ -13,7 +12,7 @@ const Search = () => {
   };
 
   return (
-    <div className={styles.search}>
+    <div>
       <form onSubmit={handleSubmit}>
         <input type="text" value={term} onChange={(e) => termSet(e.target.value)} placeholder="Search events" />
       </form>
