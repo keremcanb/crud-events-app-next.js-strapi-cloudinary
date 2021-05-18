@@ -3,27 +3,26 @@ import Image from 'next/image';
 import { get } from 'axios';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
-import styles from '@/styles/Event.module.css';
 
 const EventPage = ({ event: { name, date, time, image, performers, description, venue, address } }) => (
   <Layout title={`Event ${name}`}>
-    <div className={styles.event}>
+    <div className="relative">
       <span>
         {new Date(date).toLocaleDateString('tr-TR')} @ {time}
       </span>
       <h1>{name}</h1>
       {image && (
-        <div className={styles.image}>
+        <div className="mb-px-20">
           <Image src={image.formats.medium.url} width={640} height={480} />
         </div>
       )}
-      <p>{performers}</p>
+      <p className="my-px-10">{performers}</p>
       <h3>Description:</h3>
       <p>{description}</p>
       <h3>Venue: {venue}</h3>
       <p>{address}</p>
       <Link href="/events">
-        <a className={styles.back}>{'<'}Go Back</a>
+        <a className="block">{'<'}Go Back</a>
       </Link>
     </div>
   </Layout>

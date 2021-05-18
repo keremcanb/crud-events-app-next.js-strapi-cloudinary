@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Layout } from '@/components/index';
-import styles from '@/styles/AuthForm.module.css';
 
 export default function LoginPage() {
   const [values, setValues] = useState({ email: '', password: '' });
@@ -24,9 +23,9 @@ export default function LoginPage() {
 
   return (
     <Layout title="User Login">
-      <div className={styles.auth}>
+      <div className="max-w-md m-auto p-10 shadow-md">
         <h1>
-          <FaUser /> Login
+          <FaUser className="inline-block" /> Login
         </h1>
         <ToastContainer />
         <form onSubmit={handleSubmit}>
@@ -34,11 +33,11 @@ export default function LoginPage() {
             <label htmlFor="email">Email Address</label>
             <input type="email" id="email" value={email} onChange={handleChange} required />
           </div>
-          <div>
+          <div className="mt-5">
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center my-5">
             <button className="btn-blue" type="submit">
               Login
             </button>

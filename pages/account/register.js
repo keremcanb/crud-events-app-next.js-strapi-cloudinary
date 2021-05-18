@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Layout } from '@/components/index';
-import styles from '@/styles/AuthForm.module.css';
 
 export default function RegisterPage() {
   const [values, setValues] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
@@ -28,9 +27,9 @@ export default function RegisterPage() {
 
   return (
     <Layout title="User Registration">
-      <div className={styles.auth}>
+      <div className="max-w-md m-auto p-10 shadow-md">
         <h1>
-          <FaUser /> Register
+          <FaUser className="inline-block" /> Register
         </h1>
         <ToastContainer />
         <form onSubmit={handleSubmit}>
@@ -38,19 +37,19 @@ export default function RegisterPage() {
             <label htmlFor="username">Username</label>
             <input type="text" id="username" value={username} onChange={handleChange} required />
           </div>
-          <div>
+          <div className="mt-5">
             <label htmlFor="email">Email Address</label>
             <input type="email" id="email" value={email} onChange={handleChange} required />
           </div>
-          <div>
+          <div className="mt-5">
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
-          <div>
+          <div className="mt-5">
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center my-5">
             <button className="btn-blue" type="submit">
               Register
             </button>
