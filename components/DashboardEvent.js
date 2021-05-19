@@ -17,7 +17,7 @@ const DashboardEvent = ({ event: { slug, name, id, image }, handleDelete, token 
     <div className="flex items-center justify-center ">
       <Link href={`/events/edit/${id}`}>
         <a>
-          <FaPencilAlt className="mr-5 text-xl" />
+          <FaPencilAlt className="mr-10 text-xl" />
         </a>
       </Link>
       <a href="#" onClick={() => handleDelete(id, token)}>

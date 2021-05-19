@@ -1,7 +1,7 @@
 .showcase {
   height: 300px;
   width: 100%;
-  background: #000 url("/images/showcase.jpg") no-repeat center center;
+  background: #000 url('/images/showcase.jpg') no-repeat center center;
   color: #fff;
   position: relative;
   display: flex;
@@ -9,10 +9,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2rem;
 }
 
 .showcase::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
