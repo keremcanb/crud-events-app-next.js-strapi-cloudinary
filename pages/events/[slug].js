@@ -29,7 +29,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
         </div>
       </div>
       <Link href="/events">
-        <a className="block">{'<'}Go Back</a>
+        <a className="block text-center">{'<'}Go Back</a>
       </Link>
     </div>
   </Layout>
