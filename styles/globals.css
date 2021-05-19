@@ -32,7 +32,7 @@
     @apply text-blue-900;
   }
   nav a:hover {
-    @apply underline;
+    @apply text-black;
   }
   label {
     @apply block text-gray-700 text-sm font-bold mb-2;

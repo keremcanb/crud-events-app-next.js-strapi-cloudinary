@@ -9,11 +9,11 @@ const DashboardEvent = ({ event: { slug, name, id, image }, handleDelete, token 
         <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={170} height={100} />
       </a>
     </Link>
-    <h4 className="text-center">
+    <h3 className="text-center">
       <Link href={`/events/${slug}`}>
         <a>{name}</a>
       </Link>
-    </h4>
+    </h3>
     <div className="flex items-center justify-center ">
       <Link href={`/events/edit/${id}`}>
         <a>

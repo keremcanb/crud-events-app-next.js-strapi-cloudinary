@@ -23,7 +23,7 @@ export default function LoginPage() {
 
   return (
     <Layout title="User Login">
-      <div className="max-w-md m-auto md:p-10 shadow-md">
+      <div className="max-w-md m-auto p-10 shadow-lg">
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Login
         </h1>
