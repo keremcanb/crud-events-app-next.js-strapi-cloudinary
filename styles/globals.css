@@ -14,9 +14,7 @@
     @apply font-bold;
   }
   h1 {
-    @apply text-3xl;
-    @apply mb-10;
-    @apply text-center;
+    @apply text-3xl mb-10 text-center;
   }
   h2 {
     @apply text-xl;
@@ -37,23 +35,11 @@
     @apply underline;
   }
   label {
-    @apply block;
-    @apply text-gray-700;
-    @apply text-sm;
-    @apply font-bold;
-    @apply mb-2;
+    @apply block text-gray-700 text-sm font-bold mb-2;
   }
   input,
   textarea {
-    @apply shadow;
-    @apply appearance-none;
-    @apply border;
-    @apply rounded;
-    @apply w-full;
-    @apply py-2;
-    @apply px-3;
-    @apply text-gray-700;
-    @apply leading-tight;
+    @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
   }
 }
 
