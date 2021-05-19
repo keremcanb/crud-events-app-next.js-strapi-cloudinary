@@ -27,7 +27,7 @@ export default function RegisterPage() {
 
   return (
     <Layout title="User Registration">
-      <div className="max-w-md m-auto p-10 shadow-md">
+      <div className="max-w-md m-auto md:p-10 shadow-md">
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Register
         </h1>

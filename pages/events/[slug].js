@@ -6,7 +6,7 @@ import { API_URL } from '@/config/index';
 
 const EventPage = ({ event: { name, date, time, image, performers, description, venue, address } }) => (
   <Layout title={`Event ${name}`}>
-    <>
+    <div className="grid grid-rows justify-center items-center gap-4 my-5">
       <h1>{name}</h1>
       <div className="text-center mb-3">
         <h2>
@@ -14,24 +14,24 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
         </h2>
       </div>
       {image && (
-        <div className="mb-px-20">
+        <div>
           <Image src={image.formats.medium.url} width={800} height={600} />
         </div>
       )}
-      <div className="grid-rows md:grid-cols-2 justify-center items-center gap-4 my-5">
-        <>
+      <div className="grid grid-rows md:grid-cols-2 justify-center items-center gap-4 my-5">
+        <div>
           <h3>Description:</h3>
           <p>{description}</p>
-        </>
-        <>
+        </div>
+        <div>
           <h3>Venue: {venue}</h3>
           <p>{address}</p>
-        </>
+        </div>
       </div>
       <Link href="/events">
         <a className="block">{'<'}Go Back</a>
       </Link>
-    </>
+    </div>
   </Layout>
 );
 
