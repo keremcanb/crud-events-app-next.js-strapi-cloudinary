@@ -8,11 +8,9 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="flex justify-between items-center bg-white text-black h-px-60 px-20 shadow-md">
+    <header className="flex justify-between items-center bg-white text-black h-16 px-5 shadow-md">
       <Link href="/">
-        <h1>
-          <a className="uppercase cursor-pointer text-red-600">DJ Events</a>
-        </h1>
+        <a className="uppercase cursor-pointer text-red-600 text-3xl">DJ Events</a>
       </Link>
       <Search />
       <nav>
@@ -24,7 +22,7 @@ const Header = () => {
           </li>
           {/* Logged in user menu */}
           {user ? (
-            <div className="flex justify-center items-center gap-3 text-lg">
+            <>
               <li>
                 <Link href="/account/dashboard">
                   <a>Dashboard</a>
@@ -38,7 +36,7 @@ const Header = () => {
               <li>
                 <FaSignOutAlt onClick={logout} className="cursor-pointer" />
               </li>
-            </div>
+            </>
           ) : (
             // Logged out user menu
             <li>

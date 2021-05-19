@@ -33,6 +33,9 @@
   a {
     @apply text-blue-900;
   }
+  nav a:hover {
+    @apply underline;
+  }
   label {
     @apply block;
     @apply text-gray-700;
