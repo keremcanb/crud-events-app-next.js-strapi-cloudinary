@@ -75,16 +75,16 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         </div>
       </form>
       {imagePreview ? (
-        <>
+        <div className="flex flex-col justify-center md:justify-around items-center mt-5">
           <Image src={imagePreview} height={100} width={170} />
-          <h3>Change Image</h3>
+          <h3 className="my-2">Change Image</h3>
           <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
-        </>
+        </div>
       ) : (
-        <>
+        <div className="flex flex-col justify-center md:justify-around items-center mt-5">
           <h3>Upload Image</h3>
           <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
-        </>
+        </div>
       )}
     </Layout>
   ) : (

@@ -14,7 +14,7 @@ const Header = () => {
       </Link>
       <Search />
       <nav>
-        <ul className="flex flex-col md:flex-row justify-center items-center gap-3 text-lg">
+        <ul className="flex flex-col md:flex-row justify-center items-center gap-3 text-lg mb-2 md:mb-0">
           <li>
             <Link href="/events">
               <a>Events</a>
