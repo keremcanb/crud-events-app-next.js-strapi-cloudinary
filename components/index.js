@@ -8,5 +8,6 @@ import Pagination from './Pagination';
 import Search from './Search';
 import Showcase from './Showcase';
 import Button from './Button';
+import Card from './Card';
 
-export { Layout, EventItem, DashboardEvent, Footer, Header, ImageUpload, Pagination, Search, Showcase, Button };
+export { Layout, EventItem, DashboardEvent, Footer, Header, ImageUpload, Pagination, Search, Showcase, Button, Card };

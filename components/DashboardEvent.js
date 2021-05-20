@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaPencilAlt, FaTimes } from 'react-icons/fa';
+import { Card } from '@/components/index';
 
 const DashboardEvent = ({ event: { slug, name, id, image }, handleDelete, token }) => (
-  <div className="grid grid-rows md:grid-cols-3 justify-center md:justify-between items-center gap-3 | mb-5 p-2 | card">
+  <Card>
     <Link href={`/events/${slug}`}>
       <a>
         <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={170} height={100} />
       </a>
     </Link>
-    <h3 className="text-center">
+    <h3>
       <Link href={`/events/${slug}`}>
         <a>{name}</a>
       </Link>
@@ -24,7 +25,7 @@ const DashboardEvent = ({ event: { slug, name, id, image }, handleDelete, token 
         <FaTimes className="text-red-600 text-xl" />
       </a>
     </div>
-  </div>
+  </Card>
 );
 
 export default DashboardEvent;

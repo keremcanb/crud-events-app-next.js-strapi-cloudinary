@@ -1,13 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Card } from '@/components/index';
 
 const EventItem = ({ event: { image, name, slug } }) => (
-  <Link href={`/events/${slug}`}>
-    <div className="flex flex-col md:flex-row justify-center md:justify-around items-center gap-3 | mb-5 p-4 | card cursor-pointer">
-      <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={170} height={100} />
-      <h3>{name}</h3>
-    </div>
-  </Link>
+  <Card>
+    <Link href={`/events/${slug}`}>
+      <a>
+        <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={170} height={100} />
+      </a>
+    </Link>
+    <h3>
+      <Link href={`/events/${slug}`}>
+        <a>{name}</a>
+      </Link>
+    </h3>
+  </Card>
 );
 
 export default EventItem;
