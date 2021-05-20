@@ -9,14 +9,9 @@ const Home = ({ events }) => (
     {events && events.length === 0 && <h3>No events to show</h3>}
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
     {events && events.length > 0 && (
-      <div className="flex justify-center">
-        <Link href="/events">
-          <button className="btn-blue" type="submit">
-            View All Events
-          </button>
-        </Link>
-      </div>
-      // <Button value="View All Events" />
+      <Link href="/events" passHref>
+        <Button value="View All Events" />
+      </Link>
     )}
   </Layout>
 );

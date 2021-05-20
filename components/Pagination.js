@@ -3,23 +3,17 @@ import { Button } from '@/components/index';
 import { PER_PAGE } from '@/config/index';
 
 const Pagination = ({ page, total }) => (
-  <div className="flex justify-center">
+  <div className="flex justify-center gap-2">
     {page > 1 && (
       <Link href={`/events?page=${page - 1}`}>
-        <button className="btn-blue mr-3" type="submit">
-          Previous
-        </button>
-        {/* <Button value='Previous' /> */}
+        <Button value="Previous" />
       </Link>
     )}
     {/* If not on last page */}
     {/* Take total and divide by per page */}
     {page < Math.ceil(total / PER_PAGE) && (
       <Link href={`/events?page=${page + 1}`}>
-        <button className="btn-blue" type="submit">
-          Next
-        </button>
-        {/* <Button value='Next' /> */}
+        <Button value="Next" />
       </Link>
     )}
   </div>
