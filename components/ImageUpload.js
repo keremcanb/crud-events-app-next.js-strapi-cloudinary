@@ -34,16 +34,15 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
     }
   };
 
+  const handleChange = (e) => {
+    imageSet(e.target.files[0]);
+  };
+
   return (
     <>
       <ToastContainer />
       <form onSubmit={handleSubmit} className="flex flex-col justify-center md:justify-around items-center">
-        <input
-          type="file"
-          onChange={(e) => {
-            imageSet(e.target.files[0]);
-          }}
-        />
+        <input type="file" onChange={handleChange} />
         <button className="btn-blue mt-5" type="submit">
           Submit
         </button>

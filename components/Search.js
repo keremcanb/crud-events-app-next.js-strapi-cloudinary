@@ -11,9 +11,13 @@ const Search = () => {
     termSet('');
   };
 
+  const handleChange = (e) => {
+    termSet(e.target.value);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={term} onChange={(e) => termSet(e.target.value)} placeholder="Search events" />
+      <input type="text" value={term} onChange={handleChange} placeholder="Search events" />
     </form>
   );
 };
