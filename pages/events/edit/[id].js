@@ -71,13 +71,17 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
         <Button text="Update Event" />
       </form>
       {imagePreview ? (
-        <div className="flex flex-col justify-center md:justify-around items-center mt-5">
-          <Image src={imagePreview} height={100} width={170} />
-          <h3 className="my-2">Change Image</h3>
-          <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
+        <div className="grid grid-rows md:grid-cols-2 justify-center items-center gap-4 my-5">
+          <div className="flex justify-center">
+            <Image src={imagePreview} height={100} width={170} />
+          </div>
+          <div>
+            <h3 className="my-2 text-center">Change Image</h3>
+            <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
+          </div>
         </div>
       ) : (
-        <div className="flex flex-col justify-center md:justify-around items-center mt-5">
+        <div>
           <h3>Upload Image</h3>
           <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
         </div>
