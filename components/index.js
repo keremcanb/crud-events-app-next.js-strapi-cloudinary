@@ -9,5 +9,19 @@ import Search from './Search';
 import Showcase from './Showcase';
 import Button from './Button';
 import Card from './Card';
+import Spinner from './Spinner';
 
-export { Layout, EventItem, DashboardEvent, Footer, Header, ImageUpload, Pagination, Search, Showcase, Button, Card };
+export {
+  Layout,
+  EventItem,
+  DashboardEvent,
+  Footer,
+  Header,
+  ImageUpload,
+  Pagination,
+  Search,
+  Showcase,
+  Button,
+  Card,
+  Spinner
+};
