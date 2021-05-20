@@ -31,7 +31,7 @@
   a {
     @apply text-blue-900;
   }
-  nav a:hover {
+  a:hover {
     @apply text-black;
   }
   label {

@@ -10,7 +10,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
       <h1>{name}</h1>
       <div className="text-center mb-3">
         <h2>
-          Featuring {performers} @ {new Date(date).toLocaleDateString('tr-TR')} {time}
+          Featuring: {performers} @ {new Date(date).toLocaleDateString('tr-TR')} {time}
         </h2>
       </div>
       {image && (
