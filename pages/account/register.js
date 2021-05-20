@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
-import { Layout } from '@/components/index';
+import { Layout, Button } from '@/components/index';
 
 export default function RegisterPage() {
   const [values, setValues] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
@@ -49,11 +49,7 @@ export default function RegisterPage() {
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
-          <div className="flex justify-center my-5">
-            <button className="btn-blue" type="submit">
-              Register
-            </button>
-          </div>
+          <Button value="Register" />
         </form>
         <p className="text-center">
           Already have an account? <Link href="/account/login">Login Here</Link>

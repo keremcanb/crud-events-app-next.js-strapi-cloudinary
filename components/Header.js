@@ -8,7 +8,7 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center gap-3 | bg-white text-black shadow-md | h:auto md:h-16 px-5 mt-3 md:mt-0">
+    <header className="flex flex-col md:flex-row justify-between items-center gap-3 | bg-white text-black shadow-md | h:auto md:h-16 px-20 mt-3 md:mt-0">
       <Link href="/">
         <a className="uppercase cursor-pointer text-red-600 text-3xl">DJ Events</a>
       </Link>

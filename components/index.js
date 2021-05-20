@@ -7,5 +7,6 @@ import ImageUpload from './ImageUpload';
 import Pagination from './Pagination';
 import Search from './Search';
 import Showcase from './Showcase';
+import Button from './Button';
 
-export { Layout, EventItem, DashboardEvent, Footer, Header, ImageUpload, Pagination, Search, Showcase };
+export { Layout, EventItem, DashboardEvent, Footer, Header, ImageUpload, Pagination, Search, Showcase, Button };

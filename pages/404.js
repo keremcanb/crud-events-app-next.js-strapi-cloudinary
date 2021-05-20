@@ -8,7 +8,7 @@ const NotFoundPage = () => (
       <h1 className="inline-flex">
         <FaExclamationTriangle /> 404
       </h1>
-      <h4>Oops, looks like somebody got lost</h4>
+      <h4>Page not Found</h4>
       <Link href="/">Go Back Home</Link>
     </div>
   </Layout>

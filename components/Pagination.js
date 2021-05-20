@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Button } from '@/components/index';
 import { PER_PAGE } from '@/config/index';
 
 const Pagination = ({ page, total }) => (
@@ -8,6 +9,7 @@ const Pagination = ({ page, total }) => (
         <button className="btn-blue mr-3" type="submit">
           Previous
         </button>
+        {/* <Button value='Previous' /> */}
       </Link>
     )}
     {/* If not on last page */}
@@ -17,6 +19,7 @@ const Pagination = ({ page, total }) => (
         <button className="btn-blue" type="submit">
           Next
         </button>
+        {/* <Button value='Next' /> */}
       </Link>
     )}
   </div>

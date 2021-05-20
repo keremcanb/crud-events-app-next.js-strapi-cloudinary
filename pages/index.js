@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { get } from 'axios';
-import { Layout, EventItem } from '@/components/index';
+import { Layout, EventItem, Button } from '@/components/index';
 import { API_URL } from '@/config/index';
 
 const Home = ({ events }) => (
@@ -16,6 +16,7 @@ const Home = ({ events }) => (
           </button>
         </Link>
       </div>
+      // <Button value="View All Events" />
     )}
   </Layout>
 );

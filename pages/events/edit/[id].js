@@ -4,7 +4,7 @@ import { get } from 'axios';
 import moment from 'moment';
 import { ToastContainer } from 'react-toastify';
 import { parseCookies } from '@/helpers/helpers';
-import { Layout, ImageUpload } from '@/components/index';
+import { Layout, ImageUpload, Button } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
 
@@ -68,11 +68,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
           <label htmlFor="description">Event Description</label>
           <textarea type="text" id="description" value={values.description} onChange={handleChange} required rows="5" />
         </div>
-        <div className="flex justify-center mt-5">
-          <button className="btn-blue" type="submit">
-            Update Event
-          </button>
-        </div>
+        <Button value="Update Event" />
       </form>
       {imagePreview ? (
         <div className="flex flex-col justify-center md:justify-around items-center mt-5">

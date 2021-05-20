@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { post } from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { Button } from '@/components/index';
 import { API_URL } from '../config/index';
 
 const ImageUpload = ({ eventId, imageUploaded, token }) => {
@@ -43,9 +44,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
       <ToastContainer />
       <form onSubmit={handleSubmit} className="flex flex-col justify-center md:justify-around items-center">
         <input type="file" onChange={handleChange} />
-        <button className="btn-blue mt-5" type="submit">
-          Submit
-        </button>
+        <Button value="Upload Image" />
         {loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}
       </form>
     </>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
-import { Layout } from '@/components/index';
+import { Layout, Button } from '@/components/index';
 
 export default function LoginPage() {
   const [values, setValues] = useState({ email: '', password: '' });
@@ -37,11 +37,7 @@ export default function LoginPage() {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
-          <div className="flex justify-center my-5">
-            <button className="btn-blue" type="submit">
-              Login
-            </button>
-          </div>
+          <Button value="Login" />
         </form>
         <p className="text-center">
           Don't have an account? <Link href="/account/register">Register Here</Link>

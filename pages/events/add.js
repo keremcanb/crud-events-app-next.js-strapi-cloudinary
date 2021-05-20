@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
-import { Layout } from '@/components/index';
+import { Layout, Button } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 
 const AddEventPage = ({ token }) => {
@@ -61,11 +61,7 @@ const AddEventPage = ({ token }) => {
           <label htmlFor="description">Event Description</label>
           <textarea type="text" id="description" value={description} onChange={handleChange} required rows="5" />
         </div>
-        <div className="flex justify-center mt-5">
-          <button className="btn-blue" type="submit">
-            Add Event
-          </button>
-        </div>
+        <Button value="Add Event" />
       </form>
     </Layout>
   ) : (
