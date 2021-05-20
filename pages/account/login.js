@@ -37,7 +37,7 @@ export default function LoginPage() {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
-          <Button value="Login" />
+          <Button text="Login" />
         </form>
         <p className="text-center">
           Don't have an account? <Link href="/account/register">Register Here</Link>

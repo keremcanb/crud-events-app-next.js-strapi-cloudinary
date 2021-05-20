@@ -10,7 +10,7 @@ const Home = ({ events }) => (
     {events && events.map((event) => <EventItem key={event.name} event={event} />)}
     {events && events.length > 0 && (
       <Link href="/events" passHref>
-        <Button value="View All Events" />
+        <Button text="View All Events" />
       </Link>
     )}
   </Layout>

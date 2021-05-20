@@ -49,7 +49,7 @@ export default function RegisterPage() {
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
-          <Button value="Register" />
+          <Button text="Register" />
         </form>
         <p className="text-center">
           Already have an account? <Link href="/account/login">Login Here</Link>

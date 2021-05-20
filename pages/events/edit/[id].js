@@ -68,7 +68,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
           <label htmlFor="description">Event Description</label>
           <textarea type="text" id="description" value={values.description} onChange={handleChange} required rows="5" />
         </div>
-        <Button value="Update Event" />
+        <Button text="Update Event" />
       </form>
       {imagePreview ? (
         <div className="flex flex-col justify-center md:justify-around items-center mt-5">

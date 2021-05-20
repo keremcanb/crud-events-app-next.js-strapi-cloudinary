@@ -44,7 +44,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
       <ToastContainer />
       <form onSubmit={handleSubmit} className="flex flex-col justify-center md:justify-around items-center">
         <input type="file" onChange={handleChange} />
-        <Button value="Upload Image" />
+        <Button text="Upload Image" />
         {loading && <Image src="/images/spinner.gif" alt="Loading" width={64} height={64} />}
       </form>
     </>
