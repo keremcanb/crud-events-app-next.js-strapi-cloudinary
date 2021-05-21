@@ -3,7 +3,7 @@ import { Button } from '@/components/index';
 import { PER_PAGE } from '@/config/index';
 
 const Pagination = ({ page, total }) => (
-  <div className="flex justify-center gap-2">
+  <div className="flex justify-center gap-10">
     {page > 1 && (
       <Link href={`/events?page=${page - 1}`} passHref>
         <Button text="Previous" />

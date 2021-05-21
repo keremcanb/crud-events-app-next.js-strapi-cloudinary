@@ -73,7 +73,7 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
       {imagePreview ? (
         <div className="grid grid-rows md:grid-cols-2 justify-center items-center gap-4 my-5">
           <div className="flex justify-center">
-            <Image src={imagePreview} height={100} width={170} />
+            <Image src={imagePreview} height={170} width={250} className="rounded" />
           </div>
           <div>
             <h3 className="my-2 text-center">Change Image</h3>

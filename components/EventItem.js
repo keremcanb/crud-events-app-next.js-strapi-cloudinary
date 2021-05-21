@@ -6,7 +6,12 @@ const EventItem = ({ event: { image, name, slug } }) => (
   <Card>
     <Link href={`/events/${slug}`}>
       <a>
-        <Image src={image ? image.formats.thumbnail.url : '/images/event-default.png'} width={170} height={100} />
+        <Image
+          src={image ? image.formats.thumbnail.url : '/images/event-default.png'}
+          width={170}
+          height={100}
+          className="rounded"
+        />
       </a>
     </Link>
     <h3>

@@ -15,7 +15,7 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
       </div>
       {image && (
         <div>
-          <Image src={image.formats.medium.url} width={800} height={600} />
+          <Image src={image.formats.medium.url} width={800} height={600} className="rounded" />
         </div>
       )}
       <div className="grid grid-rows md:grid-cols-2 justify-center items-center gap-4 my-5">
