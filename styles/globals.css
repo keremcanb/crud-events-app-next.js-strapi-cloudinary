@@ -31,8 +31,8 @@
   a {
     @apply text-blue-900;
   }
-  a:hover {
-    @apply text-black;
+  li a:hover {
+    @apply text-red-800 transition-colors duration-500;
   }
   label {
     @apply block text-gray-700 text-sm font-bold mb-2;
