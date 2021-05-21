@@ -1,23 +1,10 @@
 module.exports = {
   theme: {
-    screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px'
-    },
-    fontFamily: {
-      sans: ['ui-sans-serif', 'system-ui'],
-      serif: ['ui-serif', 'Georgia'],
-      mono: ['ui-monospace', 'SFMono-Regular']
-    },
     extend: {
-      spacing: {
-        128: '32rem',
-        144: '36rem'
-      },
-      borderRadius: {
-        '4xl': '2rem'
+      fontFamily: {
+        'open-sans': ['Open Sans', 'sans-serif'],
+        'russo-one': ['Russo One', 'sans-serif'],
+        play: ['Play', 'sans-serif']
       }
     }
   }
