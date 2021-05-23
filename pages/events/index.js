@@ -7,7 +7,7 @@ const EventsPage = ({ events, page, total }) => {
   const router = useRouter();
 
   return (
-    <Layout>
+    <Layout title="All Events">
       <h1>Events</h1>
       <Filter
         onSearch={(year, month) => {

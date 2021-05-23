@@ -9,7 +9,7 @@ const NotFoundPage = () => (
         <FaExclamationTriangle />
         404
       </h1>
-      <h4>Page not Found</h4>
+      <h2>Page not Found</h2>
       <Link href="/">Go Back Home</Link>
     </div>
   </Layout>
