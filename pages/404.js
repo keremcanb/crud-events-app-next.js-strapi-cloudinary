@@ -5,8 +5,9 @@ import { Layout } from '@/components/index';
 const NotFoundPage = () => (
   <Layout title="Page Not Found">
     <div className="text-center my-20">
-      <h1 className="inline-flex">
-        <FaExclamationTriangle /> 404
+      <h1 className="inline-flex gap-5">
+        <FaExclamationTriangle />
+        404
       </h1>
       <h4>Page not Found</h4>
       <Link href="/">Go Back Home</Link>

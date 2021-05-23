@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card } from '@/components/index';
 
-const EventItem = ({ event: { image, name, slug } }) => (
+const EventItem = ({ image, name, slug }) => (
   <Card>
     <Link href={`/events/${slug}`}>
       <a>

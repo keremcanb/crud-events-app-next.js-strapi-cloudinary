@@ -1,17 +1,27 @@
 import { get } from 'axios';
-import { Layout, EventItem, Pagination } from '@/components/index';
+import { useRouter } from 'next/router';
+import { Layout, EventList, Pagination, Filter } from '@/components/index';
 import { API_URL, PER_PAGE } from '@/config/index';
 
-const EventsPage = ({ events, page, total }) => (
-  <Layout>
-    <h1>Events</h1>
-    {events && events.length === 0 && <h3>No events to show</h3>}
-    {events && events.map((event) => <EventItem key={event.name} event={event} />)}
-    <Pagination page={page} total={total} />
-  </Layout>
-);
+const EventsPage = ({ events, page, total }) => {
+  const router = useRouter();
+
+  return (
+    <Layout>
+      <h1>Events</h1>
+      <Filter
+        onSearch={(year, month) => {
+          router.push(`/events/${year}/${month}`);
+        }}
+      />
+      {events && events.length !== 0 ? <EventList items={events} /> : <h3>No events to show</h3>}
+      <Pagination page={page} total={total} />
+    </Layout>
+  );
+};
 
 export default EventsPage;
+
 // Get page from query and set to 1
 export async function getServerSideProps({ query: { page = 1 } }) {
   // Calculate start page: Convert string to number (+page), if page equal to 1 start from event 0, else get current page number, subtract 1 and multiply with per page number.

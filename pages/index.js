@@ -1,18 +1,12 @@
-import Link from 'next/link';
 import { get } from 'axios';
-import { Layout, EventItem, Button } from '@/components/index';
+import { Layout, EventList, Button } from '@/components/index';
 import { API_URL } from '@/config/index';
 
 const Home = ({ events }) => (
   <Layout>
     <h1>Upcoming Events</h1>
-    {events && events.length === 0 && <h3>No events to show</h3>}
-    {events && events.map((event) => <EventItem key={event.name} event={event} />)}
-    {events && events.length > 0 && (
-      <Link href="/events" passHref>
-        <Button text="View All Events" />
-      </Link>
-    )}
+    {events && events.length !== 0 ? <EventList items={events} /> : <h3>No events to show</h3>}
+    {events && events.length > 0 && <Button text="View All Events" link="/events" />}
   </Layout>
 );
 

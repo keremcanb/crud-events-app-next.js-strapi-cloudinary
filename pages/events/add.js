@@ -12,9 +12,11 @@ const AddEventPage = ({ token }) => {
     address: '',
     date: '',
     time: '',
-    description: ''
+    description: '',
+    genre: '',
+    featured: false
   });
-  const { name, performers, venue, address, date, time, description } = values;
+  const { name, performers, venue, address, date, time, description, genre, featured } = values;
   const { addEvent } = useContext(EventsContext);
 
   const handleSubmit = async (e) => {
@@ -56,6 +58,22 @@ const AddEventPage = ({ token }) => {
             <label htmlFor="time">Time</label>
             <input type="time" id="time" value={time} onChange={handleChange} required />
           </div>
+          <div>
+            <label htmlFor="genre">Genre</label>
+            <select id="genre" value={genre} onChange={handleChange}>
+              <option value="Trance">Trance</option>
+              <option value="House">House</option>
+              <option value="Techno">Techno</option>
+              <option value="Prog House">Prog House</option>
+            </select>
+          </div>
+          {/* <div>
+            <label htmlFor="featured">Featured</label>
+            <select id="featured" value={featured} onChange={handleChange}>
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+          </div> */}
         </div>
         <div>
           <label htmlFor="description">Event Description</label>

@@ -76,13 +76,13 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
             <Image src={imagePreview} height={170} width={250} className="rounded" />
           </div>
           <div>
-            <h3 className="text-center mb-5">Change Image</h3>
+            <h3 className="text-center my-3">Change Image</h3>
             <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
           </div>
         </div>
       ) : (
         <div>
-          <h3>Upload Image</h3>
+          <h3 className="text-center my-3">Upload Image</h3>
           <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
         </div>
       )}

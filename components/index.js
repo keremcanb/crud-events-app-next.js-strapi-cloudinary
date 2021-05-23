@@ -1,5 +1,6 @@
 import Layout from './Layout';
 import EventItem from './EventItem';
+import EventList from './EventList';
 import DashboardEvent from './DashboardEvent';
 import Footer from './Footer';
 import Header from './Header';
@@ -10,10 +11,12 @@ import Showcase from './Showcase';
 import Button from './Button';
 import Card from './Card';
 import Spinner from './Spinner';
+import Filter from './Filter';
 
 export {
   Layout,
   EventItem,
+  EventList,
   DashboardEvent,
   Footer,
   Header,
@@ -23,5 +26,6 @@ export {
   Showcase,
   Button,
   Card,
-  Spinner
+  Spinner,
+  Filter
 };
