@@ -14,7 +14,7 @@ const EventsSearch = ({ onSearch }) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="flex justify-center gap-6">
+      <div className="flex justify-center gap-6 mb-2">
         <select id="year" ref={yearRef}>
           <option value="2021">2021</option>
           <option value="2022">2022</option>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { get } from 'axios';
 import Moment from 'react-moment';
-import { Layout, EventList, Button } from '@/components/index';
+import { Layout, EventList, Button, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
 
 const FilteredEventsPage = ({ events }) => {
@@ -43,7 +43,7 @@ const FilteredEventsPage = ({ events }) => {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <Layout>
-        <h1>No events found for the chosen filter!</h1>
+        <NotFound />
         <Link href="/events" passHref>
           <Button text="View All Events" />
         </Link>

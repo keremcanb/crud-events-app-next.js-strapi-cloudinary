@@ -1,6 +1,6 @@
 import { get } from 'axios';
 import { useRouter } from 'next/router';
-import { Layout, EventList, Pagination, Filter } from '@/components/index';
+import { Layout, EventList, Pagination, Filter, NotFound } from '@/components/index';
 import { API_URL, PER_PAGE } from '@/config/index';
 
 const EventsPage = ({ events, page, total }) => {
@@ -14,7 +14,7 @@ const EventsPage = ({ events, page, total }) => {
           router.push(`/events/${year}/${month}`);
         }}
       />
-      {events && events.length !== 0 ? <EventList items={events} /> : <h3>No events to show</h3>}
+      {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
       <Pagination page={page} total={total} />
     </Layout>
   );

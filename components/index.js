@@ -12,6 +12,7 @@ import Button from './Button';
 import Card from './Card';
 import Spinner from './Spinner';
 import Filter from './Filter';
+import NotFound from './NotFound';
 
 export {
   Layout,
@@ -27,5 +28,6 @@ export {
   Button,
   Card,
   Spinner,
-  Filter
+  Filter,
+  NotFound
 };
