@@ -38,27 +38,14 @@
     @apply block text-gray-700 text-sm font-bold mb-2;
   }
   input,
-  textarea {
-    @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight;
-    @apply focus:outline-none;
-    @apply focus:bg-white;
-  }
+  textarea,
   select {
-    @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight;
+    @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight;
     @apply focus:outline-none;
     @apply focus:bg-white;
-    @apply focus:border-gray-500;
+    @apply focus:border-purple-500;
   }
 }
 
 @layer components {
-  .toggle-checkbox:checked {
-    @apply: right-0 border-green-400;
-    right: 0;
-    border-color: #68d391;
-  }
-  .toggle-checkbox:checked + .toggle-label {
-    @apply: bg-green-400;
-    background-color: #68d391;
-  }
 }

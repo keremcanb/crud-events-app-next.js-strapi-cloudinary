@@ -8,7 +8,10 @@ import { Layout, ImageUpload, Button } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
 
-const EditEventPage = ({ event: { name, performers, venue, address, date, time, description, image, id }, token }) => {
+const EditEventPage = ({
+  event: { name, performers, venue, address, date, time, description, image, id, genre, featured },
+  token
+}) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
   const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
   const { updateEvent } = useContext(EventsContext);
@@ -62,6 +65,32 @@ const EditEventPage = ({ event: { name, performers, venue, address, date, time, 
           <div>
             <label htmlFor="time">Time</label>
             <input type="time" id="time" value={values.time} onChange={handleChange} required />
+          </div>
+          <div className="relative">
+            <label htmlFor="genre">Genre</label>
+            <select id="genre" defaultValue={genre} onChange={handleChange}>
+              <option value="Trance">Trance</option>
+              <option value="House">House</option>
+              <option value="Techno">Techno</option>
+              <option value="Prog House">Prog House</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+          <div className="relative">
+            <label htmlFor="featured">Featured</label>
+            <select id="featured" defaultValue={featured} onChange={handleChange}>
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
           </div>
         </div>
         <div>

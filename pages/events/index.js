@@ -6,14 +6,14 @@ import { API_URL, PER_PAGE } from '@/config/index';
 const EventsPage = ({ events, page, total }) => {
   const router = useRouter();
 
+  const handleFilter = (year, month) => {
+    router.push(`/events/${year}/${month}`);
+  };
+
   return (
     <Layout title="All Events">
       <h1>All Events</h1>
-      <Filter
-        onSearch={(year, month) => {
-          router.push(`/events/${year}/${month}`);
-        }}
-      />
+      <Filter onSearch={handleFilter} />
       {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
       <Pagination page={page} total={total} />
     </Layout>
