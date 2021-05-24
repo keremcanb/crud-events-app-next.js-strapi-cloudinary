@@ -8,7 +8,7 @@ const EventsPage = ({ events, page, total }) => {
 
   return (
     <Layout title="All Events">
-      <h1>Events</h1>
+      <h1>All Events</h1>
       <Filter
         onSearch={(year, month) => {
           router.push(`/events/${year}/${month}`);

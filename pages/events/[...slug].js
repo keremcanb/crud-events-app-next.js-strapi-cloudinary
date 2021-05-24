@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { get } from 'axios';
 import Moment from 'react-moment';
@@ -13,7 +12,6 @@ const FilteredEventsPage = ({ events }) => {
   // Convert string to number
   const numYear = +filteredYear;
   const numMonth = +filteredMonth;
-
   // Wrong values entered in url check
   if (
     Number.isNaN(numYear) ||
@@ -34,7 +32,7 @@ const FilteredEventsPage = ({ events }) => {
       </>
     );
   }
-
+  // Filtered events
   const filteredEvents = events.filter((event) => {
     const eventDate = new Date(event.date);
     return eventDate.getFullYear() === numYear && eventDate.getMonth() === numMonth - 1;
@@ -44,9 +42,7 @@ const FilteredEventsPage = ({ events }) => {
     return (
       <Layout>
         <NotFound />
-        <Link href="/events" passHref>
-          <Button text="View All Events" />
-        </Link>
+        <Button text="View All Events" link="/events" />
       </Layout>
     );
   }
