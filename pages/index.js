@@ -4,7 +4,7 @@ import { API_URL } from '@/config/index';
 
 const Home = ({ events }) => (
   <Layout>
-    <h1 className="text-center">Featured Events</h1>
+    <h1>Featured Events</h1>
     {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
     {events && events.length > 0 && <Button text="View All Events" link="/events" />}
   </Layout>

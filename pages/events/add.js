@@ -35,7 +35,7 @@ const AddEventPage = ({ token }) => {
       <form onSubmit={handleSubmit}>
         <div className="grid grid-rows md:grid-cols-2 gap-4 mb-5">
           <div>
-            <label htmlFor="name">Event Name</label>
+            <label htmlFor="name">Name</label>
             <input type="text" id="name" value={name} onChange={handleChange} required />
           </div>
           <div>
@@ -86,7 +86,7 @@ const AddEventPage = ({ token }) => {
           </div>
         </div>
         <div>
-          <label htmlFor="description">Event Description</label>
+          <label htmlFor="description">Description</label>
           <textarea type="text" id="description" value={description} onChange={handleChange} required rows="5" />
         </div>
         <Button text="Add Event" />

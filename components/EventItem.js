@@ -14,11 +14,11 @@ const EventItem = ({ image, name, slug }) => (
         />
       </a>
     </Link>
-    <h3>
+    <h2>
       <Link href={`/events/${slug}`}>
         <a>{name}</a>
       </Link>
-    </h3>
+    </h2>
   </Card>
 );
 
