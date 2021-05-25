@@ -20,7 +20,7 @@ const DashboardEvent = ({ event: { slug, name, id, image }, handleDelete, token 
         <a>{name}</a>
       </Link>
     </h2>
-    <div className="flex items-center justify-center gap-6">
+    <div className="flex gap-10">
       <Link href={`/events/edit/${id}`}>
         <a>
           <FaPencilAlt className="text-xl" />

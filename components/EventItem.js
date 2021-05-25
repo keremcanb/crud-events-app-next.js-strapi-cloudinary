@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Moment from 'react-moment';
 import { Card } from '@/components/index';
 
-const EventItem = ({ image, name, slug }) => (
+const EventItem = ({ image, name, slug, date }) => (
   <Card>
     <Link href={`/events/${slug}`}>
       <a>
@@ -19,6 +20,9 @@ const EventItem = ({ image, name, slug }) => (
         <a>{name}</a>
       </Link>
     </h2>
+    <h3>
+      <Moment format="DD-MM-YYYY">{date}</Moment>
+    </h3>
   </Card>
 );
 

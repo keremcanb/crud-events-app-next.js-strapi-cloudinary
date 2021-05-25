@@ -8,13 +8,13 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="flex flex-col lg:flex-row justify-between items-center gap-3 | bg-white text-black shadow-md | h:auto lg:h-16 px-20 mt-3 lg:mt-0">
+    <header className="grid lg:grid-cols-3 justify-items-center items-center gap-3 | shadow-md  h:auto lg:h-16 mt-3 lg:mt-0">
       <Link href="/">
         <a className="uppercase cursor-pointer text-red-600 text-3xl font-russo-one">DJ Events</a>
       </Link>
       <Search />
       <nav>
-        <ul className="flex flex-col lg:flex-row justify-center items-center gap-3 | text-lg mb-2 lg:mb-0 font-play">
+        <ul className="flex flex-col lg:flex-row items-center gap-3 | text-lg mb-2 lg:mb-0 font-play">
           <li>
             <Link href="/events">
               <a>Events</a>
