@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import Image from 'next/image';
 import { get } from 'axios';
 import moment from 'moment';
+import Switch from 'react-switch';
 import { ToastContainer } from 'react-toastify';
 import { parseCookies } from '@/helpers/helpers';
 import { Layout, ImageUpload, Button } from '@/components/index';
@@ -14,11 +15,12 @@ const EditEventPage = ({
 }) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
   const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
+  const [checked, setChecked] = useState(false);
   const { updateEvent } = useContext(EventsContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    updateEvent(id, values, token);
+    updateEvent(id, { ...values, featured: checked }, token);
   };
 
   const handleChange = (e) => {
@@ -30,12 +32,16 @@ const EditEventPage = ({
     imagePreviewSet(data.image.formats.thumbnail.url);
   };
 
+  const handleToggle = (checked) => {
+    setChecked(checked);
+  };
+
   return token ? (
     <Layout title="Edit Event">
       <h1>Edit Event: {values.name}</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-rows md:grid-cols-2 gap-4 mb-5">
+        <div className="grid grid-rows lg:grid-cols-2 gap-4 mb-5">
           <div>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" value={values.name} onChange={handleChange} required />
@@ -80,17 +86,9 @@ const EditEventPage = ({
               </svg>
             </div>
           </div>
-          <div className="relative">
+          <div>
             <label htmlFor="featured">Featured</label>
-            <select id="featured" defaultValue={featured} onChange={handleChange}>
-              <option value="true">True</option>
-              <option value="false">False</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <Switch onChange={handleToggle} checked={checked} className="mt-1" />
           </div>
         </div>
         <div>
@@ -100,7 +98,7 @@ const EditEventPage = ({
         <Button text="Update Event" />
       </form>
       {imagePreview ? (
-        <div className="grid grid-rows md:grid-cols-2 justify-center items-center gap-4 my-5">
+        <div className="grid grid-rows lg:grid-cols-2 justify-center items-center gap-4 my-5">
           <div className="flex justify-center">
             <Image src={imagePreview} height={170} width={250} className="rounded" />
           </div>
