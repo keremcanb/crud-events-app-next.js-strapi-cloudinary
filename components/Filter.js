@@ -14,7 +14,7 @@ const EventsSearch = ({ onSearch }) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-4 mb-2">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2">
         <div className="flex flex-row justify-center items-center gap-5">
           <div className="relative">
             <select id="year" ref={yearRef}>
