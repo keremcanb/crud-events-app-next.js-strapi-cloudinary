@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Button } from '@/components/index';
+import { Button, ArrowIcon } from '@/components/index';
 
 const EventsSearch = ({ onSearch }) => {
   const yearRef = useRef();
@@ -21,11 +21,7 @@ const EventsSearch = ({ onSearch }) => {
               <option value="2021">2021</option>
               <option value="2022">2022</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-gray-700">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <ArrowIcon />
           </div>
           <div className="relative">
             <select id="month" ref={monthRef}>
@@ -42,11 +38,7 @@ const EventsSearch = ({ onSearch }) => {
               <option value="11">November</option>
               <option value="12">December</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-gray-700">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <ArrowIcon />
           </div>
         </div>
         <Button text="Filter" />

@@ -13,6 +13,7 @@ import Card from './Card';
 import Spinner from './Spinner';
 import Filter from './Filter';
 import NotFound from './NotFound';
+import ArrowIcon from './ArrowIcon';
 
 export {
   Layout,
@@ -29,5 +30,6 @@ export {
   Card,
   Spinner,
   Filter,
-  NotFound
+  NotFound,
+  ArrowIcon
 };
