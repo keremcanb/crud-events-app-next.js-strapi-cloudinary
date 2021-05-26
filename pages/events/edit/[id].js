@@ -36,7 +36,7 @@ const EditEventPage = ({
   };
 
   return token ? (
-    <Layout title="Edit Event">
+    <Layout title="Edit Event - DJ Events">
       <h1>Edit Event: {values.name}</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit}>

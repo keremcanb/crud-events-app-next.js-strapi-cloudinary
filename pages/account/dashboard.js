@@ -5,7 +5,7 @@ import { API_URL } from '@/config/index';
 
 export default function DashboardPage({ events, token }) {
   return token ? (
-    <Layout title="User Dashboard">
+    <Layout title="User Dashboard - DJ Events">
       <h1>My Events</h1>
       {events && events.length !== 0 ? <EventList items={events} token={token} dashboard /> : <NotFound />}
     </Layout>

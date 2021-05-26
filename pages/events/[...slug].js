@@ -50,7 +50,7 @@ const FilteredEventsPage = ({ events }) => {
   const date = new Date(numYear, numMonth - 1);
 
   return (
-    <Layout title={`Events for ${numMonth}/${numYear}`}>
+    <Layout title={`Events for ${numMonth}/${numYear} - DJ Events`}>
       <h1>
         Events in <Moment format="MMMM">{date}</Moment> {numYear}
       </h1>

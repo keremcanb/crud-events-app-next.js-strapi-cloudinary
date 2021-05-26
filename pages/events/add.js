@@ -35,7 +35,7 @@ const AddEventPage = ({ token }) => {
   };
 
   return token ? (
-    <Layout title="Add New Event">
+    <Layout title="Add New Event - DJ Events">
       <h1>Add Event</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit}>

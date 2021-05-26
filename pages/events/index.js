@@ -11,7 +11,7 @@ const EventsPage = ({ events, page, total }) => {
   };
 
   return (
-    <Layout title="All Events">
+    <Layout title="All Events - DJ Events">
       <h1>All Events</h1>
       <Filter onSearch={handleFilter} />
       {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}

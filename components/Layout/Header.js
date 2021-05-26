@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import Link from 'next/link';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Search } from '@/components/index';
 
@@ -10,19 +10,19 @@ const Header = () => {
   return (
     <header className="grid lg:grid-cols-3 justify-items-center items-center gap-3 | shadow-md h:auto lg:h-16 mt-3 lg:mt-0">
       <Link href="/">
-        <a className="uppercase cursor-pointer | text-red-600 text-3xl font-russo-one">DJ Events</a>
+        <a className="text-red-600 text-3xl font-russo-one uppercase cursor-pointer">DJ Events</a>
       </Link>
       <Search />
       <nav>
-        <ul className="flex flex-col md:flex-row items-center gap-3 | text-lg mb-2 lg:mb-0 font-play md:my-3">
-          <li>
-            <Link href="/events">
-              <a>Events</a>
-            </Link>
-          </li>
+        <ul className="flex flex-col md:flex-row items-center gap-3 | text-lg font-play my-2">
           {/* Logged in user menu */}
           {user ? (
             <>
+              <li>
+                <Link href="/events">
+                  <a>Events</a>
+                </Link>
+              </li>
               <li>
                 <Link href="/account/dashboard">
                   <a>Dashboard</a>
@@ -41,7 +41,10 @@ const Header = () => {
             // Logged out user menu
             <li>
               <Link href="/account/login">
-                <a>Login</a>
+                <a>
+                  Login
+                  <FaSignInAlt className="inline-flex ml-2 mb-0.5" />
+                </a>
               </Link>
             </li>
           )}

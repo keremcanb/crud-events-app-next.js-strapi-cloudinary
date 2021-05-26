@@ -3,7 +3,7 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 import { Layout } from '@/components/index';
 
 const NotFoundPage = () => (
-  <Layout title="Page Not Found">
+  <Layout title="Page Not Found - DJ Events">
     <div className="text-center my-20">
       <h1 className="inline-flex gap-5">
         <FaExclamationTriangle />

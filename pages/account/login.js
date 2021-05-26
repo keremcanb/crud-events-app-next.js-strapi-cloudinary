@@ -22,7 +22,7 @@ export default function LoginPage() {
   };
 
   return (
-    <Layout title="User Login">
+    <Layout title="User Login - DJ Events">
       <div className="max-w-md m-auto p-10 shadow-lg">
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Login
