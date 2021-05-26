@@ -30,7 +30,7 @@ export default function LoginPage() {
         <ToastContainer />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">Email</label>
             <input type="email" id="email" value={email} onChange={handleChange} required />
           </div>
           <div className="mt-5">

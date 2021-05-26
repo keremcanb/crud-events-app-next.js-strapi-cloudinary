@@ -40,16 +40,14 @@ export const EventsProvider = ({ children }) => {
   };
 
   const deleteEvent = async (id, token) => {
-    if (confirm('Are you sure')) {
-      try {
-        await axios.delete(`${API_URL}/events/${id}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        toast('Event deleted');
-        router.push('/account/dashboard');
-      } catch (err) {
-        toast.error(err.response.data.message);
-      }
+    try {
+      await axios.delete(`${API_URL}/events/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      toast('Event deleted');
+      router.push('/account/dashboard');
+    } catch (err) {
+      toast.error(err.response.data.message);
     }
   };
 

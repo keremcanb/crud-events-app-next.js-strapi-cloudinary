@@ -38,7 +38,7 @@ export default function RegisterPage() {
             <input type="text" id="username" value={username} onChange={handleChange} required />
           </div>
           <div className="mt-5">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">Email</label>
             <input type="email" id="email" value={email} onChange={handleChange} required />
           </div>
           <div className="mt-5">

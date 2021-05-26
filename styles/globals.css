@@ -47,5 +47,11 @@
   }
 }
 
-/* @layer components {
-} */
+@layer components {
+  /* .customOverlay {
+    background: rgba(36, 123, 160, 0.7);
+  } */
+  .customModal {
+    @apply w-auto;
+  }
+}
