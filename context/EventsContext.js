@@ -45,7 +45,8 @@ export const EventsProvider = ({ children }) => {
         await axios.delete(`${API_URL}/events/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
-        router.reload();
+        toast('Event deleted');
+        router.push('/account/dashboard');
       } catch (err) {
         toast.error(err.response.data.message);
       }

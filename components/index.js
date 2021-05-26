@@ -1,25 +1,23 @@
-import Layout from './Layout';
-import EventItem from './EventItem';
-import EventList from './EventList';
-import DashboardEvent from './DashboardEvent';
-import Footer from './Footer';
-import Header from './Header';
-import ImageUpload from './ImageUpload';
-import Pagination from './Pagination';
-import Search from './Search';
-import Showcase from './Showcase';
-import Button from './Button';
-import Card from './Card';
-import Spinner from './Spinner';
-import Filter from './Filter';
-import NotFound from './NotFound';
-import ArrowIcon from './ArrowIcon';
+import Layout from './Layout/Layout';
+import EventItem from './Event/EventItem';
+import EventList from './Event/EventList';
+import Footer from './Layout/Footer';
+import Header from './Layout/Header';
+import ImageUpload from './Input/ImageUpload';
+import Pagination from './Section/Pagination';
+import Search from './Input/Search';
+import Showcase from './Section/Showcase';
+import Button from './UI/Button';
+import Card from './Section/Card';
+import Spinner from './UI/Spinner';
+import Filter from './Input/Filter';
+import NotFound from './Section/NotFound';
+import ArrowIcon from './UI/ArrowIcon';
 
 export {
   Layout,
   EventItem,
   EventList,
-  DashboardEvent,
   Footer,
   Header,
   ImageUpload,

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { post } from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { Button, Spinner } from '@/components/index';
-import { API_URL } from '../config/index';
+import { API_URL } from '../../config/index';
 
 const ImageUpload = ({ eventId, imageUploaded, token }) => {
   const [image, imageSet] = useState(null);

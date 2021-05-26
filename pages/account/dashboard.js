@@ -1,20 +1,13 @@
-import { useContext } from 'react';
 import axios from 'axios';
-import EventsContext from '@/context/EventsContext';
-import { Layout, DashboardEvent, NotFound } from '@/components/index';
+import { Layout, EventList, NotFound } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 import { API_URL } from '@/config/index';
 
 export default function DashboardPage({ events, token }) {
-  const { deleteEvent } = useContext(EventsContext);
-
   return token ? (
     <Layout title="User Dashboard">
       <h1>My Events</h1>
-      {events && events.length === 0 && <NotFound />}
-      {events.map((event) => (
-        <DashboardEvent key={event.id} event={event} handleDelete={deleteEvent} token={token} />
-      ))}
+      {events && events.length !== 0 ? <EventList items={events} token={token} dashboard /> : <NotFound />}
     </Layout>
   ) : (
     <h1>Not authorized to view this page</h1>
