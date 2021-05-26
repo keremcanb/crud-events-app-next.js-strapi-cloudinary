@@ -14,7 +14,7 @@ const Layout = ({ title, keywords, description, children }) => {
       </Head>
       <Header />
       {router.pathname === '/' && <Showcase />}
-      <div className="max-w-screen-lg mt-10 mb-20 mx-auto px-10 font-open-sans">{children}</div>
+      <div className="max-w-screen-lg mt-10 mb-20 mx-auto px-10 | font-open-sans">{children}</div>
       <Footer />
     </>
   );

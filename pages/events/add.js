@@ -39,7 +39,7 @@ const AddEventPage = ({ token }) => {
       <h1>Add Event</h1>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-rows lg:grid-cols-2 gap-4 mb-5">
+        <div className="grid grid-rows lg:grid-cols-2 gap-4 | mb-5">
           <div>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" value={name} onChange={handleChange} required />

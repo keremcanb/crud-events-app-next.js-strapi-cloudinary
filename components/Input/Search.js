@@ -26,7 +26,10 @@ const Search = () => {
         className="rounded-xl"
         placeholder="Search..."
       />
-      <button className="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors">
+      <button
+        className="w-7 h-7 top-2 right-2 | text-center text-xl text-gray-400 hover:text-gray-900 | leading-0 block absolute
+      transition-colors focus:outline-none"
+      >
         <FaSearch />
       </button>
     </form>

@@ -6,7 +6,7 @@ import { API_URL } from '@/config/index';
 
 const EventPage = ({ event: { name, date, time, image, performers, description, venue, address, genre } }) => (
   <Layout title={`${name} - DJ Events`}>
-    <div className="grid grid-rows justify-center items-center gap-4 my-5">
+    <div className="grid grid-rows justify-center items-center gap-4 | my-5">
       <h1>{name}</h1>
       <div className="text-center mb-3">
         <h2 className="mb-3">

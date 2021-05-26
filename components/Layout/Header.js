@@ -8,13 +8,13 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="grid lg:grid-cols-3 justify-items-center items-center gap-3 | shadow-md h:auto lg:h-16 mt-3 lg:mt-0">
+    <header className="grid lg:grid-cols-3 place-items-center gap-3 | h:auto lg:h-16 mt-3 lg:mt-0 | shadow-md">
       <Link href="/">
-        <a className="text-red-600 text-3xl font-russo-one uppercase cursor-pointer">DJ Events</a>
+        <a className="text-red-600 text-3xl font-russo-one uppercase | cursor-pointer">DJ Events</a>
       </Link>
       <Search />
       <nav>
-        <ul className="flex flex-col md:flex-row items-center gap-3 | text-lg font-play my-2">
+        <ul className="flex flex-col md:flex-row place-items-center gap-3 | text-lg font-play | my-2">
           {/* Logged in user menu */}
           {user ? (
             <>
@@ -43,7 +43,7 @@ const Header = () => {
               <Link href="/account/login">
                 <a>
                   Login
-                  <FaSignInAlt className="inline-flex ml-2 mb-0.5" />
+                  <FaSignInAlt className="inline-flex | ml-2 mb-0.5" />
                 </a>
               </Link>
             </li>

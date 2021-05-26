@@ -1,6 +1,6 @@
 const Showcase = () => (
   <div
-    className="flex flex-col items-center justify-center relative | bg-no-repeat bg-center bg-black | h-72 w-full p-2 | text-white text-center"
+    className="flex flex-col place-content-center | bg-no-repeat bg-center bg-black | h-72 w-full p-2 | text-white text-center | relative"
     style={{ backgroundImage: `url("/images/showcase.jpg")` }}
   >
     <span className="absolute top-0 left-0 w-full h-full bg-black opacity-70" />

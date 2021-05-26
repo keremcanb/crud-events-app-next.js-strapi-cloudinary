@@ -33,11 +33,11 @@ const EventItem = ({ slug, name, id, image, date, token, dashboard }) => {
         }}
       >
         <h2 className="text-center">Delete Event?</h2>
-        <div className="flex gap-5 justify-center items-center">
+        <div className="flex gap-5 place-items-center">
           <button
             text="Delete"
             onClick={handleDelete}
-            className="py-2 px-4 my-5 | bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 | focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
+            className="py-2 px-4 my-5 | bg-red-500 hover:bg-red-700 | text-white font-semibold | rounded-lg shadow-md  | focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
           >
             Delete
           </button>
