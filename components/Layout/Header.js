@@ -14,7 +14,7 @@ const Header = () => {
       </Link>
       <Search />
       <nav>
-        <ul className="flex flex-col md:flex-row place-items-center gap-3 | text-lg font-play | my-2">
+        <ul className="flex flex-col md:flex-row place-items-center gap-3 | text-lg font-play dark:text-white | my-2">
           {/* Logged in user menu */}
           {user ? (
             <>

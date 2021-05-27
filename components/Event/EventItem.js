@@ -73,7 +73,7 @@ const EventItem = ({ slug, name, id, image, date, token, dashboard }) => {
             </a>
           </div>
         ) : (
-          <h3>
+          <h3 className="dark:text-blue-900">
             <Moment format="DD-MM-YYYY">{date}</Moment>
           </h3>
         )}

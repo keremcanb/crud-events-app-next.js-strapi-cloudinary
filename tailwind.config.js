@@ -7,7 +7,8 @@ module.exports = {
         play: ['Play', 'sans-serif']
       }
     }
-  }
+  },
+  darkMode: 'media'
 };
 
 // module.exports = {
