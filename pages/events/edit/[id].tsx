@@ -31,7 +31,7 @@ const EditEventPage = ({
   const [checked, setChecked] = useState(false);
   const { updateEvent } = useContext(EventsContext);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     updateEvent(id, { ...values, featured: checked }, token);
   };

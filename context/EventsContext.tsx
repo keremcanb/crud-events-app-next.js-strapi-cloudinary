@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
 type ContextProps = {
-  values: {},
+  values: object,
   token: string,
   id: string,
   addEvent: any,

@@ -23,7 +23,7 @@ const AddEventPage = ({ token }: {
   const [checked, setChecked] = useState(false);
   const { addEvent } = useContext(EventsContext);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addEvent({ ...values, featured: checked }, token);
   };
@@ -95,7 +95,7 @@ const AddEventPage = ({ token }: {
 
 export default AddEventPage;
 
-export async function getServerSideProps({ req }) {
+export function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
   return { props: { token } };
 }
