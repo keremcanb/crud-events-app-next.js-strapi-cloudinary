@@ -1,10 +1,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { get } from 'axios';
+import axios from 'axios';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
 
-const EventPage = ({ event: { name, date, time, image, performers, description, venue, address, genre } }) => (
+const EventPage = ({ event: { name, date, time, image, performers, description, venue, address, genre } }: {
+  event?: {
+    name?: string
+    performers?: string
+    venue?: string
+    address?: string
+    date?: string
+    time?: string
+    description?: string
+    image?: string
+    id?: string
+    genre?: string
+  }
+}) => (
   <Layout title={`${name} - DJ Events`}>
     <div className="grid grid-rows justify-center items-center gap-4 | my-5">
       <h1>{name}</h1>
@@ -40,7 +53,9 @@ const EventPage = ({ event: { name, date, time, image, performers, description, 
 
 export default EventPage;
 
-export async function getServerSideProps({ query: { slug } }) {
-  const { data: events } = await get(`${API_URL}/events?slug=${slug}`);
+export async function getServerSideProps({ query: { slug } }: {
+  query: { slug?: string }
+}) {
+  const { data: events } = await axios.get(`${API_URL}/events?slug=${slug}`);
   return { props: { event: events[0] } };
 }

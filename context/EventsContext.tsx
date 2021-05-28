@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { useRouter } from 'next/router';
-import axios, { post, put } from 'axios';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
@@ -11,7 +11,7 @@ export const EventsProvider = ({ children }) => {
 
   const addEvent = async (values, token) => {
     try {
-      const { data } = await post(`${API_URL}/events`, values, {
+      const { data } = await axios.post(`${API_URL}/events`, values, {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
@@ -26,7 +26,7 @@ export const EventsProvider = ({ children }) => {
 
   const updateEvent = async (id, values, token) => {
     try {
-      const { data } = await put(`${API_URL}/events/${id}`, values, {
+      const { data } = await axios.put(`${API_URL}/events/${id}`, values, {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);

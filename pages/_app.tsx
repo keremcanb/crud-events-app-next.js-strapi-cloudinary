@@ -1,10 +1,11 @@
-import 'react-toastify/dist/ReactToastify.css';
+import { AppProps } from 'next/app';
 import { AuthProvider } from 'context/AuthContext';
 import { EventsProvider } from 'context/EventsContext';
+import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/globals.css';
 import 'react-responsive-modal/styles.css';
 
-const MyApp = ({ Component, pageProps }) => (
+const MyApp = ({ Component, pageProps }: AppProps) => (
   <AuthProvider>
     <EventsProvider>
       <Component {...pageProps} />

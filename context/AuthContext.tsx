@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { post, get } from 'axios';
+import axios from 'axios';
 import { NEXT_URL } from '@/config/index';
 
 const AuthContext = createContext();
@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (user) => {
     try {
-      const { data } = await post(`${NEXT_URL}/api/register`, user);
+      const { data } = await axios.post(`${NEXT_URL}/api/register`, user);
       userSet(data.user);
       router.push('/account/dashboard');
     } catch (err) {
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async ({ email: identifier, password }) => {
     try {
-      const { data } = await post(`${NEXT_URL}/api/login`, { identifier, password });
+      const { data } = await axios.post(`${NEXT_URL}/api/login`, { identifier, password });
       userSet(data.user);
       router.push('/account/dashboard');
     } catch (err) {
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await post(`${NEXT_URL}/api/logout`);
+      await axios.post(`${NEXT_URL}/api/logout`);
       userSet(null);
       router.push('/');
     } catch (err) {
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
   // Persist user
   const checkUserLoggedIn = async () => {
     try {
-      const { data } = await get(`${NEXT_URL}/api/user`);
+      const { data } = await axios.get(`${NEXT_URL}/api/user`);
       userSet(data.user);
     } catch (err) {
       userSet(null);

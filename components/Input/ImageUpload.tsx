@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { post } from 'axios';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { Button, Spinner } from '@/components/index';
 import { API_URL } from '../../config/index';
 
-const ImageUpload = ({ eventId, imageUploaded, token }) => {
+const ImageUpload = ({ eventId, imageUploaded, token }: {
+  eventId?: string
+  imageUploaded?: any
+  token?: string
+}) => {
   const [image, imageSet] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +26,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
 
     try {
       setLoading(true);
-      const res = await post(`${API_URL}/upload`, formData, {
+      const res = await axios.post(`${API_URL}/upload`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.status === 200) {

@@ -2,7 +2,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Header, Footer, Showcase } from '@/components/index';
 
-const Layout = ({ title, keywords, description, children }) => {
+const Layout = ({ children, title, keywords, description }: {
+  children: React.ReactNode
+  title?: string
+  keywords?: string
+  description?: string
+}) => {
   const router = useRouter();
 
   return (

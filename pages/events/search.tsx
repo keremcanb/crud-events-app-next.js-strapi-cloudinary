@@ -1,9 +1,12 @@
-import { get } from 'axios';
+import axios from 'axios';
 import qs from 'qs';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
 
-const SearchPage = ({ events, term }) => (
+const SearchPage = ({ events, term }: {
+  events?: []
+  term?: string
+}) => (
   <Layout title={`Search Results for: ${term} - DJ Events`}>
     <h1>Search results: {term}</h1>
     {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
@@ -12,7 +15,9 @@ const SearchPage = ({ events, term }) => (
 
 export default SearchPage;
 
-export async function getServerSideProps({ query: { term } }) {
+export async function getServerSideProps({ query: { term } }: {
+  query: { term?: string }
+}) {
   const query = qs.stringify({
     _where: {
       _or: [
@@ -23,6 +28,6 @@ export async function getServerSideProps({ query: { term } }) {
       ]
     }
   });
-  const { data: events } = await get(`${API_URL}/events?${query}`);
+  const { data: events } = await axios.get(`${API_URL}/events?${query}`);
   return { props: { events, term } };
 }

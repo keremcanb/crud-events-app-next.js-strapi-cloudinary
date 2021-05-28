@@ -5,7 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import { Layout, Button, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 
-const AddEventPage = ({ token }) => {
+const AddEventPage = ({ token }: {
+  token?: string
+}) => {
   const [values, setValues] = useState({
     name: '',
     performers: '',
@@ -81,7 +83,7 @@ const AddEventPage = ({ token }) => {
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <textarea type="text" id="description" value={description} onChange={handleChange} required rows="5" />
+          <textarea id="description" value={description} onChange={handleChange} required />
         </div>
         <Button text="Add Event" />
       </form>

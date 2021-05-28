@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { get } from 'axios';
+import axios from 'axios';
 import Moment from 'react-moment';
 import { Layout, EventList, Button, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
@@ -62,6 +62,6 @@ const FilteredEventsPage = ({ events }) => {
 export default FilteredEventsPage;
 
 export async function getServerSideProps() {
-  const { data: events } = await get(`${API_URL}/events`);
+  const { data: events } = await axios.get(`${API_URL}/events`);
   return { props: { events } };
 }
