@@ -3,11 +3,7 @@ import { useRouter } from 'next/router';
 import { Layout, EventList, Pagination, Filter, NotFound } from '@/components/index';
 import { API_URL, PER_PAGE } from '@/config/index';
 
-const EventsPage = ({ events, page, total }: {
-  events?: []
-  page?: number
-  total?: number
-}) => {
+const EventsPage = ({ events, page, total }: { events?: [], page?: number, total?: number }) => {
   const router = useRouter();
 
   const handleFilter = (year, month) => {

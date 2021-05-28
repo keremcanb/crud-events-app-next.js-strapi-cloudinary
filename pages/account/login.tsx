@@ -27,7 +27,7 @@ export default function LoginPage() {
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Login
         </h1>
-        <ToastContainer />
+        <ToastContainer position="top-center" />
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>

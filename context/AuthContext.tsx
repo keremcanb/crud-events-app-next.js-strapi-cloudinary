@@ -14,7 +14,7 @@ type ContextProps = {
 
 const AuthContext = createContext<Partial<ContextProps>>({});
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, userSet] = useState(null);
   const [error, errorSet] = useState(null);
   const router = useRouter();

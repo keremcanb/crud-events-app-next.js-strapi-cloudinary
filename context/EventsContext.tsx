@@ -15,7 +15,7 @@ type ContextProps = {
 
 const EventsContext = createContext<Partial<ContextProps>>({});
 
-export const EventsProvider = ({ children }) => {
+export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   const addEvent = async (values, token) => {
@@ -53,7 +53,7 @@ export const EventsProvider = ({ children }) => {
       await axios.delete(`${API_URL}/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      toast('Event deleted');
+      toast.success('Event deleted');
       router.push('/account/dashboard');
     } catch (err) {
       toast.error(err.response.data.message);

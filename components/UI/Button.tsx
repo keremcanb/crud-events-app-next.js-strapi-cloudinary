@@ -1,10 +1,6 @@
 import Link from 'next/link';
 
-const Button = ({ link, text, onClick }: {
-  link?: string
-  text?: string
-  onClick?: any
-}) =>
+const Button = ({ link, text, onClick }: { link?: string, text?: string, onClick?: any }) =>
   link ? (
     <div className="flex justify-center">
       <Link href={link}>

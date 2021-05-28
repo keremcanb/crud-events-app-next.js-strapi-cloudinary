@@ -12,19 +12,19 @@ const EditEventPage = ({
   event: { name, performers, venue, address, date, time, description, image, id, genre },
   token
 }: {
+  token?: string,
   event?: {
-    name?: string
-    performers?: string
-    venue?: string
-    address?: string
-    date?: string
-    time?: string
-    description?: string
-    image?: string
-    id?: string
+    name?: string,
+    performers?: string,
+    venue?: string,
+    address?: string,
+    date?: string,
+    time?: string,
+    description?: string,
+    image?: string,
+    id?: string,
     genre?: string
-  },
-  token?: string
+  }
 }) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
   const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
@@ -52,7 +52,7 @@ const EditEventPage = ({
   return token ? (
     <Layout title="Edit Event - DJ Events">
       <h1>Edit Event: {values.name}</h1>
-      <ToastContainer />
+      <ToastContainer position="top-center" />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-rows md:grid-cols-2 gap-4 | mb-5">
           <div>
@@ -125,7 +125,7 @@ const EditEventPage = ({
 export default EditEventPage;
 
 export async function getServerSideProps({ params: { id }, req }: {
-  params: {id?: string}
+  params: { id?: string }
 }) {
   const { token } = parseCookies(req);
   const { data: event } = await axios.get(`${API_URL}/events/${id}`);

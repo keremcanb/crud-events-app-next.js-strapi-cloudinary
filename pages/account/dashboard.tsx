@@ -3,10 +3,7 @@ import { Layout, EventList, NotFound } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 import { API_URL } from '@/config/index';
 
-export default function DashboardPage({ events, token }: {
-  events?: []
-  token?: string
-}) {
+export default function DashboardPage({ events, token }: { events?: [], token?: string }) {
   return token ? (
     <Layout title="User Dashboard - DJ Events">
       <h1>My Events</h1>

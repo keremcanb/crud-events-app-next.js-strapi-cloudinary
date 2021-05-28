@@ -5,9 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { Layout, Button, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 
-const AddEventPage = ({ token }: {
-  token?: string
-}) => {
+const AddEventPage = ({ token }: { token?: string }) => {
   const [values, setValues] = useState({
     name: '',
     performers: '',
@@ -39,7 +37,7 @@ const AddEventPage = ({ token }: {
   return token ? (
     <Layout title="Add New Event - DJ Events">
       <h1>Add Event</h1>
-      <ToastContainer />
+      <ToastContainer position="top-center" />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-rows md:grid-cols-2 gap-4 | mb-5">
           <div>

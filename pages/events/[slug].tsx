@@ -6,15 +6,15 @@ import { API_URL } from '@/config/index';
 
 const EventPage = ({ event: { name, date, time, image, performers, description, venue, address, genre } }: {
   event?: {
-    name?: string
-    performers?: string
-    venue?: string
-    address?: string
-    date?: string
-    time?: string
-    description?: string
-    image?: string
-    id?: string
+    name?: string,
+    performers?: string,
+    venue?: string,
+    address?: string,
+    date?: string,
+    time?: string,
+    description?: string,
+    image?: string,
+    id?: string,
     genre?: string
   }
 }) => (

@@ -31,7 +31,7 @@ export default function RegisterPage() {
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Register
         </h1>
-        <ToastContainer />
+        <ToastContainer position="top-center" />
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>

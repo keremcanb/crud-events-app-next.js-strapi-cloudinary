@@ -1,9 +1,7 @@
 import { useRef } from 'react';
 import { Button, ArrowIcon } from '@/components/index';
 
-const EventsSearch = ({ onSearch }: {
-  onSearch?: any
-}) => {
+const EventsSearch = ({ onSearch }: { onSearch?: any }) => {
   const yearRef = useRef();
   const monthRef = useRef();
 

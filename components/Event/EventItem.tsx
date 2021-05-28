@@ -10,12 +10,12 @@ import { Modal } from 'react-responsive-modal';
 import Button from '../UI/Button';
 
 const EventItem = ({ slug, name, id, image, date, token, dashboard }: {
-  slug?: string
-  id?: string
-  name?: string
-  image?: string
-  date?: string
-  token?: string
+  slug?: string,
+  id?: string,
+  name?: string,
+  image?: string,
+  date?: string,
+  token?: string,
   dashboard?: boolean
 }) => {
   const [open, setOpen] = useState(false);
@@ -52,7 +52,7 @@ const EventItem = ({ slug, name, id, image, date, token, dashboard }: {
           <Button text="Go Back" onClick={onCloseModal} />
         </div>
       </Modal>
-      <ToastContainer />
+      <ToastContainer position="top-center" autoClose={3000} />
       <Card>
         <Link href={`/events/${slug}`}>
           <a>

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Layout, EventList, Button, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
 
-const Home = ({ events }) => (
+const Home = ({ events }: { events?: [] }) => (
   <Layout>
     <h1>Featured Events</h1>
     {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
