@@ -9,14 +9,22 @@ import { Card } from '@/components/index';
 import { Modal } from 'react-responsive-modal';
 import Button from '../UI/Button';
 
-const EventItem = ({ slug, name, id, image, date, token, dashboard }: {
-  slug?: string,
-  id?: string,
-  name?: string,
-  image?: string,
-  date?: string,
-  token?: string,
-  dashboard?: boolean
+const EventItem = ({
+  slug,
+  name,
+  id,
+  image,
+  date,
+  token,
+  dashboard
+}: {
+  slug?: string;
+  id?: string;
+  name?: string;
+  image?: string;
+  date?: string;
+  token?: string;
+  dashboard?: boolean;
 }) => {
   const [open, setOpen] = useState(false);
   const { deleteEvent } = useContext(EventsContext);

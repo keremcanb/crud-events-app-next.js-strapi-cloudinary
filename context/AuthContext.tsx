@@ -4,12 +4,12 @@ import axios from 'axios';
 import { NEXT_URL } from '@/config/index';
 
 type ContextProps = {
-  user: string,
-  error: string,
-  login: any,
-  logout: any,
-  register: any,
-  checkUserLoggedIn: any
+  user: string;
+  error: string;
+  login: any;
+  logout: any;
+  register: any;
+  checkUserLoggedIn: any;
 };
 
 const AuthContext = createContext<Partial<ContextProps>>({});

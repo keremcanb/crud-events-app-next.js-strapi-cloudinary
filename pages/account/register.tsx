@@ -5,7 +5,7 @@ import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Layout, Button } from '@/components/index';
 
-export default function RegisterPage() {
+const RegisterPage = () => {
   const [values, setValues] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
   const { username, email, password, passwordConfirm } = values;
   const { register, error } = useContext(AuthContext);
@@ -57,4 +57,6 @@ export default function RegisterPage() {
       </div>
     </Layout>
   );
-}
+};
+
+export default RegisterPage;

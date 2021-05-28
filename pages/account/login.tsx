@@ -5,7 +5,7 @@ import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Layout, Button } from '@/components/index';
 
-export default function LoginPage() {
+const LoginPage = () => {
   const [values, setValues] = useState({ email: '', password: '' });
   const { email, password } = values;
   const { login, error } = useContext(AuthContext);
@@ -45,4 +45,6 @@ export default function LoginPage() {
       </div>
     </Layout>
   );
-}
+};
+
+export default LoginPage;

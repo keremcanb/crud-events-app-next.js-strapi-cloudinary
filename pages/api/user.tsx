@@ -1,5 +1,6 @@
-import cookie from 'cookie';
 import { API_URL } from '@/config/index';
+
+const cookie = require('cookie');
 
 export default async (req, res) => {
   if (req.method === 'GET') {

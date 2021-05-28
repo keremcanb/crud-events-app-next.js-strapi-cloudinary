@@ -5,12 +5,12 @@ import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
 type ContextProps = {
-  values: object,
-  token: string,
-  id: string,
-  addEvent: any,
-  updateEvent: any,
-  deleteEvent: any
+  values: object;
+  token: string;
+  id: string;
+  addEvent: any;
+  updateEvent: any;
+  deleteEvent: any;
 };
 
 const EventsContext = createContext<Partial<ContextProps>>({});

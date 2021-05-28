@@ -18,12 +18,12 @@ const AddEventPage = ({ token }: { token?: string }) => {
     featured: false
   });
   const { name, performers, venue, address, date, time, description, genre } = values;
-  const [checked, setChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const { addEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEvent({ ...values, featured: checked }, token);
+    addEvent({ ...values, featured: isChecked }, token);
   };
 
   const handleChange = (e) => {
@@ -31,10 +31,10 @@ const AddEventPage = ({ token }: { token?: string }) => {
   };
 
   const handleToggle = (checked) => {
-    setChecked(checked);
+    setIsChecked(checked);
   };
 
-  return token ? (
+  return (
     <Layout title="Add New Event - DJ Events">
       <h1>Add Event</h1>
       <ToastContainer position="top-center" />
@@ -76,7 +76,7 @@ const AddEventPage = ({ token }: { token?: string }) => {
           </div>
           <div>
             <label htmlFor="featured">Featured</label>
-            <Switch onChange={handleToggle} checked={checked} className="mt-1" />
+            <Switch onChange={handleToggle} checked={isChecked} className="mt-1" />
           </div>
         </div>
         <div>
@@ -86,8 +86,6 @@ const AddEventPage = ({ token }: { token?: string }) => {
         <Button text="Add Event" />
       </form>
     </Layout>
-  ) : (
-    <h1>Not authorized to view this page</h1>
   );
 };
 

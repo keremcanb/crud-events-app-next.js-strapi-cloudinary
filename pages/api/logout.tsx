@@ -1,4 +1,4 @@
-import cookie from 'cookie';
+const cookie = require('cookie');
 
 export default async (req, res) => {
   // Destroy cookie

@@ -12,28 +12,28 @@ const EditEventPage = ({
   event: { name, performers, venue, address, date, time, description, image, id, genre },
   token
 }: {
-  token?: string,
+  token?: string;
   event?: {
-    name?: string,
-    performers?: string,
-    venue?: string,
-    address?: string,
-    date?: string,
-    time?: string,
-    description?: string,
-    image?: string,
-    id?: string,
-    genre?: string
-  }
+    name?: string;
+    performers?: string;
+    venue?: string;
+    address?: string;
+    date?: string;
+    time?: string;
+    description?: string;
+    image?: string;
+    id?: string;
+    genre?: string;
+  };
 }) => {
   const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
   const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
-  const [checked, setChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const { updateEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateEvent(id, { ...values, featured: checked }, token);
+    updateEvent(id, { ...values, featured: isChecked }, token);
   };
 
   const handleChange = (e) => {
@@ -41,7 +41,7 @@ const EditEventPage = ({
   };
 
   const handleToggle = (checked) => {
-    setChecked(checked);
+    setIsChecked(checked);
   };
 
   const imageUploaded = async () => {
@@ -49,7 +49,7 @@ const EditEventPage = ({
     imagePreviewSet(data.image.formats.thumbnail.url);
   };
 
-  return token ? (
+  return (
     <Layout title="Edit Event - DJ Events">
       <h1>Edit Event: {values.name}</h1>
       <ToastContainer position="top-center" />
@@ -91,7 +91,7 @@ const EditEventPage = ({
           </div>
           <div>
             <label htmlFor="featured">Featured</label>
-            <Switch onChange={handleToggle} checked={checked} className="mt-1" />
+            <Switch onChange={handleToggle} checked={isChecked} className="mt-1" />
           </div>
         </div>
         <div>
@@ -117,16 +117,12 @@ const EditEventPage = ({
         </div>
       )}
     </Layout>
-  ) : (
-    <h1>Not authorized to view this page</h1>
   );
 };
 
 export default EditEventPage;
 
-export async function getServerSideProps({ params: { id }, req }: {
-  params: { id?: string }
-}) {
+export async function getServerSideProps({ params: { id }, req }: { params: { id?: string } }) {
   const { token } = parseCookies(req);
   const { data: event } = await axios.get(`${API_URL}/events/${id}`);
   return { props: { event, token } };
