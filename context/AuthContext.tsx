@@ -3,7 +3,16 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { NEXT_URL } from '@/config/index';
 
-const AuthContext = createContext();
+type ContextProps = {
+  user: string,
+  error: string,
+  login: any,
+  logout: any,
+  register: any,
+  checkUserLoggedIn: any
+};
+
+const AuthContext = createContext<Partial<ContextProps>>({});
 
 export const AuthProvider = ({ children }) => {
   const [user, userSet] = useState(null);

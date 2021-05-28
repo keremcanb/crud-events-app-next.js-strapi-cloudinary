@@ -4,7 +4,16 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
-const EventsContext = createContext();
+type ContextProps = {
+  values: {},
+  token: string,
+  id: string,
+  addEvent: any,
+  updateEvent: any,
+  deleteEvent: any
+};
+
+const EventsContext = createContext<Partial<ContextProps>>({});
 
 export const EventsProvider = ({ children }) => {
   const router = useRouter();

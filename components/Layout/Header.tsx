@@ -8,7 +8,7 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="grid lg:grid-cols-3 place-items-center gap-3 | h:auto lg:h-16 mt-3 lg:mt-0 | shadow-md">
+    <header className="grid lg:grid-cols-3 place-items-center gap-3 | h:auto lg:h-16 mt-3 lg:mt-0 | shadow-md dark:bg-red">
       <Link href="/">
         <a className="text-red-600 text-3xl font-russo-one uppercase | cursor-pointer">DJ Events</a>
       </Link>
