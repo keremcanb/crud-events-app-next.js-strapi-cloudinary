@@ -50,13 +50,7 @@ const EventItem = ({
       >
         <h2 className="text-center">Delete Event?</h2>
         <div className="flex gap-5 place-items-center">
-          <button
-            text="Delete"
-            onClick={handleDelete}
-            className="py-2 px-4 my-5 | bg-red-500 hover:bg-red-700 | text-white font-semibold | rounded-lg shadow-md  | focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
-          >
-            Delete
-          </button>
+          <Button text="Delete" onClick={handleDelete} />
           <Button text="Go Back" onClick={onCloseModal} />
         </div>
       </Modal>
