@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [error, errorSet] = useState(null);
   const router = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   const register = async (user) => {
     try {
       const { data } = await axios.post(`${NEXT_URL}/api/register`, user);

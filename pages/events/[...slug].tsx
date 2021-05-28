@@ -22,14 +22,12 @@ const FilteredEventsPage = ({ events }: { events?: [] }) => {
     numMonth > 12
   ) {
     return (
-      <>
-        <div>
-          <p>Invalid filter. Please adjust your values!</p>
-        </div>
+      <div className="mt-5">
+        <h1>Invalid filter. Please adjust your values!</h1>
         <div className="center">
-          <Button link="/events">Show All Events</Button>
+          <Button link="/events" text="Go Back" />
         </div>
-      </>
+      </div>
     );
   }
   // Filtered events

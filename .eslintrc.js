@@ -7,6 +7,7 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
+    'no-console': 0,
     'react/button-has-type': 0,
     'react/react-in-jsx-scope': 0,
     'react/require-default-props': 0,
