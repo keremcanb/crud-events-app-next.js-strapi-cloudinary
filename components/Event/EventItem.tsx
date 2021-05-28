@@ -21,7 +21,7 @@ const EventItem = ({
   slug?: string;
   id?: string;
   name?: string;
-  image?: string;
+  image?: any;
   date?: string;
   token?: string;
   dashboard?: boolean;

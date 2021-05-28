@@ -15,7 +15,7 @@ const EventPage = ({
     date?: string;
     time?: string;
     description?: string;
-    image?: string;
+    image?: any;
     id?: string;
     genre?: string;
   };

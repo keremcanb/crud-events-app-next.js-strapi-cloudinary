@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+// eslint-disable-next-line react/prop-types
 const Button = ({ link, text, onClick }: { link?: string; text?: string; onClick?: any }) =>
   link ? (
     <div className="flex justify-center">
