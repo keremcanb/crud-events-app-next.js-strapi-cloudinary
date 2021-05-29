@@ -4,9 +4,10 @@ import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
 import { Layout, Button, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
+import { IValues } from '@/types/types';
 
 const AddEventPage = ({ token }: { token: string }) => {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<IValues>({
     name: '',
     performers: '',
     venue: '',
@@ -18,7 +19,7 @@ const AddEventPage = ({ token }: { token: string }) => {
     featured: false
   });
   const { name, performers, venue, address, date, time, description, genre } = values;
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const { addEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
@@ -83,7 +84,7 @@ const AddEventPage = ({ token }: { token: string }) => {
           <label htmlFor="description">Description</label>
           <textarea id="description" value={description} onChange={handleChange} required />
         </div>
-        <Button text="Add Event" />
+        <Button color="blue" text="Add Event" />
       </form>
     </Layout>
   );

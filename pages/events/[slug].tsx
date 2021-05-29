@@ -3,9 +3,11 @@ import Image from 'next/image';
 import axios from 'axios';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
-import IEvent from 'types/event';
+import { IEventObj } from '@/types/types';
 
-const EventPage = ({ event: { name, date, time, image, performers, description, venue, address, genre } }: IEvent) => (
+const EventPage = ({
+  event: { name, date, time, image, performers, description, venue, address, genre }
+}: IEventObj) => (
   <Layout title={`${name} - DJ Events`}>
     <div className="grid grid-rows justify-center items-center gap-4 | my-5">
       <h1>{name}</h1>

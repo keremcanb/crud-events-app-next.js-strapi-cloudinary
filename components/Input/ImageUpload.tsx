@@ -5,8 +5,8 @@ import { Button, Spinner } from '@/components/index';
 import { API_URL } from '../../config/index';
 
 const ImageUpload = ({ eventId, imageUploaded, token }: { eventId?: string; imageUploaded?: any; token?: string }) => {
-  const [image, imageSet] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [image, imageSet] = useState<string>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }: { eventId?: string; imag
         <div>
           <input type="file" onChange={handleChange} />
         </div>
-        <Button text="Upload Image" />
+        <Button color="blue" text="Upload Image" />
         {loading && <Spinner />}
       </form>
     </>

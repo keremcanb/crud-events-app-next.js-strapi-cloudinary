@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, ArrowIcon } from '@/components/index';
 
 const Filter = ({ onSearch }: { onSearch: any }) => {
-  const [values, setValues] = useState({ year: '2021', month: '1' });
+  const [values, setValues] = useState<{ year: string; month: string }>({ year: '2021', month: '1' });
   const { year, month } = values;
 
   const submitHandler = (e) => {
@@ -16,7 +16,7 @@ const Filter = ({ onSearch }: { onSearch: any }) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 | mb-2">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 | mb-5">
         <div className="flex flex-row place-items-center gap-5">
           <div className="relative">
             <select id="year" value={year} onChange={handleChange}>
@@ -43,7 +43,7 @@ const Filter = ({ onSearch }: { onSearch: any }) => {
             <ArrowIcon />
           </div>
         </div>
-        <Button text="Filter" />
+        <Button color="blue" text="Filter" />
       </div>
     </form>
   );

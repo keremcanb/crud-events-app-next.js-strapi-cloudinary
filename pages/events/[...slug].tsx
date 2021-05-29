@@ -25,7 +25,7 @@ const FilteredEventsPage = ({ events }: { events?: [] }) => {
       <div className="mt-5">
         <h1>Invalid filter. Please adjust your values!</h1>
         <div className="center">
-          <Button link="/events" text="Go Back" />
+          <Button color="blue" link="/events" text="Go Back" />
         </div>
       </div>
     );
@@ -40,7 +40,7 @@ const FilteredEventsPage = ({ events }: { events?: [] }) => {
     return (
       <Layout>
         <NotFound />
-        <Button text="View All Events" link="/events" />
+        <Button color="blue" text="View All Events" link="/events" />
       </Layout>
     );
   }

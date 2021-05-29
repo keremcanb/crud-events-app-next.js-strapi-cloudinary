@@ -6,7 +6,7 @@ import AuthContext from '@/context/AuthContext';
 import { Layout, Button } from '@/components/index';
 
 const LoginPage = () => {
-  const [values, setValues] = useState({ email: '', password: '' });
+  const [values, setValues] = useState<{ email: string; password: string }>({ email: '', password: '' });
   const { email, password } = values;
   const { login, error } = useContext(AuthContext);
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" value={password} onChange={handleChange} required />
           </div>
-          <Button text="Login" />
+          <Button color="blue" text="Login" />
         </form>
         <p className="text-center">
           Don't have an account? <Link href="/account/register">Register Here</Link>

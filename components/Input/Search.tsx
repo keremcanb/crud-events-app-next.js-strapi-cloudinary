@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { FaSearch } from 'react-icons/fa';
 
 const Search = () => {
-  const [term, termSet] = useState('');
+  const [term, termSet] = useState<string>('');
   const router = useRouter();
 
   const handleSubmit = (e) => {

@@ -7,15 +7,25 @@ import { parseCookies } from '@/helpers/helpers';
 import { Layout, ImageUpload, Button, ArrowIcon } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
-import IEvent from 'types/event';
+import { IEventObj, IValues } from '@/types/types';
 
 const EditEventPage = ({
-  event: { name, performers, venue, address, date, time, description, image, id, genre },
+  event: { name, performers, venue, address, date, time, description, image, id, genre, featured },
   token
-}: IEvent) => {
-  const [values, setValues] = useState({ name, performers, venue, address, date, time, description });
-  const [imagePreview, imagePreviewSet] = useState(image && image.formats.thumbnail.url);
-  const [isChecked, setIsChecked] = useState(false);
+}: IEventObj) => {
+  const [values, setValues] = useState<IValues>({
+    name,
+    performers,
+    venue,
+    address,
+    date,
+    time,
+    description,
+    genre,
+    featured
+  });
+  const [imagePreview, imagePreviewSet] = useState<string>(image && image.formats.thumbnail.url);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const { updateEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
@@ -78,14 +88,14 @@ const EditEventPage = ({
           </div>
           <div>
             <label htmlFor="featured">Featured</label>
-            <Switch onChange={handleToggle} checked={isChecked} className="mt-1" />
+            <Switch id="featured" onChange={handleToggle} checked={isChecked} className="mt-1" />
           </div>
         </div>
         <div>
           <label htmlFor="description">Description</label>
           <textarea id="description" value={values.description} onChange={handleChange} required />
         </div>
-        <Button text="Update Event" />
+        <Button color="blue" text="Update Event" />
       </form>
       {imagePreview ? (
         <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">

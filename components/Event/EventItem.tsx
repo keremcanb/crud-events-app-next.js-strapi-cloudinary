@@ -4,29 +4,13 @@ import Image from 'next/image';
 import Moment from 'react-moment';
 import { FaPencilAlt, FaTimes } from 'react-icons/fa';
 import { ToastContainer } from 'react-toastify';
-import EventsContext from '@/context/EventsContext';
-import { Card } from '@/components/index';
 import { Modal } from 'react-responsive-modal';
-import Button from '../UI/Button';
-
-interface IEvent {
-  slug: string;
-  id: number;
-  name: string;
-  date: string;
-  token: string;
-  dashboard: boolean;
-  image: {
-    formats: {
-      thumbnail: {
-        url: string;
-      };
-    };
-  };
-}
+import EventsContext from '@/context/EventsContext';
+import { Card, Button } from '@/components/index';
+import { IEvent } from '@/types/types';
 
 const EventItem = ({ slug, name, id, image, date, token, dashboard }: IEvent) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const { deleteEvent } = useContext(EventsContext);
 
   const onOpenModal = () => setOpen(true);
@@ -50,8 +34,8 @@ const EventItem = ({ slug, name, id, image, date, token, dashboard }: IEvent) =>
       >
         <h2 className="text-center">Delete Event?</h2>
         <div className="flex gap-5 place-items-center">
-          <Button text="Delete" onClick={handleDelete} />
-          <Button text="Go Back" onClick={onCloseModal} />
+          <Button text="Delete" color="red" onClick={handleDelete} />
+          <Button text="Go Back" color="blue" onClick={onCloseModal} />
         </div>
       </Modal>
       <ToastContainer position="top-center" autoClose={3000} />

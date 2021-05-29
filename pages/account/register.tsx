@@ -4,9 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Layout, Button } from '@/components/index';
+import { IUser } from '@/types/types';
 
 const RegisterPage = () => {
-  const [values, setValues] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
+  const [values, setValues] = useState<IUser>({ username: '', email: '', password: '', passwordConfirm: '' });
   const { username, email, password, passwordConfirm } = values;
   const { register, error } = useContext(AuthContext);
 
@@ -49,7 +50,7 @@ const RegisterPage = () => {
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
-          <Button text="Register" />
+          <Button color="blue" text="Register" />
         </form>
         <p className="text-center">
           Already have an account? <Link href="/account/login">Login Here</Link>

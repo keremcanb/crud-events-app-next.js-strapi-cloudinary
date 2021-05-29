@@ -1,18 +1,9 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Header, Footer, Showcase } from '@/components/index';
+import { ILayout } from '@/types/types';
 
-const Layout = ({
-  children,
-  title,
-  keywords,
-  description
-}: {
-  children: React.ReactNode;
-  title?: string;
-  keywords?: string;
-  description?: string;
-}) => {
+const Layout = ({ children, title, keywords, description }: ILayout) => {
   const router = useRouter();
 
   return (

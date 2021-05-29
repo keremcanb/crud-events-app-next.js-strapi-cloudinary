@@ -15,8 +15,8 @@ type ContextProps = {
 const AuthContext = createContext<Partial<ContextProps>>({});
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, userSet] = useState(null);
-  const [error, errorSet] = useState(null);
+  const [user, userSet] = useState<string>(null);
+  const [error, errorSet] = useState<string>(null);
   const router = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-shadow
