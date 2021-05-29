@@ -8,7 +8,8 @@ module.exports = {
       }
     }
   },
-  darkMode: 'media'
+  darkMode: 'media',
+  purge: false
 };
 
 // module.exports = {

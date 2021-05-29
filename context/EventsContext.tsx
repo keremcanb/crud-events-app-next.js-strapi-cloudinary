@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
 type ContextProps = {
-  values: object;
+  values: any;
   token: string;
   id: string;
   addEvent: any;
@@ -18,7 +18,7 @@ const EventsContext = createContext<Partial<ContextProps>>({});
 export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
-  const addEvent = async (values, token) => {
+  const addEvent = async (values: {}, token: string) => {
     try {
       const { data } = await axios.post(`${API_URL}/events`, values, {
         headers: { Authorization: `Bearer ${token}` }
@@ -33,7 +33,7 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const updateEvent = async (id, values, token) => {
+  const updateEvent = async (id: number, values: {}, token: string) => {
     try {
       const { data } = await axios.put(`${API_URL}/events/${id}`, values, {
         headers: { Authorization: `Bearer ${token}` }
@@ -48,7 +48,7 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const deleteEvent = async (id, token) => {
+  const deleteEvent = async (id: number, token: string) => {
     try {
       await axios.delete(`${API_URL}/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` }

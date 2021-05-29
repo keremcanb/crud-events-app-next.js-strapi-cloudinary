@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { Layout, Button, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 
-const AddEventPage = ({ token }: { token?: string }) => {
+const AddEventPage = ({ token }: { token: string }) => {
   const [values, setValues] = useState({
     name: '',
     performers: '',
@@ -30,7 +30,7 @@ const AddEventPage = ({ token }: { token?: string }) => {
     setValues({ ...values, [e.target.id]: e.target.value });
   };
 
-  const handleToggle = (checked) => {
+  const handleToggle = (checked: boolean) => {
     setIsChecked(checked);
   };
 
