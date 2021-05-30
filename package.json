@@ -8,6 +8,7 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
     "cookie": "^0.4.1",

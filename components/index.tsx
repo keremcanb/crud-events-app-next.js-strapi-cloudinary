@@ -12,6 +12,7 @@ import Spinner from './UI/Spinner';
 import Filter from './Input/Filter';
 import NotFound from './Section/NotFound';
 import ArrowIcon from './UI/ArrowIcon';
+import Menu from './UI/Menu';
 
 export {
   Layout,
@@ -27,5 +28,6 @@ export {
   Spinner,
   Filter,
   NotFound,
-  ArrowIcon
+  ArrowIcon,
+  Menu
 };

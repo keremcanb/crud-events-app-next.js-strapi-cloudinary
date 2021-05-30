@@ -39,7 +39,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
         </div>
       </Modal>
       <ToastContainer position="top-center" autoClose={3000} />
-      <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition-colors duration-500">
+      <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition-colors duration-500 mb-5">
         <Link href={`/events/${slug}`}>
           <a>
             <Image src={image ? image.formats.medium.url : '/images/event-default.png'} width={300} height={200} />
@@ -55,11 +55,11 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
           <div className="flex justify-center items-center gap-10 mb-4">
             <Link href={`/events/edit/${id}`}>
               <a>
-                <FaPencilAlt className="text-xl" />
+                <FaPencilAlt className="text-2xl text-blue-500 hover:text-blue-700" />
               </a>
             </Link>
             <a href="#" onClick={onOpenModal}>
-              <FaTimes className="text-red-600 text-xl" />
+              <FaTimes className="text-2xl text-red-500 hover:text-red-700" />
             </a>
           </div>
         ) : (

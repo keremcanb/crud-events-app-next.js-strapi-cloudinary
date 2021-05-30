@@ -68,27 +68,31 @@ const EditEventPage = ({
             <label htmlFor="address">Address</label>
             <input type="text" id="address" value={values.address} onChange={handleChange} required />
           </div>
-          <div>
-            <label htmlFor="date">Date</label>
-            <input type="date" id="date" value={values.date} onChange={handleChange} required />
+          <div className="grid grid-cols-2 md:grid-rows gap-4">
+            <div>
+              <label htmlFor="date">Date</label>
+              <input type="date" id="date" value={values.date} onChange={handleChange} required />
+            </div>
+            <div>
+              <label htmlFor="time">Time</label>
+              <input type="time" id="time" value={values.time} onChange={handleChange} required />
+            </div>
           </div>
-          <div>
-            <label htmlFor="time">Time</label>
-            <input type="time" id="time" value={values.time} onChange={handleChange} required />
-          </div>
-          <div className="relative">
-            <label htmlFor="genre">Genre</label>
-            <select id="genre" defaultValue={genre} onChange={handleChange}>
-              <option value="Trance">Trance</option>
-              <option value="House">House</option>
-              <option value="Techno">Techno</option>
-              <option value="Prog House">Prog House</option>
-            </select>
-            <ArrowIcon />
-          </div>
-          <div>
-            <label htmlFor="featured">Featured</label>
-            <Switch id="featured" onChange={handleToggle} checked={isChecked} className="mt-1" />
+          <div className="grid grid-cols-2 md:grid-rows gap-4">
+            <div className="relative">
+              <label htmlFor="genre">Genre</label>
+              <select id="genre" defaultValue={genre} onChange={handleChange}>
+                <option value="Trance">Trance</option>
+                <option value="House">House</option>
+                <option value="Techno">Techno</option>
+                <option value="Prog House">Prog House</option>
+              </select>
+              <ArrowIcon />
+            </div>
+            <div>
+              <label htmlFor="featured">Featured</label>
+              <Switch id="featured" onChange={handleToggle} checked={isChecked} className="mt-1" />
+            </div>
           </div>
         </div>
         <div>

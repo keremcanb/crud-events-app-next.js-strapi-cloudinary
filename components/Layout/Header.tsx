@@ -1,54 +1,76 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
-import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { Transition } from '@headlessui/react';
+import { IoMdMenu, IoMdClose, IoMdLogIn, IoMdLogOut } from 'react-icons/io';
+import { Search, Menu } from '@/components/index';
 import AuthContext from '@/context/AuthContext';
-import { Search } from '@/components/index';
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="grid lg:grid-cols-3 place-items-center gap-3 | h:auto lg:h-16 mt-3 lg:mt-0 | shadow-md dark:bg-red">
-      <Link href="/">
-        <a className="text-red-600 text-3xl font-russo-one uppercase | cursor-pointer">DJ Events</a>
-      </Link>
-      <Search />
-      <nav>
-        <ul className="flex flex-col md:flex-row place-items-center gap-3 | text-lg font-play dark:text-white | my-2">
-          {/* Logged in user menu */}
-          {user ? (
-            <>
-              <li>
-                <Link href="/events">
-                  <a>Events</a>
+    <header>
+      <nav className="bg-gray-800">
+        <div className="px-1 md:px-5">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <Link href="/">
+                  <a className="text-3xl font-russo-one uppercase | cursor-pointer">DJ Events</a>
                 </Link>
-              </li>
-              <li>
-                <Link href="/account/dashboard">
-                  <a>Dashboard</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/events/add">
-                  <a>Add Event</a>
-                </Link>
-              </li>
-              <li>
-                <FaSignOutAlt onClick={logout} className="cursor-pointer" />
-              </li>
-            </>
-          ) : (
-            // Logged out user menu
-            <li>
-              <Link href="/account/login">
+              </div>
+              <div className="hidden md:block">
+                <div className="ml-10 flex items-baseline space-x-4">
+                  <Menu />
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-1 md:gap-5">
+              <Search />
+              {user ? (
                 <a>
-                  Login
-                  <FaSignInAlt className="inline-flex | ml-2 mb-0.5" />
+                  <IoMdLogOut className="text-3xl" onClick={logout} />
                 </a>
-              </Link>
-            </li>
+              ) : (
+                <Link href="/account/login">
+                  <a>
+                    <IoMdLogIn className="text-3xl" />
+                  </a>
+                </Link>
+              )}
+            </div>
+            <div className="-mr-2 flex md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                type="button"
+                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Open main menu</span>
+                {isOpen ? <IoMdClose className="text-3xl" /> : <IoMdMenu className="text-3xl" />}
+              </button>
+            </div>
+          </div>
+        </div>
+        <Transition
+          show={isOpen}
+          enter="transition ease-out duration-100 transform"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="transition ease-in duration-75 transform"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          {(ref) => (
+            <div className="md:hidden" id="mobile-menu">
+              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <Menu />
+              </div>
+            </div>
           )}
-        </ul>
+        </Transition>
       </nav>
     </header>
   );
