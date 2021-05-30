@@ -8,7 +8,6 @@ import Pagination from './Section/Pagination';
 import Search from './Input/Search';
 import Showcase from './Section/Showcase';
 import Button from './UI/Button';
-import Card from './UI/Card';
 import Spinner from './UI/Spinner';
 import Filter from './Input/Filter';
 import NotFound from './Section/NotFound';
@@ -25,7 +24,6 @@ export {
   Search,
   Showcase,
   Button,
-  Card,
   Spinner,
   Filter,
   NotFound,

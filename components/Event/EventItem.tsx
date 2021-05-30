@@ -45,14 +45,14 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
             <Image src={image ? image.formats.medium.url : '/images/event-default.png'} width={300} height={200} />
           </a>
         </Link>
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{name}</div>
+        <div className="px-6 py-2">
+          <div className="font-bold text-xl">{name}</div>
           <p className="text-gray-700 text-base">
             <Moment format="DD-MM-YYYY">{date}</Moment>
           </p>
         </div>
         {dashboard ? (
-          <div className="flex justify-center items-center gap-10 mb-2">
+          <div className="flex justify-center items-center gap-10 mb-4">
             <Link href={`/events/edit/${id}`}>
               <a>
                 <FaPencilAlt className="text-xl" />
