@@ -5,16 +5,14 @@
 @layer base {
   html,
   body {
-    @apply leading-7;
-    @apply dark:bg-gray-800;
+    @apply leading-7 dark:bg-gray-800;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-bold;
-    @apply dark:text-white;
+    @apply font-bold dark:text-white;
   }
 
   h1 {
@@ -31,8 +29,7 @@
   }
 
   p {
-    @apply my-5;
-    @apply dark:text-white;
+    @apply my-5 dark:text-white;
   }
 
   li a {
@@ -54,24 +51,19 @@
   input,
   textarea,
   select {
-    @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight;
-    @apply focus:outline-none;
-    @apply focus:bg-white;
-    @apply focus:border-purple-500;
+    @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500;
   }
 }
 
 @layer components {
   .btn {
-    @apply font-bold py-2 px-4 rounded;
+    @apply font-bold text-white my-5 py-2 px-4 rounded;
   }
   .btn-blue {
-    @apply bg-blue-500 text-white;
-    @apply hover:bg-blue-700;
+    @apply bg-blue-500 hover:bg-blue-700;
   }
   .btn-red {
-    @apply bg-red-500 text-white;
-    @apply hover:bg-red-700;
+    @apply bg-red-500 hover:bg-red-700;
   }
 
   .customModal {

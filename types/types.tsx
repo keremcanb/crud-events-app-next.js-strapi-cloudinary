@@ -1,4 +1,5 @@
 export interface IEventObj {
+  token: string;
   event: {
     name: string;
     performers: string;
@@ -29,10 +30,11 @@ export interface IEvent {
   name: string;
   date: string;
   token: string;
+  genre: string;
   dashboard: boolean;
   image: {
     formats: {
-      thumbnail: {
+      medium: {
         url: string;
       };
     };

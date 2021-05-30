@@ -6,7 +6,7 @@ import { API_URL, PER_PAGE } from '@/config/index';
 const EventsPage = ({ events, page, total }: { events?: []; page?: number; total?: number }) => {
   const router = useRouter();
 
-  const handleFilter = (year, month) => {
+  const handleFilter = (year: string, month: string) => {
     router.push(`/events/${year}/${month}`);
   };
 

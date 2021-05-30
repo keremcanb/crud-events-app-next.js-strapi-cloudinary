@@ -6,10 +6,10 @@ import { FaPencilAlt, FaTimes } from 'react-icons/fa';
 import { ToastContainer } from 'react-toastify';
 import { Modal } from 'react-responsive-modal';
 import EventsContext from '@/context/EventsContext';
-import { Card, Button } from '@/components/index';
+import { Button } from '@/components/index';
 import { IEvent } from '@/types/types';
 
-const EventItem = ({ slug, name, id, image, date, token, dashboard }: IEvent) => {
+const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEvent) => {
   const [open, setOpen] = useState<boolean>(false);
   const { deleteEvent } = useContext(EventsContext);
 
@@ -39,24 +39,20 @@ const EventItem = ({ slug, name, id, image, date, token, dashboard }: IEvent) =>
         </div>
       </Modal>
       <ToastContainer position="top-center" autoClose={3000} />
-      <Card>
+      <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition-colors duration-500">
         <Link href={`/events/${slug}`}>
           <a>
-            <Image
-              src={image ? image.formats.thumbnail.url : '/images/event-default.png'}
-              width={170}
-              height={100}
-              className="rounded"
-            />
+            <Image src={image ? image.formats.medium.url : '/images/event-default.png'} width={300} height={200} />
           </a>
         </Link>
-        <h2>
-          <Link href={`/events/${slug}`}>
-            <a>{name}</a>
-          </Link>
-        </h2>
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">{name}</div>
+          <p className="text-gray-700 text-base">
+            <Moment format="DD-MM-YYYY">{date}</Moment>
+          </p>
+        </div>
         {dashboard ? (
-          <div className="flex gap-10">
+          <div className="flex justify-center items-center gap-10 mb-2">
             <Link href={`/events/edit/${id}`}>
               <a>
                 <FaPencilAlt className="text-xl" />
@@ -67,11 +63,13 @@ const EventItem = ({ slug, name, id, image, date, token, dashboard }: IEvent) =>
             </a>
           </div>
         ) : (
-          <h3 className="dark:text-blue-900">
-            <Moment format="DD-MM-YYYY">{date}</Moment>
-          </h3>
+          <div className="px-6 pt-4 pb-2">
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              {genre}
+            </span>
+          </div>
         )}
-      </Card>
+      </div>
     </>
   );
 };
