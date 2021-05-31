@@ -11,40 +11,45 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="bg-gray-800">
-        <div className="px-1 md:px-5">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <Link href="/">
-                  <a className="text-3xl font-russo-one uppercase | cursor-pointer">DJ Events</a>
-                </Link>
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <Menu />
-                </div>
+      <nav className="bg-gray-800 px-2">
+        {/* Full menu */}
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/">
+                <a className="text-3xl font-russo-one uppercase cursor-pointer">DJ Events</a>
+              </Link>
+            </div>
+            {/* Menu */}
+            <div className="hidden lg:block">
+              <div className="flex">
+                <Menu />
               </div>
             </div>
-            <div className="flex gap-1 md:gap-5">
+          </div>
+          {/* Search & Auth */}
+          <div className="flex gap-1 md:gap-5">
+            <div className="invisible lg:visible">
               <Search />
-              {user ? (
-                <a>
-                  <IoMdLogOut className="text-3xl" onClick={logout} />
-                </a>
-              ) : (
-                <Link href="/account/login">
-                  <a>
-                    <IoMdLogIn className="text-3xl" />
-                  </a>
-                </Link>
-              )}
             </div>
-            <div className="-mr-2 flex md:hidden">
+            {user ? (
+              <a className="inline-flex gap-1 cursor-pointer">
+                <IoMdLogOut className="text-3xl" onClick={logout} />
+              </a>
+            ) : (
+              <Link href="/account/login">
+                <a className="inline-flex gap-1">
+                  Login <IoMdLogIn className="text-3xl" />
+                </a>
+              </Link>
+            )}
+            {/* Hamburger menu */}
+            <div className="flex lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="inline-flex place-items-center | bg-gray-900 hover:bg-gray-800 | p-2 rounded-md | text-gray-400 hover:text-white | focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -54,6 +59,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        {/* Mobile menu */}
         <Transition
           show={isOpen}
           enter="transition ease-out duration-100 transform"
@@ -63,13 +69,14 @@ const Header = () => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <Menu />
+          <div className="lg:hidden" id="mobile-menu">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Menu />
+              <div className="max-w-sm">
+                <Search />
               </div>
             </div>
-          )}
+          </div>
         </Transition>
       </nav>
     </header>
