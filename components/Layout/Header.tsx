@@ -14,6 +14,7 @@ const Header = () => {
       <nav className="bg-gray-800 px-2">
         {/* Full menu */}
         <div className="flex items-center justify-between h-16">
+          {/* Left section */}
           <div className="flex items-center">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -23,18 +24,19 @@ const Header = () => {
             </div>
             {/* Menu */}
             <div className="hidden lg:block">
-              <div className="flex">
-                <Menu />
-              </div>
+              <Menu />
             </div>
           </div>
-          {/* Search & Auth */}
-          <div className="flex gap-1 md:gap-5">
+
+          {/* Right section */}
+          <div className="flex gap-2">
+            {/* Search */}
             <div className="invisible lg:visible">
               <Search />
             </div>
+            {/* Auth */}
             {user ? (
-              <a className="inline-flex gap-1 cursor-pointer">
+              <a className="cursor-pointer">
                 <IoMdLogOut className="text-3xl" onClick={logout} />
               </a>
             ) : (
@@ -46,19 +48,26 @@ const Header = () => {
             )}
             {/* Hamburger menu */}
             <div className="flex lg:hidden">
+              {/* Button props */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="inline-flex place-items-center | bg-gray-900 hover:bg-gray-800 | p-2 rounded-md | text-gray-400 hover:text-white | focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="inline-flex place-items-center | bg-gray-900 hover:bg-gray-800 | p-2 rounded-md | text-gray-400 hover:text-white | focus:outline-none"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>
-                {isOpen ? <IoMdClose className="text-3xl" /> : <IoMdMenu className="text-3xl" />}
+                {/* Button icons */}
+                {isOpen ? (
+                  <IoMdClose className="text-3xl" aria-hidden="true" />
+                ) : (
+                  <IoMdMenu className="text-3xl" aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
         </div>
+
         {/* Mobile menu */}
         <Transition
           show={isOpen}
@@ -70,9 +79,11 @@ const Header = () => {
           leaveTo="opacity-0 scale-95"
         >
           <div className="lg:hidden" id="mobile-menu">
+            {/* Menu */}
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Menu />
-              <div className="max-w-sm">
+              {/* Search */}
+              <div className="max-w-max pt-2 pl-2">
                 <Search />
               </div>
             </div>

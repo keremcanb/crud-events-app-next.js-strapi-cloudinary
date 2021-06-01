@@ -97,7 +97,7 @@ const EditEventPage = ({
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <textarea id="description" value={values.description} onChange={handleChange} required />
+          <textarea id="description" value={values.description} onChange={handleChange} required rows={5} />
         </div>
         <Button color="blue" text="Update Event" />
       </form>

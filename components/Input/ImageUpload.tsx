@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import { Button, Spinner } from '@/components/index';
+import { ImSpinner8 } from 'react-icons/im';
 import { API_URL } from '../../config/index';
 
 const ImageUpload = ({ eventId, imageUploaded, token }: { eventId?: string; imageUploaded?: any; token?: string }) => {
@@ -28,6 +28,7 @@ const ImageUpload = ({ eventId, imageUploaded, token }: { eventId?: string; imag
       if (res.status === 200) {
         setLoading(false);
         imageUploaded();
+        toast.success('Image Uploaded');
       }
     } catch (err) {
       toast.error(err.response.message);
@@ -40,13 +41,24 @@ const ImageUpload = ({ eventId, imageUploaded, token }: { eventId?: string; imag
 
   return (
     <>
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-center" autoClose={2000} />
       <form onSubmit={handleSubmit} className="flex flex-col place-items-center lg:justify-around ">
         <div>
           <input type="file" onChange={handleChange} />
         </div>
-        <Button color="blue" text="Upload Image" />
-        {loading && <Spinner />}
+        <button
+          type="submit"
+          className="inline-flex place-items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+        >
+          {loading ? (
+            <>
+              <ImSpinner8 className="animate-spin h-5 w-5 mr-3 text-white" />
+              Uploading...
+            </>
+          ) : (
+            <>Upload</>
+          )}
+        </button>
       </form>
     </>
   );

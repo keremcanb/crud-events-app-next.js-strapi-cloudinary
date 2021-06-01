@@ -38,7 +38,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
           <Button text="Go Back" color="blue" onClick={onCloseModal} />
         </div>
       </Modal>
-      <ToastContainer position="top-center" autoClose={3000} />
+      <ToastContainer position="top-center" autoClose={2000} />
       <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition-colors duration-500 mb-5">
         <Link href={`/events/${slug}`}>
           <a>
