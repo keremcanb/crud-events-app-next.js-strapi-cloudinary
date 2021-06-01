@@ -11,6 +11,7 @@ import Button from './UI/Button';
 import Fab from './UI/Fab';
 import Spinner from './UI/Spinner';
 import Filter from './Input/Filter';
+import Sort from './Input/Sort';
 import NotFound from './Section/NotFound';
 import ArrowIcon from './UI/ArrowIcon';
 import Menu from './UI/Menu';
@@ -31,5 +32,6 @@ export {
   NotFound,
   ArrowIcon,
   Menu,
+  Sort,
   Fab
 };

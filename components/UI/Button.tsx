@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import Link from 'next/link';
 
 // eslint-disable-next-line react/prop-types
-const Button = ({ link, text, color, onClick }: { link?: string; text?: string; color?: string; onClick?: any }) =>
+const Button = ({ link, text, color, onClick }: { link?: string; text?: string; color?: string; onClick?: () => {} }) =>
   link ? (
     <div className="flex justify-center">
       <Link href={link}>

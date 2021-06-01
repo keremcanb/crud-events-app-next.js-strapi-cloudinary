@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { createContext } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -5,12 +6,12 @@ import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
 type ContextProps = {
-  values: any;
   token: string;
   id: string;
-  addEvent: () => {};
-  updateEvent: () => {};
-  deleteEvent: () => {};
+  formInput: {};
+  addEvent: (formInput: {}, token: string) => {};
+  updateEvent: (id: number, formInput: {}, token: string) => {};
+  deleteEvent: (id: number, token: string) => {};
 };
 
 const EventsContext = createContext<Partial<ContextProps>>({});
@@ -18,9 +19,9 @@ const EventsContext = createContext<Partial<ContextProps>>({});
 export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
-  const addEvent = async (values: {}, token: string) => {
+  const addEvent = async (formInput: {}, token: string) => {
     try {
-      const { data } = await axios.post(`${API_URL}/events`, values, {
+      const { data } = await axios.post(`${API_URL}/events`, formInput, {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);
@@ -33,9 +34,9 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const updateEvent = async (id: number, values: {}, token: string) => {
+  const updateEvent = async (id: number, formInput: {}, token: string) => {
     try {
-      const { data } = await axios.put(`${API_URL}/events/${id}`, values, {
+      const { data } = await axios.put(`${API_URL}/events/${id}`, formInput, {
         headers: { Authorization: `Bearer ${token}` }
       });
       router.push(`/events/${data.slug}`);

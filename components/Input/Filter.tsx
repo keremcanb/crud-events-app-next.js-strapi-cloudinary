@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Button, ArrowIcon } from '@/components/index';
 
-const Filter = ({ onSearch }: { onSearch: any }) => {
+const Filter = ({ handleFilter }: { handleFilter: () => {} }) => {
   const [formInput, setFormInput] = useState<{ year: string; month: string }>({ year: '2021', month: '1' });
   const { year, month } = formInput;
 
-  const submitHandler = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(year, month);
+    handleFilter(year, month);
   };
 
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ const Filter = ({ onSearch }: { onSearch: any }) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col sm:flex-row justify-center items-center gap-4 | mb-5">
         <div className="flex flex-row place-items-center gap-5">
           <div className="relative">

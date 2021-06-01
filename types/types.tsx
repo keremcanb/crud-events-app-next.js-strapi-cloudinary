@@ -26,7 +26,7 @@ export interface IEventObj {
 
 export interface IEvent {
   slug: string;
-  id: string;
+  id: number;
   name: string;
   date: string;
   token: string;
