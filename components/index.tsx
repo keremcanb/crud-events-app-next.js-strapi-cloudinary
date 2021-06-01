@@ -8,6 +8,7 @@ import Pagination from './Section/Pagination';
 import Search from './Input/Search';
 import Showcase from './Section/Showcase';
 import Button from './UI/Button';
+import Fab from './UI/Fab';
 import Spinner from './UI/Spinner';
 import Filter from './Input/Filter';
 import NotFound from './Section/NotFound';
@@ -29,5 +30,6 @@ export {
   Filter,
   NotFound,
   ArrowIcon,
-  Menu
+  Menu,
+  Fab
 };

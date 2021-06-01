@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Header, Footer, Showcase } from '@/components/index';
+import { Header, Footer, Showcase, Fab } from '@/components/index';
 import { ILayout } from '@/types/types';
 
 const Layout = ({ children, title, keywords, description }: ILayout) => {
@@ -18,6 +18,7 @@ const Layout = ({ children, title, keywords, description }: ILayout) => {
       <div className="max-w-screen-lg mx-auto mt-10 mb-20 px-10 | font-open-sans bg-white dark:bg-gray-800">
         {children}
       </div>
+      {/* <Fab /> */}
       <Footer />
     </>
   );

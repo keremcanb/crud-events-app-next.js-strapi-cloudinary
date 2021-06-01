@@ -27,8 +27,8 @@ const ImageUpload = ({ eventId, imagePreview, token }: { eventId?: string; image
       });
       if (res.status === 200) {
         setIsLoading(false);
-        imagePreview();
         toast.success('Image Uploaded');
+        imagePreview();
       }
     } catch (err) {
       toast.error(err.response.message);

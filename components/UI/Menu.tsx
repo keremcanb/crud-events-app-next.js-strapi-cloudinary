@@ -16,7 +16,7 @@ const Menu = () => {
             <a>Dashboard</a>
           </Link>
           <Link href="/events/add">
-            <a>Add Event</a>
+            <a>Add</a>
           </Link>
         </>
       )}

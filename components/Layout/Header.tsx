@@ -23,7 +23,7 @@ const Header = () => {
               </Link>
             </div>
             {/* Menu */}
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <Menu />
             </div>
           </div>
@@ -31,7 +31,7 @@ const Header = () => {
           {/* Right section */}
           <div className="flex gap-2">
             {/* Search */}
-            <div className="invisible lg:visible">
+            <div className="invisible md:visible">
               <Search />
             </div>
             {/* Auth */}
@@ -47,7 +47,7 @@ const Header = () => {
               </Link>
             )}
             {/* Hamburger menu */}
-            <div className="flex lg:hidden">
+            <div className="flex md:hidden">
               {/* Button props */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +78,7 @@ const Header = () => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <div className="lg:hidden" id="mobile-menu">
+          <div className="md:hidden" id="mobile-menu">
             {/* Menu */}
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Menu />

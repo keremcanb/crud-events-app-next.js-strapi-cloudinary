@@ -8,9 +8,9 @@ type ContextProps = {
   values: any;
   token: string;
   id: string;
-  addEvent: any;
-  updateEvent: any;
-  deleteEvent: any;
+  addEvent: () => {};
+  updateEvent: () => {};
+  deleteEvent: () => {};
 };
 
 const EventsContext = createContext<Partial<ContextProps>>({});

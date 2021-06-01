@@ -6,10 +6,10 @@ import { NEXT_URL } from '@/config/index';
 type ContextProps = {
   user: string;
   error: string;
-  login: any;
-  logout: any;
-  register: any;
-  checkUserLoggedIn: any;
+  login: () => {};
+  logout: () => {};
+  register: () => {};
+  checkUserLoggedIn: () => {};
 };
 
 const AuthContext = createContext<Partial<ContextProps>>({});
