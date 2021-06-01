@@ -15,40 +15,40 @@ type ContextProps = {
 const AuthContext = createContext<Partial<ContextProps>>({});
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, userSet] = useState<string>(null);
-  const [error, errorSet] = useState<string>(null);
+  const [user, setUser] = useState<string>(null);
+  const [error, setError] = useState<string>(null);
   const router = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-shadow
   const register = async (user) => {
     try {
       const { data } = await axios.post(`${NEXT_URL}/api/register`, user);
-      userSet(data.user);
+      setUser(data.user);
       router.push('/account/dashboard');
     } catch (err) {
-      errorSet(err.response.data.message);
-      errorSet(null);
+      setError(err.response.data.message);
+      setError(null);
     }
   };
 
   const login = async ({ email: identifier, password }) => {
     try {
       const { data } = await axios.post(`${NEXT_URL}/api/login`, { identifier, password });
-      userSet(data.user);
+      setUser(data.user);
       router.push('/account/dashboard');
     } catch (err) {
-      errorSet(err.response.data.message);
-      errorSet(null);
+      setError(err.response.data.message);
+      setError(null);
     }
   };
 
   const logout = async () => {
     try {
       await axios.post(`${NEXT_URL}/api/logout`);
-      userSet(null);
+      setUser(null);
       router.push('/');
     } catch (err) {
-      errorSet(err.response.data.message);
+      setError(err.response.data.message);
     }
   };
 
@@ -56,9 +56,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const checkUserLoggedIn = async () => {
     try {
       const { data } = await axios.get(`${NEXT_URL}/api/user`);
-      userSet(data.user);
+      setUser(data.user);
     } catch (err) {
-      userSet(null);
+      setUser(null);
     }
   };
 

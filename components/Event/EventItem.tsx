@@ -10,11 +10,11 @@ import { Button } from '@/components/index';
 import { IEvent } from '@/types/types';
 
 const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEvent) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const { deleteEvent } = useContext(EventsContext);
 
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const onOpenModal = () => setIsOpen(true);
+  const onCloseModal = () => setIsOpen(false);
 
   const handleDelete = () => {
     deleteEvent(id, token);
@@ -24,7 +24,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
   return (
     <>
       <Modal
-        open={open}
+        open={isOpen}
         onClose={onCloseModal}
         center
         classNames={{

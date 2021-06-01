@@ -6,24 +6,24 @@ import AuthContext from '@/context/AuthContext';
 import { Layout, Button } from '@/components/index';
 
 const LoginPage = () => {
-  const [values, setValues] = useState<{ email: string; password: string }>({ email: '', password: '' });
-  const { email, password } = values;
+  const [formInput, setFormInput] = useState<{ email: string; password: string }>({ email: '', password: '' });
+  const { email, password } = formInput;
   const { login, error } = useContext(AuthContext);
 
   useEffect(() => error && toast.error(error));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(values);
+    login(formInput);
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: e.target.value });
+    setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
   return (
     <Layout title="User Login - DJ Events">
-      <div className="max-w-md m-auto p-10 shadow-lg">
+      <div className="max-w-md m-auto p-5 md:p-10 shadow-lg">
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Login
         </h1>

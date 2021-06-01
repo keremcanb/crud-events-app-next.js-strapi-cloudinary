@@ -10,10 +10,10 @@ import { API_URL } from '@/config/index';
 import { IEventObj, IValues } from '@/types/types';
 
 const EditEventPage = ({
-  event: { name, performers, venue, address, date, time, description, image, id, genre, featured },
+  event: { name, performers, venue, address, date, time, description, image: img, id, genre, featured },
   token
 }: IEventObj) => {
-  const [values, setValues] = useState<IValues>({
+  const [formInput, setFormInput] = useState<IValues>({
     name,
     performers,
     venue,
@@ -24,58 +24,58 @@ const EditEventPage = ({
     genre,
     featured
   });
-  const [imagePreview, imagePreviewSet] = useState<string>(image && image.formats.thumbnail.url);
+  const [image, setImage] = useState<string>(img && img.formats.thumbnail.url);
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const { updateEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateEvent(id, { ...values, featured: isChecked }, token);
+    updateEvent(id, { ...formInput, featured: isChecked }, token);
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: e.target.value });
+    setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
   const handleToggle = (checked: boolean) => {
     setIsChecked(checked);
   };
 
-  const imageUploaded = async () => {
+  const handleImagePreview = async () => {
     const { data } = await axios.get(`${API_URL}/events/${id}`);
-    imagePreviewSet(data.image.formats.thumbnail.url);
+    setImage(data.image.formats.thumbnail.url);
   };
 
   return (
     <Layout title="Edit Event - DJ Events">
-      <h1>Edit Event: {values.name}</h1>
+      <h1>Edit Event: {formInput.name}</h1>
       <ToastContainer position="top-center" />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-rows md:grid-cols-2 gap-4 | mb-5">
           <div>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" value={values.name} onChange={handleChange} required />
+            <input type="text" id="name" value={formInput.name} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="performers">Performers</label>
-            <input type="text" id="performers" value={values.performers} onChange={handleChange} required />
+            <input type="text" id="performers" value={formInput.performers} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="venue">Venue</label>
-            <input type="text" id="venue" value={values.venue} onChange={handleChange} required />
+            <input type="text" id="venue" value={formInput.venue} onChange={handleChange} required />
           </div>
           <div>
             <label htmlFor="address">Address</label>
-            <input type="text" id="address" value={values.address} onChange={handleChange} required />
+            <input type="text" id="address" value={formInput.address} onChange={handleChange} required />
           </div>
           <div className="grid grid-cols-2 md:grid-rows gap-4">
             <div>
               <label htmlFor="date">Date</label>
-              <input type="date" id="date" value={values.date} onChange={handleChange} required />
+              <input type="date" id="date" value={formInput.date} onChange={handleChange} required />
             </div>
             <div>
               <label htmlFor="time">Time</label>
-              <input type="time" id="time" value={values.time} onChange={handleChange} required />
+              <input type="time" id="time" value={formInput.time} onChange={handleChange} required />
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-rows gap-4">
@@ -97,24 +97,24 @@ const EditEventPage = ({
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <textarea id="description" value={values.description} onChange={handleChange} required rows={5} />
+          <textarea id="description" value={formInput.description} onChange={handleChange} required rows={5} />
         </div>
         <Button color="blue" text="Update Event" />
       </form>
-      {imagePreview ? (
+      {image ? (
         <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">
           <div className="flex justify-center">
-            <Image src={imagePreview} height={170} width={250} className="rounded" />
+            <Image src={image} height={170} width={250} className="rounded" />
           </div>
           <div>
             <h3 className="text-center mt-0 mb-6">Change Image</h3>
-            <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
+            <ImageUpload eventId={id} imagePreview={handleImagePreview} token={token} />
           </div>
         </div>
       ) : (
         <div>
           <h3 className="text-center my-5">Upload Image</h3>
-          <ImageUpload eventId={id} imageUploaded={imageUploaded} token={token} />
+          <ImageUpload eventId={id} imagePreview={handleImagePreview} token={token} />
         </div>
       )}
     </Layout>

@@ -7,7 +7,7 @@ import { parseCookies } from '@/helpers/helpers';
 import { IValues } from '@/types/types';
 
 const AddEventPage = ({ token }: { token: string }) => {
-  const [values, setValues] = useState<IValues>({
+  const [formInput, setFormInput] = useState<IValues>({
     name: '',
     performers: '',
     venue: '',
@@ -18,17 +18,17 @@ const AddEventPage = ({ token }: { token: string }) => {
     genre: '',
     featured: false
   });
-  const { name, performers, venue, address, date, time, description, genre } = values;
+  const { name, performers, venue, address, date, time, description, genre } = formInput;
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const { addEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEvent({ ...values, featured: isChecked }, token);
+    addEvent({ ...formInput, featured: isChecked }, token);
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: e.target.value });
+    setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
   const handleToggle = (checked: boolean) => {

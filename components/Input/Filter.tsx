@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Button, ArrowIcon } from '@/components/index';
 
 const Filter = ({ onSearch }: { onSearch: any }) => {
-  const [values, setValues] = useState<{ year: string; month: string }>({ year: '2021', month: '1' });
-  const { year, month } = values;
+  const [formInput, setFormInput] = useState<{ year: string; month: string }>({ year: '2021', month: '1' });
+  const { year, month } = formInput;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ const Filter = ({ onSearch }: { onSearch: any }) => {
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: e.target.value });
+    setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
   return (

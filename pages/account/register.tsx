@@ -7,8 +7,8 @@ import { Layout, Button } from '@/components/index';
 import { IUser } from '@/types/types';
 
 const RegisterPage = () => {
-  const [values, setValues] = useState<IUser>({ username: '', email: '', password: '', passwordConfirm: '' });
-  const { username, email, password, passwordConfirm } = values;
+  const [formInput, setFormInput] = useState<IUser>({ username: '', email: '', password: '', passwordConfirm: '' });
+  const { username, email, password, passwordConfirm } = formInput;
   const { register, error } = useContext(AuthContext);
 
   useEffect(() => error && toast.error(error));
@@ -23,12 +23,12 @@ const RegisterPage = () => {
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: e.target.value });
+    setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
   return (
     <Layout title="User Registration - DJ Events">
-      <div className="max-w-md m-auto p-10 shadow-lg">
+      <div className="max-w-md m-auto p-5 md:p-10 shadow-lg">
         <h1 className="inline-flex">
           <FaUser className="mr-2" /> Register
         </h1>

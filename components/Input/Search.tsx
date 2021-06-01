@@ -3,17 +3,17 @@ import { useRouter } from 'next/router';
 import { FaSearch } from 'react-icons/fa';
 
 const Search = () => {
-  const [term, termSet] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/events/search?term=${term}`);
-    termSet('');
+    router.push(`/events/search?term=${searchTerm}`);
+    setSearchTerm('');
   };
 
   const handleChange = (e) => {
-    termSet(e.target.value);
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -21,7 +21,7 @@ const Search = () => {
       <input
         type="text"
         id="search"
-        value={term}
+        value={searchTerm}
         onChange={handleChange}
         className="rounded-xl"
         placeholder="Search..."
