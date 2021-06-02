@@ -1,4 +1,8 @@
 {
-    "h1": "Featured Events",
-    "add": "Add Event"
+    "featured": "Featured Events",
+    "my": "My Events",
+    "add": "Add Event",
+    "all": "All Events",
+    "view-all": "View All Events",
+    "logo": "DJ Events"
 }

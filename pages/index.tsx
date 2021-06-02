@@ -9,16 +9,16 @@ const Home = ({ events }: { events: [] }) => {
 
   return (
     <Layout>
-      <h1>{t('h1')}</h1>
+      <h1>{t('featured')}</h1>
       {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
-      {events && events.length > 0 && <Button color="blue" text="View All Events" link="/events" />}
+      {events && events.length > 0 && <Button color="blue" text={t('view-all')} link="/events" />}
     </Layout>
   );
 };
 
 export default Home;
 
-export async function getStaticProps({ locale }) {
+export const getStaticProps = async ({ locale }) => {
   const { data: events } = await axios.get(`${API_URL}/events?_sort=date&featured=true`);
   return { props: { events, ...(await serverSideTranslations(locale, ['common'])) }, revalidate: 1 };
-}
+};

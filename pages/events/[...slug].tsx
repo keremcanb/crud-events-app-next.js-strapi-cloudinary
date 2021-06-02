@@ -59,7 +59,7 @@ const FilteredEventsPage = ({ events }: { events?: [] }) => {
 
 export default FilteredEventsPage;
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   const { data: events } = await axios.get(`${API_URL}/events`);
   return { props: { events } };
-}
+};

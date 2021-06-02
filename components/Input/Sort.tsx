@@ -10,7 +10,7 @@ const Sort = ({ sorting }) => {
   };
 
   return (
-    <div className="mb-5 w-40">
+    <div className="flex items-center justify-center mx-40 mb-5">
       <select name="sort" id="sort" aria-label="Sort news" value={sorting} onChange={sortHandler}>
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>

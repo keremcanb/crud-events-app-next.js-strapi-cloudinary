@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import { Transition } from '@headlessui/react';
 import { IoMdMenu, IoMdClose, IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import { Search, Menu } from '@/components/index';
@@ -8,6 +9,7 @@ import AuthContext from '@/context/AuthContext';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const { t } = useTranslation('common');
 
   return (
     <header>
@@ -19,7 +21,7 @@ const Header = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/">
-                <a className="text-3xl font-russo-one uppercase cursor-pointer">DJ Events</a>
+                <a className="text-3xl font-russo-one uppercase cursor-pointer">{t('logo')}</a>
               </Link>
             </div>
             {/* Menu */}

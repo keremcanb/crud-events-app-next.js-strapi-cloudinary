@@ -123,8 +123,8 @@ const EditEventPage = ({
 
 export default EditEventPage;
 
-export async function getServerSideProps({ params: { id }, req }: { params: { id: string }; req: string }) {
+export const getServerSideProps = async ({ params: { id }, req }: { params: { id: string }; req: string }) => {
   const { token } = parseCookies(req);
   const { data: event } = await axios.get(`${API_URL}/events/${id}`);
   return { props: { event, token } };
-}
+};

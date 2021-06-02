@@ -1,4 +1,8 @@
 {
-    "h1": "Öne Çıkanlar",
-    "add": "Etkinlik Ekle"
+    "featured": "Öne Çıkan Etkinlikler",
+    "my": "Benim Etkinliklerim",
+    "all": "Tüm Etkinlikler",
+    "add": "Etkinlik Ekle",
+    "view-all": "Tüm Etkinlikleri Göster",
+    "logo": "DJ Etkinlikleri"
 }

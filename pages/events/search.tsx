@@ -11,7 +11,7 @@ const SearchPage = ({ events, term }: { events?: []; term?: string }) => (
 
 export default SearchPage;
 
-export async function getServerSideProps({ query: { term } }: { query: { term?: string } }) {
+export const getServerSideProps = async ({ query: { term } }: { query: { term?: string } }) => {
   // eslint-disable-next-line global-require
   const qs = require('qs');
   const query = qs.stringify({
@@ -26,4 +26,4 @@ export async function getServerSideProps({ query: { term } }: { query: { term?: 
   });
   const { data: events } = await axios.get(`${API_URL}/events?${query}`);
   return { props: { events, term } };
-}
+};
