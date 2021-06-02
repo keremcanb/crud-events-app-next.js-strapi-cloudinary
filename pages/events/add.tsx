@@ -1,4 +1,6 @@
 import { useState, useContext } from 'react';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Switch from 'react-switch';
 import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
@@ -21,6 +23,7 @@ const AddEventPage = ({ token }: { token: string }) => {
   const { name, performers, venue, address, date, time, description, genre } = formInput;
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const { addEvent } = useContext(EventsContext);
+  const { t } = useTranslation('common');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +40,7 @@ const AddEventPage = ({ token }: { token: string }) => {
 
   return (
     <Layout title="Add New Event - DJ Events">
-      <h1>Add Event</h1>
+      <h1>{t('add')}</h1>
       <ToastContainer position="top-center" />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-rows md:grid-cols-2 gap-4 | mb-5">
@@ -96,7 +99,7 @@ const AddEventPage = ({ token }: { token: string }) => {
 
 export default AddEventPage;
 
-export function getServerSideProps({ req }) {
+export const getServerSideProps = async ({ req, locale }) => {
   const { token } = parseCookies(req);
-  return { props: { token } };
-}
+  return { props: { token, ...(await serverSideTranslations(locale, ['common'])) } };
+};

@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import { appWithTranslation } from 'next-i18next';
 import { AuthProvider } from 'context/AuthContext';
 import { EventsProvider } from 'context/EventsContext';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,4 +14,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   </AuthProvider>
 );
 
-export default MyApp;
+export default appWithTranslation(MyApp);
