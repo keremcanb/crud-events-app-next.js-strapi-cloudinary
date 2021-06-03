@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next';
-import { Transition } from '@headlessui/react';
 
 const Showcase = () => {
   const { t } = useTranslation('common');
