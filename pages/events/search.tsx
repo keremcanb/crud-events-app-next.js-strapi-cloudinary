@@ -1,3 +1,5 @@
+// import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import axios from 'axios';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
@@ -11,7 +13,13 @@ const SearchPage = ({ events, term }: { events?: []; term?: string }) => (
 
 export default SearchPage;
 
-export const getServerSideProps = async ({ query: { term } }: { query: { term?: string } }) => {
+export const getServerSideProps = async ({
+  query: { term },
+  locale
+}: {
+  query: { term?: string };
+  locale?: string;
+}) => {
   // eslint-disable-next-line global-require
   const qs = require('qs');
   const query = qs.stringify({
@@ -25,5 +33,5 @@ export const getServerSideProps = async ({ query: { term } }: { query: { term?: 
     }
   });
   const { data: events } = await axios.get(`${API_URL}/events?${query}`);
-  return { props: { events, term } };
+  return { props: { events, term, ...(await serverSideTranslations(locale, ['common'])) } };
 };

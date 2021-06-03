@@ -1,22 +1,24 @@
 import { useContext } from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import AuthContext from '@/context/AuthContext';
 
 const Menu = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation('common');
 
   return (
     <>
       <Link href="/events">
-        <a>Events</a>
+        <a>{t('menu-events')}</a>
       </Link>
       {user && (
         <>
           <Link href="/account/dashboard">
-            <a>Dashboard</a>
+            <a>{t('menu-dashboard')}</a>
           </Link>
           <Link href="/events/add">
-            <a>Add</a>
+            <a>{t('menu-add')}</a>
           </Link>
         </>
       )}

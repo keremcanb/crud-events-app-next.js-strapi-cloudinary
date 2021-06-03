@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
+// import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
 import { IEventObj } from '@/types/types';
@@ -43,7 +45,7 @@ const EventPage = ({
 
 export default EventPage;
 
-export const getServerSideProps = async ({ query: { slug } }: { query: { slug: string } }) => {
+export const getServerSideProps = async ({ query: { slug }, locale }: { query: { slug: string }; locale?: string }) => {
   const { data: events } = await axios.get(`${API_URL}/events?slug=${slug}`);
-  return { props: { event: events[0] } };
+  return { props: { event: events[0], ...(await serverSideTranslations(locale, ['common'])) } };
 };

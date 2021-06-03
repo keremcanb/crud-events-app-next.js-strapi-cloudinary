@@ -1,5 +1,7 @@
 import { useState, useContext } from 'react';
 import Image from 'next/image';
+// import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import axios from 'axios';
 import Switch from 'react-switch';
 import { ToastContainer } from 'react-toastify';
@@ -123,8 +125,16 @@ const EditEventPage = ({
 
 export default EditEventPage;
 
-export const getServerSideProps = async ({ params: { id }, req }: { params: { id: string }; req: string }) => {
+export const getServerSideProps = async ({
+  params: { id },
+  req,
+  locale
+}: {
+  params: { id: string };
+  req: string;
+  locale?: string;
+}) => {
   const { token } = parseCookies(req);
   const { data: event } = await axios.get(`${API_URL}/events/${id}`);
-  return { props: { event, token } };
+  return { props: { event, token, ...(await serverSideTranslations(locale, ['common'])) } };
 };

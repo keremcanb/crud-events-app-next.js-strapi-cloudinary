@@ -4,5 +4,10 @@
     "add": "Add Event",
     "all": "All Events",
     "view-all": "View All Events",
-    "logo": "DJ Events"
+    "logo": "DJ Events",
+    "welcome": "Welcome to the party",
+    "welcome-sub": "Find the hottest DJ Events",
+    "menu-events": "Events",
+    "menu-dashboard": "Dashboard",
+    "menu-add": "Add"
 }

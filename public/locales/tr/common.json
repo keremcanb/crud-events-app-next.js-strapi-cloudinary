@@ -1,8 +1,13 @@
 {
-    "featured": "Öne Çıkan Etkinlikler",
-    "my": "Benim Etkinliklerim",
+    "featured": "Öne Çıkanlar",
+    "my": "Etkinliklerim",
     "all": "Tüm Etkinlikler",
     "add": "Etkinlik Ekle",
-    "view-all": "Tüm Etkinlikleri Göster",
-    "logo": "DJ Etkinlikleri"
+    "view-all": "Tüm Etkinlikler",
+    "logo": "DJ Events",
+    "welcome": "Partiye Hoşgeldin!",
+    "welcome-sub": "En gözde DJ etkinliklerini bulun",
+    "menu-events": "Etkinlikler",
+    "menu-dashboard": "Panel",
+    "menu-add": "Ekle"
 }

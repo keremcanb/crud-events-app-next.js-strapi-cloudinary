@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router';
+// import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import axios from 'axios';
 import Moment from 'react-moment';
 import { Layout, EventList, Button, NotFound } from '@/components/index';
@@ -59,7 +61,7 @@ const FilteredEventsPage = ({ events }: { events?: [] }) => {
 
 export default FilteredEventsPage;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ locale }) => {
   const { data: events } = await axios.get(`${API_URL}/events`);
-  return { props: { events } };
+  return { props: { events, ...(await serverSideTranslations(locale, ['common'])) } };
 };
