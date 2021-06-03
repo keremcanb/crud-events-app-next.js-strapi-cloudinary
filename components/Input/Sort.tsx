@@ -1,26 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { ArrowIcon } from '@/components/index';
 
-const Sort = ({ asc, desc }) => {
-  const [sort, setSort] = useState([asc]);
+const Sort = ({ eventsASC, eventsDESC }) => {
+  const [events, setEvents] = useState(eventsDESC);
 
   const sortHandler = (e) => {
     const { value } = e.target;
     if (value === 'newest') {
-      setSort(asc);
+      setEvents(eventsDESC);
     }
     if (value === 'oldest') {
-      setSort(desc);
+      setEvents(eventsASC);
     }
   };
 
   return (
-    <div className="flex items-center justify-center mx-80 mb-5">
+    <div className="relative w-44 mx-96 mb-4">
       <select name="sort" id="sort" aria-label="Sort news" onChange={sortHandler}>
-        <option>Select</option>
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>
       </select>
+      <ArrowIcon />
     </div>
   );
 };

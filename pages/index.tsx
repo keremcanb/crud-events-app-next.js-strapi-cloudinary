@@ -22,7 +22,7 @@ const Home = ({ eventsASC, eventsDESC }: { eventsASC: []; eventsDESC: [] }) => {
   return (
     <Layout>
       <h1>{t('featured')}</h1>
-      <div className="relative w-44 mx-96 mb-4">
+      <div className="w-40 mb-4 mx-auto relative">
         <select name="sort" id="sort" aria-label="Sort news" onChange={sortHandler}>
           <option value="newest">Newest first</option>
           <option value="oldest">Oldest first</option>
@@ -41,12 +41,5 @@ export const getStaticProps = async ({ locale }) => {
   const { data: eventsASC } = await axios.get(`${API_URL}/events?_sort=date:ASC&featured=true`);
   const { data: eventsDESC } = await axios.get(`${API_URL}/events?_sort=date:DESC&featured=true`);
   // const { data: events } = await axios.get(`${API_URL}/events?_sort=date&featured=true`);
-  return {
-    props: {
-      eventsASC,
-      eventsDESC,
-      ...(await serverSideTranslations(locale, ['common']))
-    },
-    revalidate: 1
-  };
+  return { props: { eventsASC, eventsDESC, ...(await serverSideTranslations(locale, ['common'])) }, revalidate: 1 };
 };

@@ -1,5 +1,5 @@
-// import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { useTranslation } from 'next-i18next';
 import axios from 'axios';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
