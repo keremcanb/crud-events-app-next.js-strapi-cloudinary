@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import { createContext } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';

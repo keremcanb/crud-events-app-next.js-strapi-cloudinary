@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import Link from 'next/link';
 
 // eslint-disable-next-line react/prop-types

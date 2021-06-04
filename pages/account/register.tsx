@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
-import { Layout, Button } from '@/components/index';
+import { Layout, ButtonSpinner } from '@/components/index';
 import { IUser } from '@/types/types';
 
 const RegisterPage = () => {
@@ -50,7 +51,7 @@ const RegisterPage = () => {
             <label htmlFor="passwordConfirm">Confirm Password</label>
             <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
           </div>
-          <Button color="blue" text="Register" />
+          <ButtonSpinner text="Register" textLoading="Registering..." />
         </form>
         <p className="text-center">
           Already have an account? <Link href="/account/login">Login Here</Link>
@@ -61,3 +62,7 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
+export const getStaticProps = async ({ locale }) => {
+  return { props: { ...(await serverSideTranslations(locale, ['common'])) } };
+};
