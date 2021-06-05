@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import Image from 'next/image';
-// import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import axios from 'axios';
 import Switch from 'react-switch';
@@ -93,7 +92,7 @@ const EditEventPage = ({
             </div>
             <div>
               <label htmlFor="featured">Featured</label>
-              <Switch id="featured" onChange={handleToggle} checked={isChecked} className="mt-1" />
+              <Switch id="featured" value="featured" onChange={handleToggle} checked={isChecked} className="mt-1" />
             </div>
           </div>
         </div>

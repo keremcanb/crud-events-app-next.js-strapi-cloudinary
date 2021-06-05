@@ -24,7 +24,6 @@ const EventsPage = ({ events, page, total }: { events?: []; page?: number; total
 };
 
 export default EventsPage;
-
 // Get page from query and set to 1
 export const getServerSideProps = async ({
   query: { page = 1 },

@@ -35,7 +35,6 @@ const ImageUpload = ({
       });
       if (res.status === 200) {
         setIsLoading(false);
-        toast.success('Image Uploaded');
         imagePreview();
       }
     } catch (err) {

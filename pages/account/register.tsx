@@ -53,9 +53,10 @@ const RegisterPage = () => {
           </div>
           <ButtonSpinner text="Register" textLoading="Registering..." />
         </form>
-        <p className="text-center">
-          Already have an account? <Link href="/account/login">Login Here</Link>
-        </p>
+        <div className="text-center">
+          <p>Already have an account?</p>
+          <Link href="/account/login">Login Here</Link>
+        </div>
       </div>
     </Layout>
   );

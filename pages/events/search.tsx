@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// import { useTranslation } from 'next-i18next';
 import axios from 'axios';
+import qs from 'qs';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
 
@@ -13,6 +13,7 @@ const SearchPage = ({ events, term }: { events?: []; term?: string }) => (
 
 export default SearchPage;
 
+// Destructure term from query
 export const getServerSideProps = async ({
   query: { term },
   locale
@@ -20,8 +21,7 @@ export const getServerSideProps = async ({
   query: { term?: string };
   locale?: string;
 }) => {
-  // eslint-disable-next-line global-require
-  const qs = require('qs');
+  // Search for multiple fields with qs and Strapi contains filter
   const query = qs.stringify({
     _where: {
       _or: [
@@ -32,6 +32,7 @@ export const getServerSideProps = async ({
       ]
     }
   });
+  // Query from qs
   const { data: events } = await axios.get(`${API_URL}/events?${query}`);
   return { props: { events, term, ...(await serverSideTranslations(locale, ['common'])) } };
 };

@@ -40,9 +40,10 @@ const LoginPage = () => {
           </div>
           <ButtonSpinner text="Login" textLoading="Logging in..." />
         </form>
-        <p className="text-center">
-          Don't have an account? <Link href="/account/register">Register Here</Link>
-        </p>
+        <div className="text-center">
+          <p>Don't have an account?</p>
+          <Link href="/account/register">Register Here</Link>
+        </div>
       </div>
     </Layout>
   );

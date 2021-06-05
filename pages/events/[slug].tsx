@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
-// import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';

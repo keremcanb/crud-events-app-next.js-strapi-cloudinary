@@ -2,16 +2,16 @@
 import { useState } from 'react';
 import { ArrowIcon } from '@/components/index';
 
-const Sort = ({ eventsASC, eventsDESC }) => {
-  const [events, setEvents] = useState(eventsDESC);
+const Sort = ({ sort }) => {
+  const [sortEvents, setSortEvents] = useState(sort);
 
   const sortHandler = (e) => {
     const { value } = e.target;
     if (value === 'newest') {
-      setEvents(eventsDESC);
+      setSortEvents('ASC');
     }
     if (value === 'oldest') {
-      setEvents(eventsASC);
+      setSortEvents('DESC');
     }
   };
 
