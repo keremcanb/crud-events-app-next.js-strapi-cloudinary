@@ -33,13 +33,13 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
         }}
       >
         <h2 className="text-center">Delete Event?</h2>
-        <div className="flex gap-5 place-items-center">
+        <div className="flex space-5 place-items-center">
           <Button text="Delete" color="red" onClick={handleDelete} />
           <Button text="Go Back" color="blue" onClick={onCloseModal} />
         </div>
       </Modal>
       <ToastContainer position="top-center" autoClose={2000} />
-      <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition-colors duration-500 mb-5">
+      <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 dark:bg-gray-200 transition-colors duration-500 mb-5">
         <Link href={`/events/${slug}`}>
           <a>
             <Image src={image ? image.formats.medium.url : '/images/event-default.png'} width={300} height={200} />
@@ -52,7 +52,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
           </p>
         </div>
         {dashboard ? (
-          <div className="flex justify-center items-center gap-10 mb-4">
+          <div className="flex justify-center items-center space-10 mb-4">
             <Link href={`/events/edit/${id}`}>
               <a>
                 <FaPencilAlt className="text-2xl text-blue-500 hover:text-blue-700" />

@@ -17,6 +17,7 @@ const EventsPage = ({ events, page, total }: { events?: []; page?: number; total
     <Layout title="All Events - DJ Events">
       <h1>{t('all')}</h1>
       <Filter handleFilter={handleFilter} />
+      <Pagination page={page} total={total} />
       {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
       <Pagination page={page} total={total} />
     </Layout>

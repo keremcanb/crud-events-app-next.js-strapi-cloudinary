@@ -31,7 +31,7 @@ const Header = () => {
           </div>
 
           {/* Right section */}
-          <div className="flex gap-2">
+          <div className="flex space-2">
             {/* Search */}
             <div className="invisible md:visible">
               <Search />
@@ -43,7 +43,7 @@ const Header = () => {
               </a>
             ) : (
               <Link href="/account/login">
-                <a className="inline-flex gap-1">
+                <a className="inline-flex space-1">
                   Login <IoMdLogIn className="text-3xl" />
                 </a>
               </Link>
