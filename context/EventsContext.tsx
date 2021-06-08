@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import { API_URL } from '@/config/index';
 type ContextProps = {
   token: string;
   id: string;
+  isLoading: boolean;
   formInput: {};
   addEvent: (formInput: {}, token: string) => {};
   updateEvent: (id: number, formInput: {}, token: string) => {};
@@ -16,15 +17,19 @@ type ContextProps = {
 const EventsContext = createContext<Partial<ContextProps>>({});
 
 export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const addEvent = async (formInput: {}, token: string) => {
     try {
+      setIsLoading(true);
       const { data } = await axios.post(`${API_URL}/events`, formInput, {
         headers: { Authorization: `Bearer ${token}` }
       });
+      setIsLoading(false);
       router.push(`/events/${data.slug}`);
     } catch (err) {
+      setIsLoading(false);
       if ([403, 401].includes(err.response.status)) {
         toast.error(`You must login before adding events.`);
       } else {
@@ -35,9 +40,11 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateEvent = async (id: number, formInput: {}, token: string) => {
     try {
+      setIsLoading(true);
       const { data } = await axios.put(`${API_URL}/events/${id}`, formInput, {
         headers: { Authorization: `Bearer ${token}` }
       });
+      setIsLoading(false);
       router.push(`/events/${data.slug}`);
     } catch (err) {
       if ([403, 401].includes(err.response.status)) {
@@ -60,7 +67,11 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  return <EventsContext.Provider value={{ addEvent, updateEvent, deleteEvent }}>{children}</EventsContext.Provider>;
+  return (
+    <EventsContext.Provider value={{ addEvent, updateEvent, deleteEvent, isLoading }}>
+      {children}
+    </EventsContext.Provider>
+  );
 };
 
 export default EventsContext;

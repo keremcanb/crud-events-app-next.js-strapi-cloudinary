@@ -5,7 +5,7 @@ import axios from 'axios';
 import Switch from 'react-switch';
 import { ToastContainer } from 'react-toastify';
 import { parseCookies } from '@/helpers/helpers';
-import { Layout, ImageUpload, Button, ArrowIcon } from '@/components/index';
+import { Layout, ImageUpload, ButtonSpinner, ArrowIcon } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
 import { IEventObj, IValues } from '@/types/types';
@@ -100,7 +100,7 @@ const EditEventPage = ({
           <label htmlFor="description">Description</label>
           <textarea id="description" value={formInput.description} onChange={handleChange} required rows={5} />
         </div>
-        <Button color="blue" text="Update Event" />
+        <ButtonSpinner text="Update" textLoading="Updating Event..." />
       </form>
       {image ? (
         <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">

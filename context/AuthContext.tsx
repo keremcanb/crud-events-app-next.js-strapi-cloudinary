@@ -27,8 +27,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setIsLoading(true);
       const { data } = await axios.post(`${NEXT_URL}/api/register`, user);
       setUser(data.user);
-      router.push('/account/dashboard');
       setIsLoading(false);
+      router.push('/account/dashboard');
     } catch (err) {
       setIsLoading(false);
       setError(err.response.data.message);
@@ -41,8 +41,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setIsLoading(true);
       const { data } = await axios.post(`${NEXT_URL}/api/login`, { identifier, password });
       setUser(data.user);
-      router.push('/account/dashboard');
       setIsLoading(false);
+      router.push('/account/dashboard');
     } catch (err) {
       setIsLoading(false);
       setError(err.response.data.message);

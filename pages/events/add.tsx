@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Switch from 'react-switch';
 import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
-import { Layout, Button, ArrowIcon } from '@/components/index';
+import { Layout, ButtonSpinner, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 import { IValues } from '@/types/types';
 
@@ -91,7 +91,7 @@ const AddEventPage = ({ token }: { token: string }) => {
           <label htmlFor="description">Description</label>
           <textarea id="description" value={description} onChange={handleChange} required rows={5} />
         </div>
-        <Button color="blue" text="Add Event" />
+        <ButtonSpinner text="Add" textLoading="Adding Event..." />
       </form>
     </Layout>
   );
