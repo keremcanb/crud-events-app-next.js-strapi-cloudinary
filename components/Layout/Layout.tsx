@@ -15,7 +15,9 @@ const Layout = ({ children, title, keywords, description }: ILayout) => {
       </Head>
       <Header />
       {router.pathname === '/' && <Showcase />}
-      <div className="max-w-screen-lg mt-10 mb-20 mx-auto | font-open-sans bg-white dark:bg-gray-800">{children}</div>
+      <div className="max-w-screen-lg mt-10 mb-20 mx-auto px-5 | font-open-sans bg-white dark:bg-gray-800">
+        {children}
+      </div>
       <Footer />
     </>
   );

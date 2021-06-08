@@ -39,53 +39,65 @@ const AddEventPage = ({ token }: { token: string }) => {
   };
 
   return (
-    <Layout title="Add New Event - DJ Events">
-      <h1>{t('add')}</h1>
+    <>
       <ToastContainer position="top-center" />
-      <form onSubmit={handleSubmit}>
-        <div className="grid grid-rows md:grid-cols-2 gap-4 | mb-5">
-          <div>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" value={name} onChange={handleChange} required />
-          </div>
-          <div>
-            <label htmlFor="performers">Performers</label>
-            <input type="text" id="performers" value={performers} onChange={handleChange} required />
-          </div>
-          <div>
-            <label htmlFor="venue">Venue</label>
-            <input type="text" id="venue" value={venue} onChange={handleChange} required />
-          </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <input type="text" id="address" value={address} onChange={handleChange} required />
-          </div>
-          <div className="grid grid-cols-2 md:grid-rows gap-4">
+      <Layout title="Add New Event - DJ Events">
+        <h1>{t('add')}</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-rows md:grid-cols-2 gap-4 | mb-5">
             <div>
-              <label htmlFor="date">Date</label>
-              <input type="date" id="date" value={date} onChange={handleChange} required />
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" value={name} onChange={handleChange} required />
             </div>
             <div>
-              <label htmlFor="time">Time</label>
-              <input type="time" id="time" value={time} onChange={handleChange} required />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-rows gap-4">
-            <div className="relative">
-              <label htmlFor="genre">Genre</label>
-              <select id="genre" value={genre} onChange={handleChange}>
-                <option value="Trance">Trance</option>
-                <option value="House">House</option>
-                <option value="Techno">Techno</option>
-                <option value="Prog House">Prog House</option>
-              </select>
-              <ArrowIcon />
+              <label htmlFor="performers">Performers</label>
+              <input type="text" id="performers" value={performers} onChange={handleChange} required />
             </div>
             <div>
-              <label htmlFor="featured">Featured</label>
-              <Switch onChange={handleToggle} checked={isChecked} className="mt-1" />
+              <label htmlFor="venue">Venue</label>
+              <input type="text" id="venue" value={venue} onChange={handleChange} required />
+            </div>
+            <div>
+              <label htmlFor="address">Address</label>
+              <input type="text" id="address" value={address} onChange={handleChange} required />
+            </div>
+            <div className="grid grid-cols-2 md:grid-rows gap-4">
+              <div>
+                <label htmlFor="date">Date</label>
+                <input type="date" id="date" value={date} onChange={handleChange} required />
+              </div>
+              <div>
+                <label htmlFor="time">Time</label>
+                <input type="time" id="time" value={time} onChange={handleChange} required />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-rows gap-4">
+              <div className="relative">
+                <label htmlFor="genre">Genre</label>
+                <select id="genre" value={genre} onChange={handleChange}>
+                  <option value="Trance">Trance</option>
+                  <option value="House">House</option>
+                  <option value="Techno">Techno</option>
+                  <option value="Prog House">Prog House</option>
+                </select>
+                <ArrowIcon />
+              </div>
+              <div>
+                <label htmlFor="featured">Featured</label>
+                <Switch onChange={handleToggle} checked={isChecked} className="mt-1" />
+              </div>
             </div>
           </div>
+          <div>
+            <label htmlFor="description">Description</label>
+            <textarea id="description" value={description} onChange={handleChange} required rows={5} />
+          </div>
+<<<<<<< HEAD
+          <Button color="blue" text="Add Event" />
+        </form>
+      </Layout>
+    </>
+=======
         </div>
         <div>
           <label htmlFor="description">Description</label>
@@ -94,6 +106,7 @@ const AddEventPage = ({ token }: { token: string }) => {
         <ButtonSpinner text="Add" textLoading="Adding Event..." />
       </form>
     </Layout>
+>>>>>>> 5b6965a7bc5f2e93b1f31d1db27997d68a1dd10a
   );
 };
 

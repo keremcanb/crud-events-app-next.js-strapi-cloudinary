@@ -28,37 +28,39 @@ const RegisterPage = () => {
   };
 
   return (
-    <Layout title="User Registration - DJ Events">
-      <div className="max-w-md m-auto p-5 md:p-10 shadow-lg">
-        <h1 className="inline-flex">
-          <FaUser className="mr-2" /> Register
-        </h1>
-        <ToastContainer position="top-center" />
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" value={username} onChange={handleChange} required />
+    <>
+      <ToastContainer position="top-center" />
+      <Layout title="User Registration - DJ Events">
+        <div className="max-w-md m-auto p-5 md:p-10 shadow-lg">
+          <h1 className="inline-flex">
+            <FaUser className="mr-2" /> Register
+          </h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="username">Username</label>
+              <input type="text" id="username" value={username} onChange={handleChange} required />
+            </div>
+            <div className="mt-5">
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" value={email} onChange={handleChange} required />
+            </div>
+            <div className="mt-5">
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" value={password} onChange={handleChange} required />
+            </div>
+            <div className="mt-5">
+              <label htmlFor="passwordConfirm">Confirm Password</label>
+              <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
+            </div>
+            <ButtonSpinner text="Register" textLoading="Registering..." />
+          </form>
+          <div className="text-center">
+            <p>Already have an account?</p>
+            <Link href="/account/login">Login Here</Link>
           </div>
-          <div className="mt-5">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" value={email} onChange={handleChange} required />
-          </div>
-          <div className="mt-5">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={password} onChange={handleChange} required />
-          </div>
-          <div className="mt-5">
-            <label htmlFor="passwordConfirm">Confirm Password</label>
-            <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
-          </div>
-          <ButtonSpinner text="Register" textLoading="Registering..." />
-        </form>
-        <div className="text-center">
-          <p>Already have an account?</p>
-          <Link href="/account/login">Login Here</Link>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

@@ -23,29 +23,31 @@ const LoginPage = () => {
   };
 
   return (
-    <Layout title="User Login - DJ Events">
-      <div className="max-w-md m-auto p-5 md:p-10 shadow-lg">
-        <h1 className="inline-flex">
-          <FaUser className="mr-2" /> Login
-        </h1>
-        <ToastContainer position="top-center" />
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" value={email} onChange={handleChange} required />
+    <>
+      <ToastContainer position="top-center" />
+      <Layout title="User Login - DJ Events">
+        <div className="max-w-md m-auto p-5 md:p-10 shadow-lg">
+          <h1 className="inline-flex">
+            <FaUser className="mr-2" /> Login
+          </h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" value={email} onChange={handleChange} required />
+            </div>
+            <div className="mt-5">
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" value={password} onChange={handleChange} required />
+            </div>
+            <ButtonSpinner text="Login" textLoading="Logging in..." />
+          </form>
+          <div className="text-center">
+            <p>Don't have an account?</p>
+            <Link href="/account/register">Register Here</Link>
           </div>
-          <div className="mt-5">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={password} onChange={handleChange} required />
-          </div>
-          <ButtonSpinner text="Login" textLoading="Logging in..." />
-        </form>
-        <div className="text-center">
-          <p>Don't have an account?</p>
-          <Link href="/account/register">Register Here</Link>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 
