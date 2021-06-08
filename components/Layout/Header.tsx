@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header>
       <nav className="bg-gray-800 px-2">
-        {/* Full menu */}
+        {/* FULL MENU */}
         <div className="flex items-center justify-between h-16">
           {/* Left section */}
           <div className="flex items-center">
@@ -30,7 +30,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Right section */}
+          {/* RIGHT SECTION */}
           <div className="flex space-x-2">
             {/* Search */}
             <div className="invisible md:visible">
@@ -70,7 +70,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* MOBILE MENU */}
         <Transition
           show={isOpen}
           enter="transition ease-out duration-100 transform"

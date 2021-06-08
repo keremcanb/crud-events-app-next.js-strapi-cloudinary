@@ -20,7 +20,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [error, setError] = useState<string>(null);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-
   // eslint-disable-next-line @typescript-eslint/no-shadow
   const register = async (user: {}) => {
     try {
@@ -59,7 +58,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setError(err.response.data.message);
     }
   };
-
   // Persist user
   const checkUserLoggedIn = async () => {
     try {

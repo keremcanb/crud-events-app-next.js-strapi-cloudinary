@@ -12,7 +12,6 @@ const SearchPage = ({ events, term }: { events?: []; term?: string }) => (
 );
 
 export default SearchPage;
-
 // Destructure term from query
 export const getServerSideProps = async ({
   query: { term },
