@@ -31,7 +31,7 @@ const Header = () => {
           </div>
 
           {/* Right section */}
-          <div className="flex space-2">
+          <div className="flex space-x-2">
             {/* Search */}
             <div className="invisible md:visible">
               <Search />
@@ -43,8 +43,8 @@ const Header = () => {
               </a>
             ) : (
               <Link href="/account/login">
-                <a className="inline-flex space-1">
-                  Login <IoMdLogIn className="text-3xl" />
+                <a className="inline-flex space-x-2">
+                  <div>Login</div> <IoMdLogIn className="text-3xl" />
                 </a>
               </Link>
             )}

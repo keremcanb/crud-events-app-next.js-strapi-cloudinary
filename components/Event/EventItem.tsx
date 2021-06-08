@@ -33,7 +33,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
         }}
       >
         <h2 className="text-center">Delete Event?</h2>
-        <div className="flex space-5 place-items-center">
+        <div className="flex space-x-5 place-items-center">
           <Button text="Delete" color="red" onClick={handleDelete} />
           <Button text="Go Back" color="blue" onClick={onCloseModal} />
         </div>
@@ -52,7 +52,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
           </p>
         </div>
         {dashboard ? (
-          <div className="flex justify-center items-center space-10 mb-4">
+          <div className="flex justify-evenly items-center space-10 mb-4">
             <Link href={`/events/edit/${id}`}>
               <a>
                 <FaPencilAlt className="text-2xl text-blue-500 hover:text-blue-700" />

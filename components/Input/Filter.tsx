@@ -16,8 +16,8 @@ const Filter = ({ handleFilter }: { handleFilter: (year: string, month: string) 
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex flex-col sm:flex-row justify-center items-center space-4 | mb-5">
-        <div className="flex flex-row place-items-center space-5">
+      <div className="flex flex-col sm:flex-row justify-center items-center space-x-4 | mb-5">
+        <div className="flex flex-row place-items-center space-x-5">
           <div className="relative">
             <select id="year" value={year} onChange={handleChange}>
               <option value="2021">2021</option>
