@@ -32,8 +32,8 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
           modal: 'customModal'
         }}
       >
-        <h2 className="text-center">Delete Event?</h2>
-        <div className="flex space-x-5 place-items-center">
+        <h2 className="text-center">Delete {name}?</h2>
+        <div className="flex justify-center items-center space-x-5 ">
           <Button text="Delete" color="red" onClick={handleDelete} />
           <Button text="Go Back" color="blue" onClick={onCloseModal} />
         </div>

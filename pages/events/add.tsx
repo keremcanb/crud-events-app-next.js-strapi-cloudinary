@@ -92,21 +92,10 @@ const AddEventPage = ({ token }: { token: string }) => {
             <label htmlFor="description">Description</label>
             <textarea id="description" value={description} onChange={handleChange} required rows={5} />
           </div>
-<<<<<<< HEAD
-          <Button color="blue" text="Add Event" />
+          <ButtonSpinner text="Add" textLoading="Adding Event..." />
         </form>
       </Layout>
     </>
-=======
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <textarea id="description" value={description} onChange={handleChange} required rows={5} />
-        </div>
-        <ButtonSpinner text="Add" textLoading="Adding Event..." />
-      </form>
-    </Layout>
->>>>>>> 5b6965a7bc5f2e93b1f31d1db27997d68a1dd10a
   );
 };
 

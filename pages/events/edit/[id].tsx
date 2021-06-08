@@ -101,8 +101,7 @@ const EditEventPage = ({
             <label htmlFor="description">Description</label>
             <textarea id="description" value={formInput.description} onChange={handleChange} required rows={5} />
           </div>
-<<<<<<< HEAD
-          <Button color="blue" text="Update Event" />
+          <ButtonSpinner text="Update" textLoading="Updating Event..." />
         </form>
         {image ? (
           <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">
@@ -113,19 +112,6 @@ const EditEventPage = ({
               <h3 className="text-center mt-0 mb-6">Change Image</h3>
               <ImageUpload eventId={id} imagePreview={handleImagePreview} token={token} />
             </div>
-=======
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <textarea id="description" value={formInput.description} onChange={handleChange} required rows={5} />
-        </div>
-        <ButtonSpinner text="Update" textLoading="Updating Event..." />
-      </form>
-      {image ? (
-        <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">
-          <div className="flex justify-center">
-            <Image src={image} height={170} width={250} className="rounded" />
->>>>>>> 5b6965a7bc5f2e93b1f31d1db27997d68a1dd10a
           </div>
         ) : (
           <div>
