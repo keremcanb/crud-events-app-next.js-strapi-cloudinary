@@ -9,5 +9,10 @@
     "welcome-sub": "Find the hottest DJ Events",
     "menu-events": "Events",
     "menu-dashboard": "Dashboard",
-    "menu-add": "Add"
+    "menu-add": "Add",
+    "login": "Login",
+    "register": "Register",
+    "username": "Username",
+    "email": "E-mail",
+    "password": "Password"
 }

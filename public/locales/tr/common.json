@@ -9,5 +9,10 @@
     "welcome-sub": "En gözde DJ etkinliklerini bulun",
     "menu-events": "Etkinlikler",
     "menu-dashboard": "Panel",
-    "menu-add": "Ekle"
+    "menu-add": "Ekle",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "username": "Kullanıcı Adı",
+    "email": "E-posta",
+    "password": "Şifre"
 }

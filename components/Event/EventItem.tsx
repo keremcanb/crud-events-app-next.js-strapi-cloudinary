@@ -42,17 +42,22 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }: IEv
       <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 dark:bg-gray-200 transition-colors duration-500 mb-5">
         <Link href={`/events/${slug}`}>
           <a>
-            <Image src={image ? image.formats.medium.url : '/images/event-default.png'} width={300} height={200} />
+            <Image
+              src={image ? image.formats.medium.url : '/images/event-default.png'}
+              width={300}
+              height={200}
+              className="hover:opacity-80 transition duration-1000"
+            />
           </a>
         </Link>
         <div className="px-6 py-2">
-          <div className="font-bold text-xl">{name}</div>
-          <p className="text-gray-700 text-base">
+          <h2 className="mb-2 font-bold">{name}</h2>
+          <h3>
             <Moment format="DD-MM-YYYY">{date}</Moment>
-          </p>
+          </h3>
         </div>
         {dashboard ? (
-          <div className="flex justify-evenly items-center space-10 mb-4">
+          <div className="flex justify-evenly items-center space-10 my-4">
             <Link href={`/events/edit/${id}`}>
               <a>
                 <FaPencilAlt className="text-2xl text-blue-500 hover:text-blue-700" />

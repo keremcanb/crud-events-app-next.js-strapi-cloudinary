@@ -44,7 +44,7 @@ const Header = () => {
             ) : (
               <Link href="/account/login">
                 <a className="inline-flex space-x-2">
-                  <div>Login</div> <IoMdLogIn className="text-3xl" />
+                  <div>{t('login')}</div> <IoMdLogIn className="text-3xl" />
                 </a>
               </Link>
             )}
