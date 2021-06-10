@@ -8,13 +8,12 @@ import { parseCookies } from '@/helpers/helpers';
 import { Layout, ImageUpload, ButtonSpinner, ArrowIcon } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
-import { IEventObj, IValues } from '@/types/types';
 
 const EditEventPage = ({
   event: { name, performers, venue, address, date, time, description, image: img, id, genre, featured },
   token
-}: IEventObj) => {
-  const [formInput, setFormInput] = useState<IValues>({
+}) => {
+  const [formInput, setFormInput] = useState({
     name,
     performers,
     venue,
@@ -25,8 +24,8 @@ const EditEventPage = ({
     genre,
     featured
   });
-  const [image, setImage] = useState<string>(img && img.formats.thumbnail.url);
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [image, setImage] = useState(img && img.formats.thumbnail.url);
+  const [isChecked, setIsChecked] = useState(false);
   const { updateEvent } = useContext(EventsContext);
 
   const handleSubmit = (e) => {
@@ -38,7 +37,7 @@ const EditEventPage = ({
     setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
-  const handleToggle = (checked: boolean) => {
+  const handleToggle = (checked) => {
     setIsChecked(checked);
   };
 
@@ -128,15 +127,7 @@ const EditEventPage = ({
 
 export default EditEventPage;
 
-export const getServerSideProps = async ({
-  params: { id },
-  req,
-  locale
-}: {
-  params: { id: string };
-  req: string;
-  locale?: string;
-}) => {
+export const getServerSideProps = async ({ params: { id }, req, locale }) => {
   const { token } = parseCookies(req);
   const { data: event } = await axios.get(`${API_URL}/events/${id}`);
   return { props: { event, token, ...(await serverSideTranslations(locale, ['common'])) } };

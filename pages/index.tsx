@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout, EventList, Button, NotFound, ArrowIcon } from '@/components/index';
 import { API_URL } from '@/config/index';
 
-const Home = ({ eventsASC, eventsDESC }: { eventsASC: []; eventsDESC: [] }) => {
+const Home = ({ eventsASC, eventsDESC }) => {
   const [events, setEvents] = useState(eventsDESC);
   const { t } = useTranslation('common');
 
@@ -22,7 +22,7 @@ const Home = ({ eventsASC, eventsDESC }: { eventsASC: []; eventsDESC: [] }) => {
   return (
     <Layout>
       <h1>{t('featured')}</h1>
-      <div className="w-40 mb-4 mx-auto relative">
+      <div className="w-40 mt-10 mb-5 mx-auto relative">
         <select name="sort" id="sort" aria-label="Sort news" onChange={sortHandler}>
           <option value="newest">Newest first</option>
           <option value="oldest">Oldest first</option>

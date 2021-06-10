@@ -6,10 +6,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
 import { Layout, ButtonSpinner } from '@/components/index';
-import { IUser } from '@/types/types';
 
 const RegisterPage = () => {
-  const [formInput, setFormInput] = useState<IUser>({ username: '', email: '', password: '', passwordConfirm: '' });
+  const [formInput, setFormInput] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
   const { username, email, password, passwordConfirm } = formInput;
   const { register, error } = useContext(AuthContext);
   const { t } = useTranslation('common');

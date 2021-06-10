@@ -6,10 +6,9 @@ import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
 import { Layout, ButtonSpinner, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
-import { IValues } from '@/types/types';
 
-const AddEventPage = ({ token }: { token: string }) => {
-  const [formInput, setFormInput] = useState<IValues>({
+const AddEventPage = ({ token }) => {
+  const [formInput, setFormInput] = useState({
     name: '',
     performers: '',
     venue: '',
@@ -21,7 +20,7 @@ const AddEventPage = ({ token }: { token: string }) => {
     featured: false
   });
   const { name, performers, venue, address, date, time, description, genre } = formInput;
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState(false);
   const { addEvent } = useContext(EventsContext);
   const { t } = useTranslation('common');
 
@@ -34,7 +33,7 @@ const AddEventPage = ({ token }: { token: string }) => {
     setFormInput({ ...formInput, [e.target.id]: e.target.value });
   };
 
-  const handleToggle = (checked: boolean) => {
+  const handleToggle = (checked) => {
     setIsChecked(checked);
   };
 

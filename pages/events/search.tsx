@@ -4,7 +4,7 @@ import qs from 'qs';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
 
-const SearchPage = ({ events, term }: { events?: []; term?: string }) => (
+const SearchPage = ({ events, term }) => (
   <Layout title={`Search Results for: ${term} - DJ Events`}>
     <h1>Search results: {term}</h1>
     {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
@@ -13,13 +13,7 @@ const SearchPage = ({ events, term }: { events?: []; term?: string }) => (
 
 export default SearchPage;
 // Destructure term from query
-export const getServerSideProps = async ({
-  query: { term },
-  locale
-}: {
-  query: { term?: string };
-  locale?: string;
-}) => {
+export const getServerSideProps = async ({ query: { term }, locale }) => {
   // Search for multiple fields with qs and Strapi contains filter
   const query = qs.stringify({
     _where: {

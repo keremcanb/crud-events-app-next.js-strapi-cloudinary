@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 import { Layout, EventList, Button, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
 
-const FilteredEventsPage = ({ events }: { events?: [] }) => {
+const FilteredEventsPage = ({ events }) => {
   const router = useRouter();
   // Get year and month from url array
   const filteredYear = router.query.slug[0];
@@ -50,7 +50,7 @@ const FilteredEventsPage = ({ events }: { events?: [] }) => {
 
   return (
     <Layout title={`Events for ${numMonth}/${numYear} - DJ Events`}>
-      <h1>
+      <h1 className="mb-10">
         Events in <Moment format="MMMM">{date}</Moment> {numYear}
       </h1>
       <EventList items={filteredEvents} />

@@ -4,17 +4,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ImSpinner8 } from 'react-icons/im';
 import { API_URL } from '../../config/index';
 
-const ImageUpload = ({
-  eventId,
-  imagePreview,
-  token
-}: {
-  eventId?: string;
-  imagePreview?: () => {};
-  token?: string;
-}) => {
-  const [image, setImage] = useState<string>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+const ImageUpload = ({ eventId, imagePreview, token }) => {
+  const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

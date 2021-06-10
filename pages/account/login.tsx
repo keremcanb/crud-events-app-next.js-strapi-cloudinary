@@ -8,7 +8,7 @@ import AuthContext from '@/context/AuthContext';
 import { Layout, ButtonSpinner } from '@/components/index';
 
 const LoginPage = () => {
-  const [formInput, setFormInput] = useState<{ email: string; password: string }>({ email: '', password: '' });
+  const [formInput, setFormInput] = useState({ email: '', password: '' });
   const { email, password } = formInput;
   const { login, error } = useContext(AuthContext);
   const { t } = useTranslation('common');

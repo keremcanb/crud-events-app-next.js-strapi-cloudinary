@@ -4,11 +4,8 @@ import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
-import { IEventObj } from '@/types/types';
 
-const EventPage = ({
-  event: { name, date, time, image, performers, description, venue, address, genre }
-}: IEventObj) => (
+const EventPage = ({ event: { name, date, time, image, performers, description, venue, address, genre } }) => (
   <Layout title={`${name} - DJ Events`}>
     <div className="grid grid-rows justify-center items-center gap-4 | my-5">
       <h1>{name}</h1>
@@ -25,11 +22,11 @@ const EventPage = ({
       )}
       <div className="grid grid-rows md:grid-cols-2 justify-center items-center gap-4">
         <div>
-          <h3>Description:</h3>
+          <h3 className="font-bold">Description:</h3>
           <p>{description}</p>
         </div>
         <div>
-          <h3>Venue:</h3>
+          <h3 className="font-bold">Venue:</h3>
           <p>
             {venue}, {address}
           </p>
@@ -44,7 +41,7 @@ const EventPage = ({
 
 export default EventPage;
 
-export const getServerSideProps = async ({ query: { slug }, locale }: { query: { slug: string }; locale?: string }) => {
+export const getServerSideProps = async ({ query: { slug }, locale }) => {
   const { data: events } = await axios.get(`${API_URL}/events?slug=${slug}`);
   return { props: { event: events[0], ...(await serverSideTranslations(locale, ['common'])) } };
 };

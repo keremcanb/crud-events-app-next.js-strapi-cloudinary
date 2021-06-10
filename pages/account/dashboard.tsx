@@ -5,12 +5,12 @@ import { Layout, EventList, NotFound } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 import { API_URL } from '@/config/index';
 
-const DashboardPage = ({ events, token }: { events?: []; token?: string }) => {
+const DashboardPage = ({ events, token }) => {
   const { t } = useTranslation('common');
 
   return (
     <Layout title="User Dashboard - DJ Events">
-      <h1>{t('my')}</h1>
+      <h1 className="mb-10">{t('my')}</h1>
       {events && events.length !== 0 ? <EventList items={events} token={token} dashboard /> : <NotFound />}
     </Layout>
   );
