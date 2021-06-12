@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
-import { Layout, ButtonSpinner } from '@/components/index';
+import { Layout, BtnSpinner } from '@/components/index';
 
 const RegisterPage = () => {
   const [formInput, setFormInput] = useState({ username: '', email: '', password: '', passwordConfirm: '' });
@@ -53,7 +53,7 @@ const RegisterPage = () => {
               <label htmlFor="passwordConfirm">{t('password')}</label>
               <input type="password" id="passwordConfirm" value={passwordConfirm} onChange={handleChange} required />
             </div>
-            <ButtonSpinner text={t('register')} textLoading="Registering..." />
+            <BtnSpinner text={t('register')} textLoading="Registering..." />
           </form>
           <div className="text-center">
             <p>Already have an account?</p>

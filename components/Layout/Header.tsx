@@ -50,7 +50,7 @@ const Header = () => {
             )}
             {/* Hamburger menu */}
             <div className="flex md:hidden">
-              {/* Button props */}
+              {/* Btn props */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -59,7 +59,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>
-                {/* Button icons */}
+                {/* Btn icons */}
                 {isOpen ? (
                   <IoMdClose className="text-3xl" aria-hidden="true" />
                 ) : (

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ImSpinner8 } from 'react-icons/im';
 import { API_URL } from '../../config/index';
 
-const ImageUpload = ({ eventId, imagePreview, token }) => {
+const ImageUpload = ({ eventId, imagePreview, token }: { eventId: number; imagePreview: () => {}; token: string }) => {
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 

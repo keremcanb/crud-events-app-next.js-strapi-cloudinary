@@ -2,10 +2,11 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import axios from 'axios';
 import Moment from 'react-moment';
-import { Layout, EventList, Button, NotFound } from '@/components/index';
+import { Layout, EventList, BtnLink, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
+import { Events } from '@/types/event';
 
-const FilteredEventsPage = ({ events }) => {
+const FilteredEventsPage = ({ events }: { events: Events }) => {
   const router = useRouter();
   // Get year and month from url array
   const filteredYear = router.query.slug[0];
@@ -26,7 +27,7 @@ const FilteredEventsPage = ({ events }) => {
       <div className="mt-5">
         <h1>Invalid filter. Please adjust your values!</h1>
         <div className="center">
-          <Button color="blue" link="/events" text="Go Back" />
+          <BtnLink color="blue" link="/events" text="Go Back" />
         </div>
       </div>
     );
@@ -41,7 +42,7 @@ const FilteredEventsPage = ({ events }) => {
     return (
       <Layout>
         <NotFound />
-        <Button color="blue" text="View All Events" link="/events" />
+        <BtnLink color="blue" text="View All Events" link="/events" />
       </Layout>
     );
   }
@@ -53,7 +54,7 @@ const FilteredEventsPage = ({ events }) => {
       <h1 className="mb-10">
         Events in <Moment format="MMMM">{date}</Moment> {numYear}
       </h1>
-      <EventList items={filteredEvents} />
+      <EventList events={filteredEvents} />
     </Layout>
   );
 };

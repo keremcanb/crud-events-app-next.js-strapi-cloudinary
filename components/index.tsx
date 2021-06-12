@@ -7,8 +7,9 @@ import ImageUpload from './Input/ImageUpload';
 import Pagination from './Section/Pagination';
 import Search from './Input/Search';
 import Showcase from './Section/Showcase';
-import Button from './UI/Button';
-import ButtonSpinner from './UI/ButtonSpinner';
+import BtnLink from './UI/BtnLink';
+import BtnOnClick from './UI/BtnOnClick';
+import BtnSpinner from './UI/BtnSpinner';
 import Filter from './Input/Filter';
 import NotFound from './Section/NotFound';
 import ArrowIcon from './UI/ArrowIcon';
@@ -24,8 +25,9 @@ export {
   Pagination,
   Search,
   Showcase,
-  Button,
-  ButtonSpinner,
+  BtnLink,
+  BtnOnClick,
+  BtnSpinner,
   Filter,
   NotFound,
   ArrowIcon,

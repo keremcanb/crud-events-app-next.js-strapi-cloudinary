@@ -4,12 +4,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout, EventList, Pagination, Filter, NotFound } from '@/components/index';
 import { API_URL, PER_PAGE } from '@/config/index';
+import { Events } from '@/types/event';
 
-const EventsPage = ({ events, page, total }) => {
+const EventsPage = ({ events, page, total }: { events: Events; page: number; total: number }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
 
-  const handleFilter = (year, month) => {
+  const handleFilter = (year: number, month: number) => {
     router.push(`/events/${year}/${month}`);
   };
 
@@ -18,7 +19,7 @@ const EventsPage = ({ events, page, total }) => {
       <h1>{t('all')}</h1>
       <Filter handleFilter={handleFilter} />
       <Pagination page={page} total={total} />
-      {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
+      {events && events.length !== 0 ? <EventList events={events} /> : <NotFound />}
       <Pagination page={page} total={total} />
     </Layout>
   );

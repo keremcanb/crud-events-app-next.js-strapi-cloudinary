@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Button, ArrowIcon } from '@/components/index';
+import { BtnOnClick, ArrowIcon } from '@/components/index';
 
-const Filter = ({ handleFilter }) => {
+const Filter = ({ handleFilter }: { handleFilter: (year: string, month: string) => {} }) => {
   const [formInput, setFormInput] = useState({ year: '2021', month: '1' });
   const { year, month } = formInput;
 
@@ -43,7 +43,7 @@ const Filter = ({ handleFilter }) => {
             <ArrowIcon />
           </div>
         </div>
-        <Button color="blue" text="Filter" />
+        <BtnOnClick color="blue" text="Filter" />
       </div>
     </form>
   );

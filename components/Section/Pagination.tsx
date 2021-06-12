@@ -1,11 +1,11 @@
-import { Button } from '@/components/index';
+import { BtnLink } from '@/components/index';
 import { PER_PAGE } from '@/config/index';
 
-const Pagination = ({ page, total }) => (
+const Pagination = ({ page, total }: { page: number; total: number }) => (
   <div className="flex justify-center space-x-5">
-    {page > 1 && <Button color="blue" text="Previous" link={`/events?page=${page - 1}`} />}
+    {page > 1 && <BtnLink color="blue" text="Previous" link={`/events?page=${page - 1}`} />}
     {/* If not on last page. Take total and divide by per page */}
-    {page < Math.ceil(total / PER_PAGE) && <Button color="blue" text="Next" link={`/events?page=${page + 1}`} />}
+    {page < Math.ceil(total / PER_PAGE) && <BtnLink color="blue" text="Next" link={`/events?page=${page + 1}`} />}
   </div>
 );
 

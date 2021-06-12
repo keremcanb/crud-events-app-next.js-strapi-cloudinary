@@ -6,9 +6,10 @@ import { FaPencilAlt, FaTimes } from 'react-icons/fa';
 import { ToastContainer } from 'react-toastify';
 import { Modal } from 'react-responsive-modal';
 import EventsContext from '@/context/EventsContext';
-import { Button } from '@/components/index';
+import { BtnOnClick } from '@/components/index';
+import { Event } from '@/types/event';
 
-const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }) => {
+const EventItem = ({ slug, name, id, image, date, genre, token, isDashboard }: Event) => {
   const [isOpen, setIsOpen] = useState(false);
   const { deleteEvent } = useContext(EventsContext);
 
@@ -33,8 +34,8 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }) => 
       >
         <h2 className="text-center">Delete {name}?</h2>
         <div className="flex justify-center items-center space-x-5 ">
-          <Button text="Delete" color="red" onClick={handleDelete} />
-          <Button text="Go Back" color="blue" onClick={onCloseModal} />
+          <BtnOnClick text="Delete" color="red" onClick={handleDelete} />
+          <BtnOnClick text="Go Back" color="blue" onClick={onCloseModal} />
         </div>
       </Modal>
       <ToastContainer position="top-center" autoClose={2000} />
@@ -55,7 +56,7 @@ const EventItem = ({ slug, name, id, image, date, token, genre, dashboard }) => 
             <Moment format="DD-MM-YYYY">{date}</Moment>
           </h3>
         </div>
-        {dashboard ? (
+        {isDashboard ? (
           <div className="flex justify-evenly items-center space-10 my-4">
             <Link href={`/events/edit/${id}`}>
               <a>

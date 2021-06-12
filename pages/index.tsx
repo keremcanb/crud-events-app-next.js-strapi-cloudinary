@@ -2,10 +2,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Layout, EventList, Button, NotFound, ArrowIcon } from '@/components/index';
+import { Layout, EventList, BtnLink, NotFound, ArrowIcon } from '@/components/index';
+import { Events } from '@/types/event';
 import { API_URL } from '@/config/index';
 
-const Home = ({ eventsASC, eventsDESC }) => {
+const Home = ({ eventsASC, eventsDESC }: { eventsASC: Events; eventsDESC: Events }) => {
   const [events, setEvents] = useState(eventsDESC);
   const { t } = useTranslation('common');
 
@@ -29,8 +30,8 @@ const Home = ({ eventsASC, eventsDESC }) => {
         </select>
         <ArrowIcon />
       </div>
-      {events && events.length !== 0 ? <EventList items={events} /> : <NotFound />}
-      {events && events.length > 0 && <Button color="blue" text={t('view-all')} link="/events" />}
+      {events && events.length !== 0 ? <EventList events={events} /> : <NotFound />}
+      {events && events.length > 0 && <BtnLink color="blue" text={t('view-all')} link="/events" />}
     </Layout>
   );
 };

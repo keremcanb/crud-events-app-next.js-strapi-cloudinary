@@ -4,10 +4,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Switch from 'react-switch';
 import EventsContext from '@/context/EventsContext';
 import { ToastContainer } from 'react-toastify';
-import { Layout, ButtonSpinner, ArrowIcon } from '@/components/index';
+import { Layout, BtnSpinner, ArrowIcon } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 
-const AddEventPage = ({ token }) => {
+const AddEventPage = ({ token }: { token: string }) => {
   const [formInput, setFormInput] = useState({
     name: '',
     performers: '',
@@ -92,7 +92,7 @@ const AddEventPage = ({ token }) => {
               <label htmlFor="description">Description</label>
               <textarea id="description" value={description} onChange={handleChange} required rows={5} />
             </div>
-            <ButtonSpinner text="Add" textLoading="Adding Event..." />
+            <BtnSpinner text="Add" textLoading="Adding Event..." />
           </form>
         </div>
       </Layout>

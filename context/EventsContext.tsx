@@ -4,13 +4,23 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { API_URL } from '@/config/index';
 
-const EventsContext = createContext({});
+type ContextProps = {
+  token: string;
+  id: string;
+  isLoading: boolean;
+  formInput: {};
+  addEvent: (formInput: {}, token: string) => {};
+  updateEvent: (id: number, formInput: {}, token: string) => {};
+  deleteEvent: (id: number, token: string) => {};
+};
 
-export const EventsProvider = ({ children }) => {
+const EventsContext = createContext<Partial<ContextProps>>({});
+
+export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const addEvent = async (formInput, token) => {
+  const addEvent = async (formInput: {}, token: string) => {
     try {
       setIsLoading(true);
       const { data } = await axios.post(`${API_URL}/events`, formInput, {
@@ -28,7 +38,7 @@ export const EventsProvider = ({ children }) => {
     }
   };
 
-  const updateEvent = async (id, formInput, token) => {
+  const updateEvent = async (id: number, formInput: {}, token: string) => {
     try {
       setIsLoading(true);
       const { data } = await axios.put(`${API_URL}/events/${id}`, formInput, {
@@ -45,13 +55,13 @@ export const EventsProvider = ({ children }) => {
     }
   };
 
-  const deleteEvent = async (id, token) => {
+  const deleteEvent = async (id: number, token: string) => {
     try {
       await axios.delete(`${API_URL}/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      toast.success('Event deleted');
       router.push('/account/dashboard');
+      // toast.success('Event deleted');
     } catch (err) {
       toast.error(err.response.data.message);
     }

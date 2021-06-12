@@ -5,13 +5,17 @@ import axios from 'axios';
 import Switch from 'react-switch';
 import { ToastContainer } from 'react-toastify';
 import { parseCookies } from '@/helpers/helpers';
-import { Layout, ImageUpload, ButtonSpinner, ArrowIcon } from '@/components/index';
+import { Layout, ImageUpload, BtnSpinner, ArrowIcon } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
+import { Event } from '@/types/event';
 
 const EditEventPage = ({
   event: { name, performers, venue, address, date, time, description, image: img, id, genre, featured },
   token
+}: {
+  event: Event;
+  token: string;
 }) => {
   const [formInput, setFormInput] = useState({
     name,
@@ -101,7 +105,7 @@ const EditEventPage = ({
               <label htmlFor="description">Description</label>
               <textarea id="description" value={formInput.description} onChange={handleChange} required rows={5} />
             </div>
-            <ButtonSpinner text="Update" textLoading="Updating Event..." />
+            <BtnSpinner text="Update" textLoading="Updating Event..." />
           </form>
           {image ? (
             <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">

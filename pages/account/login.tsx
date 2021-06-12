@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 import AuthContext from '@/context/AuthContext';
-import { Layout, ButtonSpinner } from '@/components/index';
+import { Layout, BtnSpinner } from '@/components/index';
 
 const LoginPage = () => {
   const [formInput, setFormInput] = useState({ email: '', password: '' });
@@ -41,7 +41,7 @@ const LoginPage = () => {
               <label htmlFor="password">{t('password')}</label>
               <input type="password" id="password" value={password} onChange={handleChange} required />
             </div>
-            <ButtonSpinner text={t('login')} textLoading="Logging in..." />
+            <BtnSpinner text={t('login')} textLoading="Logging in..." />
           </form>
           <div className="text-center">
             <p>Don't have an account?</p>
