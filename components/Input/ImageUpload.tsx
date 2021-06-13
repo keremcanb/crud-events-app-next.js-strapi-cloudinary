@@ -2,9 +2,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { ImSpinner8 } from 'react-icons/im';
+import { IUpload } from '@/types/types';
 import { API_URL } from '../../config/index';
 
-const ImageUpload = ({ eventId, imagePreview, token }: { eventId: number; imagePreview: () => {}; token: string }) => {
+const ImageUpload = ({ eventId, imagePreview, token }: IUpload) => {
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -55,7 +56,7 @@ const ImageUpload = ({ eventId, imagePreview, token }: { eventId: number; imageP
               Uploading...
             </>
           ) : (
-            <>Upload</>
+            <>Upload Image</>
           )}
         </button>
       </form>

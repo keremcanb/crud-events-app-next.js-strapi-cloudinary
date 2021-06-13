@@ -4,9 +4,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { parseCookies } from '@/helpers/helpers';
 import { API_URL } from '@/config/index';
-import { Events } from '@/types/event';
+import { IDashboard } from '@/types/types';
 
-const DashboardPage = ({ events, token }: { events: Events; token: string }) => {
+const DashboardPage = ({ events, token }: IDashboard) => {
   const { t } = useTranslation('common');
 
   return (

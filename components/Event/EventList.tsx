@@ -1,7 +1,7 @@
 import { EventItem } from '@/components/index';
-import { Events } from '@/types/event';
+import { IEventList } from '@/types/types';
 
-const EventList = ({ events, token, isDashboard }: { events: Events; token: string; isDashboard: boolean }) => (
+const EventList = ({ events, token, isDashboard }: IEventList) => (
   <div className="flex flex-wrap flex-col md:flex-row space-x-2 justify-center items-center">
     {events.map((event) => (
       <EventItem key={event.id} {...event} token={token} isDashboard={isDashboard} />

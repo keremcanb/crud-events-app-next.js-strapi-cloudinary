@@ -1,4 +1,4 @@
-export type Event = {
+export interface IEvent {
   id: number;
   name: string;
   slug: string;
@@ -20,15 +20,15 @@ export type Event = {
       };
     };
   };
-  // token: string;
-  // isDashboard: boolean;
-};
+  token?: string;
+  isDashboard?: boolean;
+}
 
-export interface Events {
-  events: Event[];
-  length: number;
-  // page: number;
-  // total: number;
-  // map: any;
-  // filter: any;
+export interface IEvents {
+  events: IEvent[];
+  length?: number;
+  page?: number;
+  total?: number;
+  map?: any;
+  filter?: any;
 }

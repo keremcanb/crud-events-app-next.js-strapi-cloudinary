@@ -3,9 +3,9 @@ import axios from 'axios';
 import qs from 'qs';
 import { Layout, EventList, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
-import { Events } from '@/types/event';
+import { ISearch } from '@/types/types';
 
-const SearchPage = ({ events, term }: { events: Events; term: string }) => (
+const SearchPage = ({ events, term }: ISearch) => (
   <Layout title={`Search Results for: ${term} - DJ Events`}>
     <h1>Search results: {term}</h1>
     {events && events.length !== 0 ? <EventList events={events} /> : <NotFound />}

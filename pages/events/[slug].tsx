@@ -4,12 +4,12 @@ import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components/index';
 import { API_URL } from '@/config/index';
-import { Event } from '@/types/event';
+import { IEvent } from '@/types/event';
 
 const EventPage = ({
   event: { name, date, time, image, performers, description, venue, address, genre }
 }: {
-  event: Event;
+  event: IEvent;
 }) => (
   <Layout title={`${name} - DJ Events`}>
     <div className="grid grid-rows justify-center items-center gap-4 | my-5">

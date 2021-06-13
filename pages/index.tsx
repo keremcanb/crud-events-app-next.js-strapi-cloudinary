@@ -3,10 +3,10 @@ import axios from 'axios';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout, EventList, BtnLink, NotFound, ArrowIcon } from '@/components/index';
-import { Events } from '@/types/event';
+import { IEventsIndex } from '@/types/types';
 import { API_URL } from '@/config/index';
 
-const Home = ({ eventsASC, eventsDESC }: { eventsASC: Events; eventsDESC: Events }) => {
+const Home = ({ eventsASC, eventsDESC }: IEventsIndex) => {
   const [events, setEvents] = useState(eventsDESC);
   const { t } = useTranslation('common');
 

@@ -4,9 +4,9 @@ import axios from 'axios';
 import Moment from 'react-moment';
 import { Layout, EventList, BtnLink, NotFound } from '@/components/index';
 import { API_URL } from '@/config/index';
-import { Events } from '@/types/event';
+import { IEvents } from '@/types/event';
 
-const FilteredEventsPage = ({ events }: { events: Events }) => {
+const FilteredEventsPage = ({ events }: { events: IEvents }) => {
   const router = useRouter();
   // Get year and month from url array
   const filteredYear = router.query.slug[0];

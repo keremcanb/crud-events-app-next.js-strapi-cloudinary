@@ -9,9 +9,9 @@ type ContextProps = {
   id: string;
   isLoading: boolean;
   formInput: {};
-  addEvent: (formInput: {}, token: string) => {};
-  updateEvent: (id: number, formInput: {}, token: string) => {};
-  deleteEvent: (id: number, token: string) => {};
+  addEvent: (formInput: {}, token: string) => void;
+  updateEvent: (id: number, formInput: {}, token: string) => void;
+  deleteEvent: (id: number, token: string) => void;
 };
 
 const EventsContext = createContext<Partial<ContextProps>>({});

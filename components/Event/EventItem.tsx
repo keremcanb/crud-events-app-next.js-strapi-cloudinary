@@ -7,9 +7,9 @@ import { ToastContainer } from 'react-toastify';
 import { Modal } from 'react-responsive-modal';
 import EventsContext from '@/context/EventsContext';
 import { BtnOnClick } from '@/components/index';
-import { Event } from '@/types/event';
+import { IEvent } from '@/types/event';
 
-const EventItem = ({ slug, name, id, image, date, genre, token, isDashboard }: Event) => {
+const EventItem = ({ slug, name, id, image, date, genre, token, isDashboard }: IEvent) => {
   const [isOpen, setIsOpen] = useState(false);
   const { deleteEvent } = useContext(EventsContext);
 

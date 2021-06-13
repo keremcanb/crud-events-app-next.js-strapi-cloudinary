@@ -8,15 +8,12 @@ import { parseCookies } from '@/helpers/helpers';
 import { Layout, ImageUpload, BtnSpinner, ArrowIcon } from '@/components/index';
 import EventsContext from '@/context/EventsContext';
 import { API_URL } from '@/config/index';
-import { Event } from '@/types/event';
+import { IEdit } from '@/types/types';
 
 const EditEventPage = ({
   event: { name, performers, venue, address, date, time, description, image: img, id, genre, featured },
   token
-}: {
-  event: Event;
-  token: string;
-}) => {
+}: IEdit) => {
   const [formInput, setFormInput] = useState({
     name,
     performers,
@@ -103,9 +100,9 @@ const EditEventPage = ({
             </div>
             <div>
               <label htmlFor="description">Description</label>
-              <textarea id="description" value={formInput.description} onChange={handleChange} required rows={5} />
+              <textarea id="description" value={formInput.description} onChange={handleChange} required />
             </div>
-            <BtnSpinner text="Update" textLoading="Updating Event..." />
+            <BtnSpinner text="Update Event" textLoading="Updating Event..." />
           </form>
           {image ? (
             <div className="grid grid-rows lg:grid-cols-2 place-items-center gap-4 | my-5">

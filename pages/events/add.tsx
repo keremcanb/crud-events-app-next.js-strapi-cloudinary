@@ -64,7 +64,7 @@ const AddEventPage = ({ token }: { token: string }) => {
               <div className="grid grid-cols-2 md:grid-rows gap-4">
                 <div>
                   <label htmlFor="date">Date</label>
-                  <input type="date" id="date" value={date} onChange={handleChange} required />
+                  <input type="date" id="date" value={date} onChange={handleChange} required placeholder="dd-mm-yyyy" />
                 </div>
                 <div>
                   <label htmlFor="time">Time</label>
@@ -90,9 +90,9 @@ const AddEventPage = ({ token }: { token: string }) => {
             </div>
             <div>
               <label htmlFor="description">Description</label>
-              <textarea id="description" value={description} onChange={handleChange} required rows={5} />
+              <textarea id="description" value={description} onChange={handleChange} required />
             </div>
-            <BtnSpinner text="Add" textLoading="Adding Event..." />
+            <BtnSpinner text="Add Event" textLoading="Adding Event..." />
           </form>
         </div>
       </Layout>

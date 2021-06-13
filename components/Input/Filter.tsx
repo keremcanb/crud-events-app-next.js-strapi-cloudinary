@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { BtnOnClick, ArrowIcon } from '@/components/index';
+import { IFilter } from '@/types/types';
 
-const Filter = ({ handleFilter }: { handleFilter: (year: string, month: string) => {} }) => {
+const Filter = ({ handleFilter }: IFilter) => {
   const [formInput, setFormInput] = useState({ year: '2021', month: '1' });
   const { year, month } = formInput;
 

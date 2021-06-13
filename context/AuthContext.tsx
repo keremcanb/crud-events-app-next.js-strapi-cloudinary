@@ -7,10 +7,10 @@ type ContextProps = {
   user: string;
   error: string;
   isLoading: boolean;
-  register: (user: {}) => {};
-  login: ({ email: identifier, password }) => {};
-  logout: () => {};
-  checkUserLoggedIn: () => {};
+  register: (user: {}) => void;
+  login: ({ email: identifier, password }) => void;
+  logout: () => void;
+  checkUserLoggedIn: () => void;
 };
 
 const AuthContext = createContext<Partial<ContextProps>>({});

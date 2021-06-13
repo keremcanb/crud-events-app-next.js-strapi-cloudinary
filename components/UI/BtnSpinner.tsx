@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { ImSpinner8 } from 'react-icons/im';
 import AuthContext from '@/context/AuthContext';
 import EventsContext from '@/context/EventsContext';
+import { IBtnSpinner } from '@/types/types';
 
-const BtnSpinner = ({ text, textLoading }: { text: string; textLoading: string }) => {
+const BtnSpinner = ({ text, textLoading }: IBtnSpinner) => {
   const { isLoading: authLoading } = useContext(AuthContext);
   const { isLoading: eventsLoading } = useContext(EventsContext);
 
