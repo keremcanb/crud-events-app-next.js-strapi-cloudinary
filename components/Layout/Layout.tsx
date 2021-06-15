@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Header, Footer, Showcase } from '@/components/index';
 import { ILayout } from '@/types/types';
 
@@ -30,3 +31,7 @@ Layout.defaultProps = {
   description: 'Find the latest DJ and other musical events',
   keywords: 'music, dj, events'
 };
+
+export async function getStaticProps({ locale }) {
+  return { props: { ...(await serverSideTranslations(locale, ['common'])) } };
+}

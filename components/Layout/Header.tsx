@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Transition } from '@headlessui/react';
 import { IoMdMenu, IoMdClose, IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import { Search, Menu } from '@/components/index';
@@ -97,3 +98,7 @@ const Header = () => {
 };
 
 export default Header;
+
+export async function getStaticProps({ locale }) {
+  return { props: { ...(await serverSideTranslations(locale, ['common'])) } };
+}

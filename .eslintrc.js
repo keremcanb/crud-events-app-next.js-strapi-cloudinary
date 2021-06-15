@@ -12,7 +12,15 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
-    '@typescript-eslint/ban-types': 0,
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        extendDefaults: true,
+        types: {
+          '{}': false
+        }
+      }
+    ],
     'no-console': 0,
     'react/button-has-type': 0,
     'react/react-in-jsx-scope': 0,

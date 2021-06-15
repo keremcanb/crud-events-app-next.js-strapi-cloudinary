@@ -23,22 +23,14 @@ const EventItem = ({ slug, name, id, image, date, genre, token, isDashboard }: I
 
   return (
     <>
-      <Modal
-        open={isOpen}
-        onClose={onCloseModal}
-        center
-        classNames={{
-          overlay: 'customOverlay',
-          modal: 'customModal'
-        }}
-      >
+      <ToastContainer position="top-center" autoClose={2000} />
+      <Modal open={isOpen} onClose={onCloseModal} center classNames={{ modal: 'w-80' }}>
         <h2 className="text-center">Delete {name}?</h2>
         <div className="flex justify-center items-center space-x-5 ">
           <BtnOnClick text="Delete" color="red" onClick={handleDelete} />
           <BtnOnClick text="Go Back" color="blue" onClick={onCloseModal} />
         </div>
       </Modal>
-      <ToastContainer position="top-center" autoClose={2000} />
       <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 dark:bg-gray-200 transition-colors duration-500 mb-5">
         <Link href={`/events/${slug}`}>
           <a>

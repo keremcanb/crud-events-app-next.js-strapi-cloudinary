@@ -62,11 +62,4 @@
   .btn-red {
     @apply bg-red-500 hover:bg-red-700;
   }
-
-  .customModal {
-    @apply w-80;
-  }
-  /* .customOverlay {
-    background: rgba(36, 123, 160, 0.7);
-  } */
 }
