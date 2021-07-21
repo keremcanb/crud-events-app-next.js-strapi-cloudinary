@@ -71,7 +71,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => checkUserLoggedIn(), []);
 
   return (
-    <AuthContext.Provider value={{ user, error, isLoading, login, logout, register }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, error, isLoading, login, logout, register }} displayName="AuthContext">
+      {children}
+    </AuthContext.Provider>
   );
 };
 

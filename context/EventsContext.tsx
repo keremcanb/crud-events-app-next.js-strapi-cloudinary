@@ -68,7 +68,7 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <EventsContext.Provider value={{ addEvent, updateEvent, deleteEvent, isLoading }}>
+    <EventsContext.Provider value={{ addEvent, updateEvent, deleteEvent, isLoading }} displayName="EventsContext">
       {children}
     </EventsContext.Provider>
   );
